@@ -58,7 +58,7 @@
     <!-- Header & Sticky Navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-lg/50 backdrop-blur-sm">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center text-3xl font-extrabold text-blue-950"><img height="50px" width="50px" src="logo.png" alt="Mykaeltech Logo">Mykael<span class="text-blue-600">tech</span></a>
+            <a href="#" class="flex items-center text-3xl font-extrabold text-blue-950"><img height="50px" width="50px" src="<?php echo e(asset('logo.png')); ?>" alt="Mykaeltech Logo">Mykael<span class="text-blue-600">tech</span></a>
             
             <!-- Desktop Nav Links -->
             <div class="hidden lg:flex space-x-8 items-center text-lg">
@@ -517,3 +517,4 @@
     </script>
 </body>
 </html>
+<?php /**PATH /home/runner/work/mykaeltech_site/mykaeltech_site/resources/views/welcome.blade.php ENDPATH**/ ?>
