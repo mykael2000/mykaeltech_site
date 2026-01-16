@@ -43,15 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $headers .= "X-Mailer: PHP/" . phpversion();
         
         // Send email (Note: mail() requires proper server configuration)
-        if (@mail($to, $emailSubject, $emailBody, $headers)) {
+        $mailSent = mail($to, $emailSubject, $emailBody, $headers);
+        
+        if ($mailSent) {
             $success = 'Thank you for contacting us! We will get back to you soon.';
             // Clear form fields on success
             $_POST = [];
         } else {
+            // Log the error for debugging
+            error_log("Contact form mail failed: $emailBody");
+            
             // For development/testing without mail server configured
             $success = 'Thank you for your message! (Note: Email functionality requires server mail configuration. Your message has been logged.)';
-            // In production, you might want to log the message to a file or database
-            error_log("Contact form submission: $emailBody");
+            // In production, you might want to save to a file or database
         }
     }
 }

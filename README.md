@@ -62,7 +62,7 @@ cd mykaeltech_site
 
 2. **Set permissions for data directories:**
 ```bash
-chmod -R 755 data/
+chmod -R 700 data/
 ```
 
 3. **Configure your web server:**

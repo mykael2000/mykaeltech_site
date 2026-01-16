@@ -22,9 +22,10 @@ function verifyPassword($password, $hash) {
 
 /**
  * Get user file path
+ * Uses SHA-256 for better security than MD5
  */
 function getUserFilePath($username) {
-    return USERS_DATA_PATH . '/' . md5($username) . '.json';
+    return USERS_DATA_PATH . '/' . hash('sha256', $username) . '.json';
 }
 
 /**
@@ -43,6 +44,8 @@ function createUser($username, $email, $password, $fullName = '') {
     }
     
     // Check if email is already registered
+    // Note: This loads all users into memory. For production with many users,
+    // consider using a database or maintaining an email index file.
     $users = getAllUsers();
     foreach ($users as $user) {
         if ($user['email'] === $email) {
@@ -122,7 +125,7 @@ function authenticateUser($username, $password) {
         updateUserData($username, $userData);
         
         // Set session variables
-        $_SESSION['user_id'] = md5($username);
+        $_SESSION['user_id'] = hash('sha256', $username);
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $userData['email'];
         $_SESSION['full_name'] = $userData['full_name'];

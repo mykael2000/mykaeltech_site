@@ -180,8 +180,8 @@ function validateEmail($email) {
 
 // Create data directories if they don't exist
 if (!file_exists(USERS_DATA_PATH)) {
-    mkdir(USERS_DATA_PATH, 0755, true);
+    mkdir(USERS_DATA_PATH, 0700, true); // More restrictive permissions
 }
 if (!file_exists(SESSIONS_DATA_PATH)) {
-    mkdir(SESSIONS_DATA_PATH, 0755, true);
+    mkdir(SESSIONS_DATA_PATH, 0700, true); // More restrictive permissions
 }
