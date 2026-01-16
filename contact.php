@@ -26,20 +26,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!validateEmail($email)) {
         $error = 'Please enter a valid email address.';
     } else {
+        // Sanitize email for headers to prevent header injection
+        $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+        
         // Prepare email content
         $to = SITE_EMAIL;
         $emailSubject = $isQuoteRequest ? "Quote Request: $service" : ($subject ?: 'Contact Form Submission');
         
         $emailBody = "New " . ($isQuoteRequest ? "quote request" : "contact form submission") . " from the website:\n\n";
         $emailBody .= "Name: $name\n";
-        $emailBody .= "Email: $email\n";
+        $emailBody .= "Email: $sanitizedEmail\n";
         $emailBody .= "Phone: $phone\n";
         if ($service) $emailBody .= "Service: $service\n";
         if ($budget) $emailBody .= "Budget: $budget\n";
         $emailBody .= "\nMessage:\n$message\n";
         
-        $headers = "From: $email\r\n";
-        $headers .= "Reply-To: $email\r\n";
+        // Prevent header injection - use sanitized email
+        $headers = "From: $sanitizedEmail\r\n";
+        $headers .= "Reply-To: $sanitizedEmail\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
         
         // Send email (Note: mail() requires proper server configuration)
