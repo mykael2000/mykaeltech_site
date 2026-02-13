@@ -38,7 +38,7 @@ include 'includes/header/header.php';
             
             <div class="flex justify-center animate-slide-in-right">
                 <div class="relative">
-                    <img src="/public/logo.png" alt="<?php echo SITE_NAME; ?> Logo" class="w-64 h-64 md:w-80 md:h-80 object-contain animate-spin-slow">
+                    <img src="/public/bitmap.png" alt="<?php echo SITE_NAME; ?> Logo" class="w-64 h-64 md:w-80 md:h-80 object-contain animate-spin-slow">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full filter blur-2xl opacity-30 animate-pulse"></div>
                 </div>
             </div>
