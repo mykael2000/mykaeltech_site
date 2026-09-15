@@ -1,0 +1,75 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy Laravel on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    env:
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_SERVER: ${{ secrets.SSH_SERVER }}
+      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 🔑 Setup SSH agent
+        uses: webfactory/ssh-agent@v0.9.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🌐 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2
+          extensions: gd, mbstring, pdo, pdo_mysql, ctype, json, bcmath
+
+      - name: 📦 Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 🔨 Build frontend assets
+        run: npm install && npm run build
+
+      - name: 📂 Sync files via rsync
+        run: |
+          rsync -avz --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='.env' \
+            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no" \
+            ./ "$SSH_USERNAME@$SSH_SERVER:/mykaeltech/"
+
+      - name: 📝 Write .env (if APP_ENV_FILE secret is set)
+        if: ${{ secrets.APP_ENV_FILE != '' }}
+        env:
+          ENV_FILE: ${{ secrets.APP_ENV_FILE }}
+        run: |
+          printf '%s\n' "$ENV_FILE" > /tmp/app_env
+          scp -P $SSH_PORT -o StrictHostKeyChecking=no /tmp/app_env "$SSH_USERNAME@$SSH_SERVER:/mykaeltech/.env"
+          rm -f /tmp/app_env
+
+      - name: 🎉 Set permissions
+        run: |
+          ssh -p $SSH_PORT -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_SERVER" \
+            'find /mykaeltech -type d -exec chmod 755 {} \; && \
+             find /mykaeltech -type f -exec chmod 644 {} \; && \
+             chmod -R 775 /mykaeltech/storage /mykaeltech/bootstrap/cache'
+
+      - name: ⚡ Laravel optimize
+        run: |
+          ssh -p $SSH_PORT -o StrictHostKeyChecking=no "$SSH_USERNAME@$SSH_SERVER" \
+            'cd /mykaeltech && \
+             php artisan config:cache --force && \
+             php artisan route:cache --force && \
+             php artisan view:cache --force && \
+             php artisan storage:link --force'
