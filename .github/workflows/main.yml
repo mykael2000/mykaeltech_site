@@ -35,9 +35,9 @@ jobs:
           rm -rf node_modules
 
       - name: Upload backend files
-        uses: appleboy/scp-action@v1
+        uses: appleboy/scp-action@v1.6.3
         with:
-          host: ${{ secrets.SSH_HOST }}
+          host: ${{ secrets.SSH_SERVER }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
@@ -48,7 +48,7 @@ jobs:
       - name: Run remote Laravel deployment commands
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ secrets.SSH_HOST }}
+          host: ${{ secrets.SSH_SERVER }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
@@ -61,6 +61,7 @@ jobs:
             mkdir -p bootstrap/cache
             chmod -R 775 storage bootstrap/cache
             php artisan optimize:clear || true
+            php artisan session:table --force || true
             php artisan migrate --force || true
             php artisan config:cache || true
             php artisan route:cache || true
