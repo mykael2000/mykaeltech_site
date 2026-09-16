@@ -1,3 +1,5 @@
+<?php
+
 /** 
  * MykaelTech — Build. Learn. Belong.
  *
