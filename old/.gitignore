@@ -1,0 +1,24 @@
+# User data and sessions
+/data/users/
+/data/sessions/
+
+# Environment and config
+.env
+.env.backup
+
+# IDE files
+/.fleet
+/.idea
+/.vscode
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+/tmp/
+*.log
+
+# Backup files
+*.bak
+*~
