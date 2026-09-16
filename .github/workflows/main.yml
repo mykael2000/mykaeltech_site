@@ -35,9 +35,9 @@ jobs:
           rm -rf node_modules
 
       - name: Upload backend files
-        uses: appleboy/scp-action@v1.6.3
+        uses: appleboy/scp-action@v1
         with:
-          host: ${{ secrets.SSH_SERVER }}
+          host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
