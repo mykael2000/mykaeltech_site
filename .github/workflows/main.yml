@@ -48,7 +48,7 @@ jobs:
       - name: Run remote Laravel deployment commands
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ secrets.SSH_SERVER }}
+          host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
