@@ -17,8 +17,10 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin');
-        });
+        // Intentionally left empty. On fresh installations the users table
+        // migration already creates the is_admin column (with the
+        // users_is_admin_index index), so this migration's up() is a no-op
+        // there. Dropping the column unconditionally would break the index
+        // created by the users table migration on SQLite.
     }
 };

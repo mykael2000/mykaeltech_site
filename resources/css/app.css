@@ -1,5 +1,23 @@
 /* ===== MykaelTech — Global Styles ===== */
 
+@import "tailwindcss";
+
+@theme {
+    --color-brand-50: #ecfeff;
+    --color-brand-100: #cffafe;
+    --color-brand-200: #a5f3fc;
+    --color-brand-300: #67e8f9;
+    --color-brand-400: #22d3ee;
+    --color-brand-500: #06b6d4;
+    --color-brand-600: #0891b2;
+    --color-brand-700: #0e7490;
+    --color-brand-800: #155e75;
+    --color-brand-900: #164e63;
+    --color-ink-800: #1e293b;
+    --color-ink-900: #0f172a;
+    --color-ink-950: #020617;
+}
+
 :root {
     --brand-50: #ecfeff;
     --brand-100: #cffafe;
@@ -118,6 +136,7 @@ input[type="search"], textarea, select {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.5rem; color: #f1f5f9; font-size: 0.875rem;
     transition: all 0.2s ease; outline: none;
+}
 
 /* ===== Page Transitions ===== */
 .page-enter {
@@ -316,7 +335,7 @@ input:valid:not(:placeholder-shown) {
     @apply border-b border-white/5 py-3;
 }
 .admin-table tr:hover td {
-    @apply bg-white/[0.02];
+    background: rgba(255, 255, 255, 0.02);
 }
 
 /* ===== Badge variants ===== */
@@ -364,7 +383,6 @@ input:valid:not(:placeholder-shown) {
 .avatar-lg { width: 4rem; height: 4rem; }
 .avatar-xl { width: 5rem; height: 5rem; }
 .avatar-2xl { width: 6rem; height: 6rem; }
-}
 input:focus, textarea:focus, select:focus {
     border-color: #22d3ee;
     box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
@@ -378,4 +396,4 @@ input::placeholder, textarea::placeholder { color: #64748b; }
 
 ::selection { background: rgba(34, 211, 238, 0.3); color: #fff; }
 
-::focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
+:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }

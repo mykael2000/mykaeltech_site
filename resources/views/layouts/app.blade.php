@@ -101,7 +101,7 @@
             </div>
         @endif
 
-        @yield('content')
+        {{ $slot }}
     </main>
     <footer class="mt-24 border-t border-white/5 bg-ink-900/60">
         <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
