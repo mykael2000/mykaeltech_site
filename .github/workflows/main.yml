@@ -34,10 +34,53 @@ jobs:
           rm -rf tests
           rm -rf node_modules
 
+      - name: Preflight checks
+        id: preflight
+        env:
+          SSH_HOST_NEW: ${{ secrets.SSH_SERVER }}
+          SSH_HOST_OLD: ${{ secrets.SSH_HOST }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          set -e
+          host="${SSH_HOST_NEW:-$SSH_HOST_OLD}"
+          if [ -z "$host" ]; then
+            echo "::error::Neither 'SSH_SERVER' nor 'SSH_HOST' secret is set. The workflow accepts either name."
+            exit 1
+          fi
+          echo "Host secret resolved: $([ -n "$SSH_HOST_NEW" ] && echo 'SSH_SERVER' || echo 'SSH_HOST (legacy name)')"
+          for v in SSH_USERNAME SSH_PRIVATE_KEY SSH_PORT; do
+            if [ -z "${!v}" ]; then
+              echo "::error::Secret '${v}' is NOT set. Add it in Repo Settings → Secrets and variables → Actions."
+              exit 1
+            fi
+          done
+          case "$SSH_PRIVATE_KEY" in
+            *"PRIVATE KEY"*) : ;;
+            *) echo "::error::SSH_PRIVATE_KEY does not look like a private key. It must contain the full -----BEGIN ... PRIVATE KEY----- / -----END ... ----- block."; exit 1 ;;
+          esac
+          echo "Testing TCP connectivity to $host:$SSH_PORT ..."
+          if ! timeout 15 bash -c "exec 3<>/dev/tcp/$host/$SSH_PORT" 2>/dev/null; then
+            echo "::error::Cannot TCP-connect to $host:$SSH_PORT from GitHub runners. Verify the port value and that the server firewall allows SSH from any IP (GitHub runner IPs are dynamic)."
+            exit 1
+          fi
+          echo "Testing SSH authentication ..."
+          echo "$SSH_PRIVATE_KEY" > "$RUNNER_TEMP/deploy_key"
+          chmod 600 "$RUNNER_TEMP/deploy_key"
+          if ! ssh -i "$RUNNER_TEMP/deploy_key" -p "$SSH_PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=15 -o BatchMode=yes "$SSH_USERNAME@$host" "echo SSH_AUTH_OK"; then
+            echo "::error::SSH authentication failed. Check that the public half of this key is in ~/.ssh/authorized_keys on the server, the username is correct, and that the key has no passphrase (or add the passphrase as the 'passphrase' input)."
+            rm -f "$RUNNER_TEMP/deploy_key"
+            exit 1
+          fi
+          rm -f "$RUNNER_TEMP/deploy_key"
+          echo "host=$host" >> "$GITHUB_OUTPUT"
+          echo "Preflight OK — secrets set, host reachable, key authenticates."
+
       - name: Upload backend files
         uses: appleboy/scp-action@v1.0.0
         with:
-          host: ${{ secrets.SSH_SERVER }}
+          host: ${{ steps.preflight.outputs.host }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
@@ -48,7 +91,7 @@ jobs:
       - name: Run remote Laravel deployment commands
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ secrets.SSH_SERVER }}
+          host: ${{ steps.preflight.outputs.host }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
