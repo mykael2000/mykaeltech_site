@@ -38,12 +38,12 @@ return [
         'name' => 'MykaelTech Admin', 'dark_mode' => true,
         'nav' => [
             'items' => [
-                'Dashboard' => ['route' => 'admin.index', 'icon' => 'heroicon-o-home', 'active' => fn() => request()->routeIs('admin.*')],
-                'Services'  => ['route' => '/admin/services', 'icon' => 'heroicon-o-cube', 'active' => fn() => request()->routeIs('services*')],
-                'Projects'  => ['route' => '/admin/projects', 'icon' => 'heroicon-o-folder', 'active' => fn() => request()->routeIs('projects*')],
-                'Posts'     => ['route' => '/admin/posts', 'icon' => 'heroicon-o-pencil', 'active' => fn() => request()->routeIs('posts*')],
-                'Events'    => ['route' => '/admin/events', 'icon' => 'heroicon-o-calendar', 'active' => fn() => request()->routeIs('events*')],
-                'Settings'  => ['route' => 'admin.settings', 'icon' => 'heroicon-o-cog-6-tooth', 'active' => fn() => request()->routeIs('admin.settings*')],
+                'Dashboard' => ['route' => 'admin.index', 'icon' => 'heroicon-o-home', 'active' => 'admin.*'],
+                'Services'  => ['route' => '/admin/services', 'icon' => 'heroicon-o-cube', 'active' => 'services*'],
+                'Projects'  => ['route' => '/admin/projects', 'icon' => 'heroicon-o-folder', 'active' => 'projects*'],
+                'Posts'     => ['route' => '/admin/posts', 'icon' => 'heroicon-o-pencil', 'active' => 'posts*'],
+                'Events'    => ['route' => '/admin/events', 'icon' => 'heroicon-o-calendar', 'active' => 'events*'],
+                'Settings'  => ['route' => 'admin.settings', 'icon' => 'heroicon-o-cog-6-tooth', 'active' => 'admin.settings*'],
             ],
         ],
     ],
@@ -58,10 +58,10 @@ return [
             'stats' => [
                 'title' => 'Quick Stats',
                 'providers' => [
-                    ['label' => 'Services', 'count' => fn() => App\Models\Service::count()],
-                    ['label' => 'Projects', 'count' => fn() => App\Models\Project::count()],
-                    ['label' => 'Members',  'count' => fn() => \App\Models\CommunityMember::count()],
-                    ['label' => 'Posts',     'count' => fn() => App\Models\Post::count()],
+                    ['label' => 'Services', 'model' => App\Models\Service::class],
+                    ['label' => 'Projects', 'model' => App\Models\Project::class],
+                    ['label' => 'Members',  'model' => \App\Models\CommunityMember::class],
+                    ['label' => 'Posts',     'model' => App\Models\Post::class],
                 ],
             ],
         ],
