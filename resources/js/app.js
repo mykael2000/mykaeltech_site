@@ -1,28 +1,46 @@
 // MykaelTech interactive layer
 import Alpine from 'alpinejs'
 import {
+    ArrowLeft,
     ArrowRight,
     ArrowUpRight,
     BarChart3,
     CalendarDays,
+    CircleDollarSign,
+    ExternalLink,
+    Github,
     Globe2,
     Layers3,
     Lightbulb,
+    MapPin,
+    Monitor,
     Palette,
+    SearchX,
+    Send,
     Smartphone,
+    Users,
     createIcons,
 } from 'lucide'
 
 const iconSet = {
+    ArrowLeft,
     ArrowRight,
     ArrowUpRight,
     BarChart3,
     CalendarDays,
+    CircleDollarSign,
+    ExternalLink,
+    Github,
     Globe2,
     Layers3,
     Lightbulb,
+    MapPin,
+    Monitor,
     Palette,
+    SearchX,
+    Send,
     Smartphone,
+    Users,
 }
 
 window.Alpine = Alpine

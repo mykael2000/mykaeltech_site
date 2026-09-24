@@ -2,7 +2,7 @@
     <x-slot name="title">Services</x-slot>
 
     <section class="bg-glow">
-        <div class="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8" data-reveal>
+        <div class="page-shell page-hero text-center" data-reveal>
             <h1 class="text-4xl font-extrabold text-white sm:text-5xl">Our Services</h1>
             <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
                 Everything you need to design, build and scale modern software — delivered by engineers who love the craft.
@@ -10,17 +10,17 @@
         </div>
     </section>
 
-    <section class="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <section class="page-shell page-section">
+        <div class="page-grid md:grid-cols-2 lg:grid-cols-3">
             @forelse ($services as $service)
-                <a href="{{ route('services.show', $service->slug) }}" class="card-hover group glass flex flex-col rounded-2xl p-7" data-reveal>
-                    <div class="text-4xl">{{ $service->icon ?? '⚡' }}</div>
+                <a href="{{ route('services.show', $service->slug) }}" class="card-hover group glass flex flex-col rounded-2xl page-card" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="layers-3" class="h-7 w-7"></i></div>
                     <h2 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">{{ $service->title }}</h2>
                     <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{{ $service->excerpt }}</p>
                     @if ($service->starting_price)
                         <p class="mt-4 text-sm font-semibold text-brand-300">From {{ $service->starting_price }}</p>
                     @endif
-                    <span class="mt-4 text-sm font-semibold text-brand-300 opacity-0 transition group-hover:opacity-100">Details →</span>
+                    <span class="pro-link">Details <i data-lucide="arrow-right" class="h-4 w-4"></i></span>
                 </a>
             @empty
                 <p class="text-slate-400">Services coming soon.</p>

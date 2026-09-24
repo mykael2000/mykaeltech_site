@@ -2,7 +2,7 @@
     <x-slot name="title">Search</x-slot>
 
     <section class="bg-glow relative overflow-hidden">
-        <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8" data-reveal>
+        <div class="page-shell page-shell--narrow page-hero" data-reveal>
             <h1 class="text-4xl font-extrabold text-white sm:text-5xl">Search</h1>
             <p class="mt-4 text-lg text-slate-400">
                 Find services, projects, learning posts, tech facts, and events across MykaelTech.
@@ -27,7 +27,7 @@
     </section>
 
     @if ($query)
-        <section class="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <section class="page-shell page-section">
             <div class="flex items-baseline justify-between" data-reveal>
                 <p class="text-lg font-semibold text-white">
                     @if ($count > 0)
@@ -48,9 +48,9 @@
                         @if ($items->isNotEmpty())
                             <div>
                                 <h2 class="text-xl font-bold text-white" data-reveal>{{ $label }}</h2>
-                                <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                                <div class="page-grid mt-6 sm:grid-cols-2 lg:grid-cols-3">
                                     @foreach ($items as $item)
-                                        <a href="{{ $item['url'] }}" class="card-hover group glass block rounded-2xl p-6" data-reveal>
+                                        <a href="{{ $item['url'] }}" class="card-hover group glass page-card block rounded-2xl" data-reveal>
                                             <span class="rounded-full bg-brand-500/15 px-2.5 py-1 text-xs font-semibold text-brand-300">{{ $label }}</span>
                                             <h3 class="mt-3 text-lg font-bold text-white group-hover:text-brand-300">{{ $item['title'] }}</h3>
                                             <p class="mt-2 text-sm text-slate-400 line-clamp-2">{{ Str::limit($item['excerpt'], 120) }}</p>
@@ -63,7 +63,7 @@
                 </div>
             @else
                 <div class="mt-16 text-center" data-reveal>
-                    <div class="mx-auto mb-6 text-5xl">🔍</div>
+                    <div class="pro-icon mx-auto mb-6 h-14 w-14" aria-hidden="true"><i data-lucide="search-x" class="h-7 w-7"></i></div>
                     <h2 class="text-2xl font-bold text-white">Nothing found for "{{ $query }}"</h2>
                     <p class="mt-3 text-slate-400">Try different keywords, or browse the site directly.</p>
                     <div class="mt-8 flex flex-wrap justify-center gap-3">

@@ -5,7 +5,7 @@
         <div class="absolute inset-0 -z-10">
             <div class="absolute left-1/2 top-10 h-72 w-[800px] -translate-x-1/2 rounded-full bg-brand-600/20 blur-3xl"></div>
         </div>
-        <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 text-center" data-reveal>
+        <div class="page-shell page-hero text-center" data-reveal>
             <span class="inline-flex items-center gap-2 rounded-full border border-brand-400/30 bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-300">
                 <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
                 The people behind the platform
@@ -20,10 +20,10 @@
         </div>
     </section>
 
-    <section class="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <section class="page-shell page-section">
+        <div class="page-grid sm:grid-cols-2 lg:grid-cols-3">
             @forelse ($team as $member)
-                <div class="glass rounded-2xl p-8 text-center transition hover:bg-white/[0.04]" data-reveal>
+                <div class="card-hover glass page-card rounded-2xl text-center" data-reveal>
                     <div class="mx-auto flex h-28 w-28 items-center justify-center rounded-full ring-2 ring-brand-400/30">
                         @if ($member->photo_path)
                             <img src="{{ Storage::url($member->photo_path) }}" alt="{{ $member->name }}"
@@ -64,8 +64,8 @@
                     </div>
                 </div>
             @empty
-                <div class="col-span-full glass rounded-2xl p-12 text-center">
-                    <div class="text-4xl">👥</div>
+                <div class="col-span-full page-card glass rounded-2xl text-center">
+                    <div class="pro-icon mx-auto h-14 w-14" aria-hidden="true"><i data-lucide="users" class="h-7 w-7"></i></div>
                     <h3 class="mt-4 text-lg font-bold text-white">Team page coming soon</h3>
                     <p class="mt-2 text-sm text-slate-400">Our team profiles are being prepared. Check back shortly.</p>
                 </div>
