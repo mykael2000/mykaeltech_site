@@ -12,9 +12,9 @@ return new class extends Migration
             Schema::create('posts', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-                $table->string('type')->default('learning_update')->index();
+                $table->string('type', 191)->default('learning_update')->index();
                 $table->string('title');
-                $table->string('slug')->unique();
+                $table->string('slug', 191)->unique();
                 $table->text('excerpt')->nullable();
                 $table->longText('content');
                 $table->string('cover_image')->nullable();
@@ -55,7 +55,7 @@ return new class extends Migration
             Schema::create('community_members', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->unique()->constrained()->cascadeOnDelete();
-                $table->string('username')->unique();
+                $table->string('username', 191)->unique();
                 $table->string('headline')->nullable();
                 $table->text('bio')->nullable();
                 $table->json('skills')->nullable();

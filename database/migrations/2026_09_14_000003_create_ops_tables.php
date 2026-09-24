@@ -23,7 +23,7 @@ return new class extends Migration
         if (! Schema::hasTable('newsletter_subscribers')) {
             Schema::create('newsletter_subscribers', function (Blueprint $table) {
                 $table->id();
-                $table->string('email')->unique();
+                $table->string('email', 191)->unique();
                 $table->boolean('is_active')->default(true)->index();
                 $table->timestamps();
             });

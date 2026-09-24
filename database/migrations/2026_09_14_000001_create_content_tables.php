@@ -11,9 +11,9 @@ return new class extends Migration
         if (! Schema::hasTable('site_settings')) {
             Schema::create('site_settings', function (Blueprint $table) {
                 $table->id();
-                $table->string('key')->unique();
+                $table->string('key', 191)->unique();
                 $table->text('value')->nullable();
-                $table->string('group')->default('general')->index();
+                $table->string('group', 191)->default('general')->index();
                 $table->timestamps();
             });
         }
@@ -22,7 +22,7 @@ return new class extends Migration
             Schema::create('services', function (Blueprint $table) {
                 $table->id();
                 $table->string('title');
-                $table->string('slug')->unique();
+                $table->string('slug', 191)->unique();
                 $table->string('icon')->nullable();
                 $table->text('short_description')->nullable();
                 $table->longText('description')->nullable();
@@ -37,7 +37,7 @@ return new class extends Migration
             Schema::create('projects', function (Blueprint $table) {
                 $table->id();
                 $table->string('title');
-                $table->string('slug')->unique();
+                $table->string('slug', 191)->unique();
                 $table->text('short_description')->nullable();
                 $table->longText('description')->nullable();
                 $table->string('image_path')->nullable();
@@ -45,7 +45,7 @@ return new class extends Migration
                 $table->string('external_url')->nullable();
                 $table->string('github_url')->nullable();
                 $table->string('demo_url')->nullable();
-                $table->string('category')->nullable()->index();
+                $table->string('category', 191)->nullable()->index();
                 $table->boolean('is_featured')->default(false)->index();
                 $table->boolean('is_active')->default(true)->index();
                 $table->unsignedInteger('sort_order')->default(0);

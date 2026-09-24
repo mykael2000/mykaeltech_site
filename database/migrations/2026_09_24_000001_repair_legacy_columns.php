@@ -16,7 +16,7 @@ return new class extends Migration
         if (Schema::hasTable('services')) {
             if (! Schema::hasColumn('services', 'category')) {
                 Schema::table('services', function (Blueprint $table) {
-                    $table->string('category')->nullable()->index();
+                    $table->string('category', 191)->nullable()->index();
                 });
             }
             if (! Schema::hasColumn('services', 'excerpt')) {
@@ -74,7 +74,7 @@ return new class extends Migration
             }
             if (! Schema::hasColumn('projects', 'status')) {
                 Schema::table('projects', function (Blueprint $table) {
-                    $table->string('status')->nullable()->index();
+                    $table->string('status', 191)->nullable()->index();
                 });
             }
             if (! Schema::hasColumn('projects', 'duration')) {
@@ -164,7 +164,7 @@ return new class extends Migration
             Schema::create('badges', function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
-                $table->string('slug')->unique();
+                $table->string('slug', 191)->unique();
                 $table->text('description')->nullable();
                 $table->string('icon')->nullable();
                 $table->string('color')->nullable();
