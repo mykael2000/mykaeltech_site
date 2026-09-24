@@ -1,23 +1,34 @@
 // MykaelTech interactive layer
 import Alpine from 'alpinejs'
+import {
+    ArrowRight,
+    ArrowUpRight,
+    BarChart3,
+    CalendarDays,
+    Globe2,
+    Layers3,
+    Lightbulb,
+    Palette,
+    Smartphone,
+    createIcons,
+} from 'lucide'
+
+const iconSet = {
+    ArrowRight,
+    ArrowUpRight,
+    BarChart3,
+    CalendarDays,
+    Globe2,
+    Layers3,
+    Lightbulb,
+    Palette,
+    Smartphone,
+}
 
 window.Alpine = Alpine
 
-// ---------- Counter animation ----------
-function animateCounters() {
-    document.querySelectorAll('[data-counter]').forEach(el => {
-        const target = parseInt(el.getAttribute('data-counter'), 10)
-        const duration = 2000
-        const start = performance.now()
-        function tick(now) {
-            const elapsed = now - start
-            const progress = Math.min(elapsed / duration, 1)
-            const eased = 1 - Math.pow(1 - progress, 3)
-            el.textContent = Math.round(target * eased).toLocaleString()
-            if (progress < 1) requestAnimationFrame(tick)
-        }
-        requestAnimationFrame(tick)
-    })
+function initializeIcons() {
+    createIcons({ icons: iconSet })
 }
 
 // ---------- Scroll reveal ----------
@@ -115,7 +126,6 @@ function initPageTransitions() {
     document.body.classList.add('page-enter')
     setTimeout(() => document.body.classList.remove('page-enter'), 400)
 }
-initPageTransitions()
 
 // Scroll progress bar
 function initScrollProgress() {
@@ -128,7 +138,6 @@ function initScrollProgress() {
         bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%'
     }, { passive: true })
 }
-initScrollProgress()
 
 // ---------- Keyboard shortcuts and theme ----------
 function initKeyboardShortcuts() {
@@ -186,7 +195,7 @@ function initCounters() {
             observer.unobserve(entry.target)
         })
     }, { threshold: 0.25 })
-    elements.forEach(animate)
+    elements.forEach(element => observer.observe(element))
 }
 
 // ---------- Offline status ----------
@@ -210,6 +219,7 @@ function initOfflineStatus() {
 function initApp() {
     initTheme()
     initMobileMenu()
+    initializeIcons()
     revealOnScroll()
     initLightbox()
     initHoverEffects()
