@@ -9,13 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      *
-     * The sessions table is created by the 0001_01_01_000000_create_users_table
-     * migration on fresh installations. Databases that were migrated before the
-     * sessions table was added to that migration (for example an already deployed
-     * production database) will not have the table, and Laravel will not re-run
-     * the users migration because it is already recorded as migrated.
-     *
-     * This migration safely creates the table whenever it is missing.
+     * The sessions table is intentionally owned by this migration. The
+     * original users migration may already be recorded in deployed
+     * databases, so keeping the table in a later migration also makes this
+     * safe to run for older installations.
      */
     public function up(): void
     {
@@ -38,7 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Intentionally left empty. The sessions table is also managed by the
-        // users table migration, so dropping it here could break the app.
+        Schema::dropIfExists('sessions');
     }
 };

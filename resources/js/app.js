@@ -22,6 +22,12 @@ function animateCounters() {
 
 // ---------- Scroll reveal ----------
 function revealOnScroll() {
+    const elements = document.querySelectorAll('[data-reveal]')
+
+    if (!('IntersectionObserver' in window)) {
+        return
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -32,21 +38,11 @@ function revealOnScroll() {
         })
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' })
 
-    document.querySelectorAll('[data-reveal]').forEach(el => {
-        if (el.tagName === 'SCRIPT') return
-        el.style.opacity = '0'
-        el.style.transform = 'translateY(16px)'
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
-        observer.observe(el)
-    })
-
-    document.querySelectorAll('[data-reveal] > *').forEach(el => {
-        if (el.getAttribute('data-reveal')) {
-            el.style.opacity = '0'
-            el.style.transform = 'translateY(16px)'
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
-            observer.observe(el)
-        }
+    elements.forEach(element => {
+        element.style.opacity = '0'
+        element.style.transform = 'translateY(16px)'
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
+        observer.observe(element)
     })
 }
 
@@ -114,15 +110,6 @@ function initHoverEffects() {
     })
 }
 
-// ---------- Init ----------
-document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu()
-    revealOnScroll()
-    initLightbox()
-    initHoverEffects()
-    Alpine.start()
-})
-
 // ---------- Page transition & scroll progress ----------
 function initPageTransitions() {
     document.body.classList.add('page-enter')
@@ -143,63 +130,99 @@ function initScrollProgress() {
 }
 initScrollProgress()
 
-// ---------- Keyboard shortcut: Ctrl+K → focus search ----------
-document.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault()
-        const searchBtn = document.querySelector('[data-search-btn]')
-        if (searchBtn) {
-            searchBtn.click()
-            const input = document.querySelector('[data-search-input]')
-            if (input) setTimeout(() => input.focus(), 100)
+// ---------- Keyboard shortcuts and theme ----------
+function initKeyboardShortcuts() {
+    document.addEventListener('keydown', (event) => {
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+            event.preventDefault()
+            document.querySelector('[data-search-btn]')?.click()
         }
-    }
-    if (e.key === 'Escape') {
 
-// ---------- Theme persistence in localStorage ----------
-(function() {
-    const saved = localStorage.getItem('theme')
-    if (saved === 'light') {
-        document.documentElement.classList.add('light')
-    } else if (saved === 'dark') {
-        document.documentElement.classList.remove('light')
-    }
-})()
-        const mobileNav = document.getElementById('mobileNav')
-        if (mobileNav) mobileNav.classList.add('hidden')
-    }
-})
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters()
-            counterObserver.unobserve(entry.target)
+        if (event.key === 'Escape') {
+            document.querySelector('[data-mobile-menu]:not(.hidden)')?.classList.add('hidden')
         }
     })
-}, { threshold: 0.3 })
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const el = document.querySelector('[data-counter]')
-    if (el) {
-        const parent = el.closest('section') || el
-        counterObserver.observe(parent)
+function initTheme() {
+    try {
+        const savedTheme = localStorage.getItem('theme')
+        if (savedTheme === 'light') document.documentElement.classList.add('light')
+        if (savedTheme === 'dark') document.documentElement.classList.remove('light')
+    } catch {
+        // Storage can be disabled in private browsing; the default theme is fine.
     }
-})
+}
 
-// ---------- Service worker-like offline indicator ----------
-if ('connection' in navigator) {
+// ---------- Counters ----------
+function initCounters() {
+    const elements = document.querySelectorAll('[data-counter]')
+    if (!elements.length) return
+
+    const animate = (element) => {
+        const target = Number.parseInt(element.dataset.counter || '0', 10)
+        if (!Number.isFinite(target)) return
+
+        const start = performance.now()
+        const duration = 1200
+        const frame = (now) => {
+            const progress = Math.min((now - start) / duration, 1)
+            const eased = 1 - Math.pow(1 - progress, 3)
+            element.textContent = Math.round(target * eased).toLocaleString()
+            if (progress < 1) requestAnimationFrame(frame)
+        }
+        requestAnimationFrame(frame)
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(animate)
+        return
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return
+            animate(entry.target)
+            observer.unobserve(entry.target)
+        })
+    }, { threshold: 0.25 })
+    elements.forEach(animate)
+}
+
+// ---------- Offline status ----------
+function initOfflineStatus() {
+    if (!('connection' in navigator) || !document.body) return
+
     const status = document.createElement('div')
     status.id = 'net-status'
-    status.style.cssText = 'display:none;position:fixed;bottom:16px;right:16px;z-index:9999;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:500;background:rgba(16,185,129,0.15);backdrop-filter:blur(8px);border:1px solid rgba(16,185,129,0.3);color:#34d399;'
+    status.style.cssText = 'display:none;position:fixed;bottom:16px;right:16px;z-index:9999;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:500;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#34d399;'
     document.body.appendChild(status)
 
-    function updateOnlineStatus() {
+    const update = () => {
         status.style.display = navigator.onLine ? 'none' : 'block'
-        status.textContent = navigator.onLine ? '' : '📡 Offline — some features may be limited'
+        status.textContent = navigator.onLine ? '' : 'Offline — some features may be limited.'
     }
+    window.addEventListener('online', update)
+    window.addEventListener('offline', update)
+    update()
+}
 
-    window.addEventListener('online', updateOnlineStatus)
-    window.addEventListener('offline', updateOnlineStatus)
-    updateOnlineStatus()
+function initApp() {
+    initTheme()
+    initMobileMenu()
+    revealOnScroll()
+    initLightbox()
+    initHoverEffects()
+    initKeyboardShortcuts()
+    initCounters()
+    initOfflineStatus()
+    initPageTransitions()
+    initScrollProgress()
+    Alpine.start()
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp, { once: true })
+} else {
+    initApp()
 }

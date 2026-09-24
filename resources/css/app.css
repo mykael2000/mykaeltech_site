@@ -1,6 +1,8 @@
 /* ===== MykaelTech — Global Styles ===== */
 
 @import "tailwindcss";
+@source "../views";
+@source "../js";
 
 @theme {
     --color-brand-50: #ecfeff;
@@ -153,8 +155,12 @@ input[type="search"], textarea, select {
     top: 0;
     left: 0;
     height: 2px;
+    width: 0;
     background: linear-gradient(90deg, #22d3ee, #a855f7, #f43f5e);
     z-index: 9999;
+    transition: width 0.1s linear;
+    pointer-events: none;
+}
 
 /* ===== Page transition overlay ===== */
 .page-transition-overlay {
@@ -178,9 +184,6 @@ img.lazy {
 }
 img.lazy.loaded {
     filter: blur(0);
-}
-    transition: width 0.1s linear;
-    width: 0%;
 }
 
 /* ===== Skeleton Loading ===== */
