@@ -96,7 +96,8 @@
                     <article class="card-hover group glass overflow-hidden rounded-2xl" data-reveal>
                         <a href="{{ route('portfolio.show', $project->slug) }}" class="block">
                             <div class="relative h-52 overflow-hidden bg-ink-800 sm:h-60">
-                                <img src="{{ asset($loop->isEven() ? 'images/collaboration.jpg' : 'images/technology.jpg') }}" alt="{{ $loop->isEven() ? 'Technology professionals collaborating around a workstation' : 'Close-up of professional technology hardware and digital systems' }}" class="h-full w-full object-cover opacity-70 transition duration-500 group-hover:scale-105" loading="lazy">
+                                <img src="{{ asset($loop->even ? 'images/collaboration.jpg' : 'images/technology.jpg') }}" alt="{{ $loop->even ? 'Technology professionals collaborating around a workstation' : 'Close-up of professional technology hardware and digital systems' }}" class="h-full w-full object-cover opacity-70 transition duration-500 group-hover:scale-105" loading="lazy">
+
                                 <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/25 to-transparent"></div>
                                 <div class="absolute bottom-5 left-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-ink-950/70 text-brand-300 backdrop-blur">
                                     <i data-lucide="{{ $project->category === 'Web' ? 'globe-2' : ($project->category === 'Mobile' ? 'smartphone' : 'layers-3') }}" class="h-5 w-5"></i>
