@@ -8,10 +8,11 @@ class Post extends Model
 {
     protected $fillable = [
         'user_id', 'type', 'title', 'slug', 'excerpt', 'content',
-        'cover_image', 'published_at', 'views', 'is_featured',
+        'cover_image', 'published_at', 'is_published', 'views', 'is_featured',
     ];
 
     protected $casts = [
+        'is_published' => 'boolean',
         'is_featured' => 'boolean',
         'published_at' => 'datetime',
     ];
@@ -44,9 +45,11 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->orderByDesc('published_at');
+        return $query->where(function ($q) {
+            $q->whereNotNull('published_at')->where('published_at', '<=', now());
+        })->orWhere(function ($q) {
+            $q->whereNull('published_at')->where('is_published', true);
+        })->orderByDesc('published_at');
     }
 
     public function scopeLearningUpdates($query)

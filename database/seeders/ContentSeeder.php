@@ -22,7 +22,7 @@ class ContentSeeder extends Seeder
             ['title' => 'MykaelTech platform goes live', 'slug' => 'platform-launch', 'type' => 'news', 'excerpt' => 'The community platform is live: join, build your CV, publish your learning updates.', 'content' => "Today we're shipping the new MykaelTech platform.\n\nWhat's inside:\n- Community membership with public profiles\n- A CV generator every member can use\n- A learning feed: updates, facts and tutorials\n- A full admin panel for content management\n\nThis replaces the original static site — same mission, new engine.", 'user_id' => $admin?->id, 'is_published' => true],
         ];
         foreach ($posts as $p) {
-            Post::updateOrCreate(['slug' => $p['slug']], $p + ['published_at' => now()->subDays(rand(1, 20))]);
+            Post::updateOrCreate(['slug' => $p['slug']], $p + ['published_at' => now()->subDays(rand(1, 20)), 'is_published' => true]);
         }
 
         $facts = [
@@ -35,7 +35,7 @@ class ContentSeeder extends Seeder
             ['fact' => 'The first website ever (info.cern.ch, 1991) is still online today — and it explains what the World Wide Web is, because nobody knew yet.', 'source_url' => 'https://info.cern.ch', 'author' => null],
         ];
         foreach ($facts as $f) {
-            TechFact::create($f + ['published_at' => now()->subDays(rand(1, 30))]);
+            TechFact::updateOrCreate(['fact' => $f['fact']], $f + ['published_at' => now()->subDays(rand(1, 30))]);
         }
     }
 }

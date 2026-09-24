@@ -14,51 +14,92 @@ use App\Models\TechFact;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // ---------- Users ----------
-        $admin = User::create([
-            'name' => 'Mykael Oduya',
-            'email' => 'admin@mykaeltech.com',
-            'password' => Hash::make('ChangeMe123!'),
-            'is_admin' => true,
-        ]);
+        // Defensive: allow `db:seed --force` on deploy even if the target
+        // database hasn't been migrated yet (e.g. first deploy raced seed
+        // before migrate, or a table is missing). Skip seeding tables that
+        // don't exist yet instead of throwing a 1146 and stalling deploy.
+        $this->seedUsers();
+        $this->seedSettings();
+        $this->seedServices();
+        $this->seedProjects();
+        $this->seedTeamAndTestimonials();
+        $this->seedPostsAndFacts();
+        $this->seedEvents();
+    }
 
-        $demo = User::create([
-            'name' => 'Aisha Developer',
-            'email' => 'demo@mykaeltech.com',
-            'password' => Hash::make('password'),
-        ]);
+    private function seedUsers(): void
+    {
+        // ---------- Users (idempotent: safe to re-run on deploy) ----------
+        $admin = User::updateOrCreate(
+            ['email' => 'admin@mykaeltech.com'],
+            [
+                'name' => 'Mykael Oduya',
+                'password' => Hash::make('ChangeMe123!'),
+                'is_admin' => true,
+            ]
+        );
 
-        CommunityMember::create([
-            'user_id' => $admin->id,
-            'username' => 'mykael',
-            'headline' => 'Founder & CEO — bridging technology and accounting',
-            'bio' => 'Founder of MykaelTech, building tech solutions and growing a community of learners and builders.',
-            'skills' => ['Leadership', 'Software Architecture', 'FinTech', 'Community Building'],
-            'company' => 'MykaelTech',
-            'location' => 'Nairobi, Kenya',
-            'linkedin_url' => 'https://linkedin.com/company/mykaeltech',
-            'website_url' => 'https://mykaeltech.com',
-            'is_public' => true,
-        ]);
+        $demo = User::updateOrCreate(
+            ['email' => 'demo@mykaeltech.com'],
+            [
+                'name' => 'Aisha Developer',
+                'password' => Hash::make('password'),
+                'is_admin' => false,
+            ]
+        );
 
-        CommunityMember::create([
-            'user_id' => $demo->id,
-            'username' => 'aisha',
-            'headline' => 'Full-stack developer learning in public',
-            'bio' => 'Community member passionate about Laravel, Tailwind and shipping side projects.',
-            'skills' => ['PHP', 'Laravel', 'Tailwind', 'MySQL'],
-            'location' => 'Mombasa, Kenya',
-            'github_url' => 'https://github.com',
-            'is_public' => true,
-        ]);
+        if (Schema::hasTable('community_members')) {
+            CommunityMember::updateOrCreate(
+                ['user_id' => $admin->id],
+                [
+                    'username' => 'mykael',
+                    'headline' => 'Founder & CEO — bridging technology and accounting',
+                    'bio' => 'Founder of MykaelTech, building tech solutions and growing a community of learners and builders.',
+                    'skills' => ['Leadership', 'Software Architecture', 'FinTech', 'Community Building'],
+                    'company' => 'MykaelTech',
+                    'location' => 'Nairobi, Kenya',
+                    'linkedin_url' => 'https://linkedin.com/company/mykaeltech',
+                    'website_url' => 'https://mykaeltech.com',
+                    'is_public' => true,
+                ]
+            );
 
-        NewsletterSubscriber::create(['email' => 'hello@example.com']);
+            CommunityMember::updateOrCreate(
+                ['user_id' => $demo->id],
+                [
+                    'username' => 'aisha',
+                    'headline' => 'Full-stack developer learning in public',
+                    'bio' => 'Community member passionate about Laravel, Tailwind and shipping side projects.',
+                    'skills' => ['PHP', 'Laravel', 'Tailwind', 'MySQL'],
+                    'location' => 'Mombasa, Kenya',
+                    'github_url' => 'https://github.com',
+                    'is_public' => true,
+                ]
+            );
+        }
+
+        if (Schema::hasTable('newsletter_subscribers')) {
+            NewsletterSubscriber::updateOrCreate(
+                ['email' => 'hello@example.com'],
+                ['is_active' => true]
+            );
+        }
+    }
+
+    private function seedSettings(): void
+    {
+        if (! Schema::hasTable('site_settings')) {
+            return;
+        }
 
         // ---------- Site settings ----------
         $settings = [
@@ -83,7 +124,16 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($settings as $key => $value) {
-            SiteSetting::create(['key' => $key, 'value' => $value, 'group' => 'general']);
+            SiteSetting::updateOrCreate(['key' => $key], ['value' => $value, 'group' => 'general']);
+        }
+
+        Cache::forget('site_settings');
+    }
+
+    private function seedServices(): void
+    {
+        if (! Schema::hasTable('services')) {
+            return;
         }
 
         // ---------- Services (migrated from legacy site) ----------
@@ -115,7 +165,14 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($services as $i => $s) {
-            Service::create($s + ['sort_order' => $i]);
+            Service::updateOrCreate(['slug' => $s['slug']], $s + ['sort_order' => $i, 'is_active' => true]);
+        }
+    }
+
+    private function seedProjects(): void
+    {
+        if (! Schema::hasTable('projects')) {
+            return;
         }
 
         // ---------- Projects ----------
@@ -143,15 +200,27 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($projects as $i => $p) {
-            Project::create($p + ['sort_order' => $i, 'is_active' => true]);
+            Project::updateOrCreate(['slug' => $p['slug']], $p + ['sort_order' => $i, 'is_active' => true]);
+        }
+    }
+
+    private function seedTeamAndTestimonials(): void
+    {
+        if (Schema::hasTable('team_members')) {
+            // ---------- Team ----------
+            TeamMember::updateOrCreate(
+                ['name' => 'Mykael Oduya'],
+                [
+                    'role' => 'Founder & CEO',
+                    'bio' => 'Bridging technology and accounting. Passionate about building products and people.',
+                    'email' => 'admin@mykaeltech.com', 'linkedin_url' => 'https://linkedin.com/company/mykaeltech', 'sort_order' => 0, 'is_active' => true,
+                ]
+            );
         }
 
-        // ---------- Team ----------
-        TeamMember::create([
-            'name' => 'Mykael Oduya', 'role' => 'Founder & CEO',
-            'bio' => 'Bridging technology and accounting. Passionate about building products and people.',
-            'email' => 'admin@mykaeltech.com', 'linkedin_url' => 'https://linkedin.com/company/mykaeltech', 'sort_order' => 0,
-        ]);
+        if (! Schema::hasTable('testimonials')) {
+            return;
+        }
 
         // ---------- Testimonials ----------
         $testimonials = [
@@ -164,35 +233,48 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($testimonials as $t) {
-            Testimonial::create($t);
+            Testimonial::updateOrCreate(['author_name' => $t['author_name']], $t);
+        }
+    }
+
+    private function seedPostsAndFacts(): void
+    {
+        if (! Schema::hasTable('posts') && ! Schema::hasTable('tech_facts')) {
+            return;
         }
 
-        // ---------- Posts (learning hub) ----------
-        $posts = [
-            ['user_id' => $admin->id, 'type' => 'news', 'title' => 'Welcome to the new MykaelTech platform', 'slug' => 'welcome-to-new-mykaeltech-platform',
+        $adminId = User::where('email', 'admin@mykaeltech.com')->value('id');
+        $demoId = User::where('email', 'demo@mykaeltech.com')->value('id');
+
+        if (Schema::hasTable('posts')) {
+            // ---------- Posts (learning hub) ----------
+            $posts = [
+                ['user_id' => $adminId, 'type' => 'news', 'title' => 'Welcome to the new MykaelTech platform', 'slug' => 'welcome-to-new-mykaeltech-platform',
              'excerpt' => 'We rebuilt MykaelTech from the ground up: a community platform with learning updates, tech facts, portfolio showcases and a CV generator for every member.',
              'content' => "Today marks a huge milestone. MykaelTech is no longer just a company website — it's a platform.\n\nEvery member now gets:\n- A public profile with a shareable CV link\n- A CV generator with professional PDF export\n- A learning feed to publish updates and track progress\n- Access to curated tech facts and community events\n\nThis platform was built with Laravel 12, Tailwind CSS and Filament — the same stack we teach in our community workshops.\n\nJoin the community, complete your profile and generate your first CV today.",
              'is_featured' => true, 'views' => 152],
-            ['user_id' => $demo->id, 'type' => 'learning_update', 'title' => 'Week 4: Finally understood Laravel Eloquent relationships', 'slug' => 'week4-understood-eloquent-relationships',
+            ['user_id' => $demoId, 'type' => 'learning_update', 'title' => 'Week 4: Finally understood Laravel Eloquent relationships', 'slug' => 'week4-understood-eloquent-relationships',
              'excerpt' => 'This week I stopped fighting Eloquent and started using it properly. Here is what finally clicked for me with hasOne, hasMany and eager loading.',
              'content' => "For weeks I was writing manual joins and loops. Then a mentor in the community showed me eager loading and the N+1 problem disappeared.\n\nKey takeaways:\n1. define relationships on the model (hasOne, hasMany, belongsTo)\n2. use with() to eager load and avoid the N+1 query problem\n3. route model binding removes tons of boilerplate\n\nNext week: polymorphic relationships. Learning in public keeps me accountable — post your own update!",
              'views' => 89],
-            ['user_id' => $admin->id, 'type' => 'tutorial', 'title' => 'Build a CV generator in Laravel in 30 minutes', 'slug' => 'build-cv-generator-laravel-30-minutes',
+            ['user_id' => $adminId, 'type' => 'tutorial', 'title' => 'Build a CV generator in Laravel in 30 minutes', 'slug' => 'build-cv-generator-laravel-30-minutes',
              'excerpt' => 'A step-by-step tutorial for building a profile-to-PDF CV generator — the exact feature powering this platform.',
              'content' => "What you need: Laravel, a members table, and barryvdh/laravel-dompdf.\n\n1. Install the package: composer require barryvdh/laravel-dompdf\n2. Create a clean, print-first Blade template\n3. Render the view to HTML, then wrap it with Pdf::loadHTML()->setPaper('a4')->download()\n4. Log each download for analytics\n\nThe trick is designing the template for print first (static colors, no dark backgrounds) and reusing it for both the web preview and the PDF export.",
              'is_featured' => true, 'views' => 210],
-            ['user_id' => $demo->id, 'type' => 'learning_update', 'title' => 'Shipped my first client project!', 'slug' => 'shipped-my-first-client-project',
+            ['user_id' => $demoId, 'type' => 'learning_update', 'title' => 'Shipped my first client project!', 'slug' => 'shipped-my-first-client-project',
              'excerpt' => 'From community member to shipping a real e-commerce site for a local business. Here is the journey.',
              'content' => "Three months ago I could barely wire up a form. Today a local business is running on a store I built.\n\nWhat made it possible: the portfolio showcase here motivated me to build in public, and code reviews from senior members caught bugs I would never have found.\n\nTo anyone hesitating: join, post your progress, ask questions. It compounds fast.",
              'views' => 134],
-        ];
+            ];
 
-        foreach ($posts as $p) {
-            Post::create($p + ['published_at' => now()->subDays(rand(1, 20))]);
+            foreach ($posts as $p) {
+                Post::updateOrCreate(['slug' => $p['slug']], $p + ['published_at' => now()->subDays(rand(1, 20)), 'is_published' => true]);
+            }
         }
 
-        // ---------- Tech facts ----------
-        $facts = [
+        if (Schema::hasTable('tech_facts')) {
+            // ---------- Tech facts ----------
+            $facts = [
             ['fact' => 'The first computer bug was an actual moth — found inside the Harvard Mark II computer in 1947 by Grace Hopper\'s team.', 'category' => 'History', 'source_url' => null],
             ['fact' => 'PHP powers roughly 75% of all websites with a known server-side language, including Facebook and Wikipedia.', 'category' => 'Web', 'source_url' => 'https://w3techs.com'],
             ['fact' => 'The first 1GB hard drive (IBM 1956) weighed about 1 ton. Today a fingernail-sized microSD holds 1TB.', 'category' => 'Hardware', 'source_url' => null],
@@ -205,8 +287,24 @@ class DatabaseSeeder extends Seeder
             ['fact' => 'The first website ever (info.cern.ch, 1991) is still online today — restored by CERN in 2013.', 'category' => 'Web', 'source_url' => 'http://info.cern.ch'],
         ];
 
-        foreach ($facts as $f) {
-            TechFact::create($f + ['published_at' => now()->subDays(rand(1, 30))]);
+            foreach ($facts as $f) {
+                $existing = TechFact::query()
+                    ->where('fact', 'like', mb_substr($f['fact'], 0, 60).'%')
+                    ->first();
+
+                if ($existing) {
+                    $existing->update($f + ['published_at' => $existing->published_at ?? now()]);
+                } else {
+                    TechFact::create($f + ['published_at' => now()->subDays(rand(1, 30))]);
+                }
+            }
+        }
+    }
+
+    private function seedEvents(): void
+    {
+        if (! Schema::hasTable('events')) {
+            return;
         }
 
         // ---------- Events ----------
@@ -223,7 +321,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($events as $e) {
-            Event::create($e + ['is_published' => true]);
+            Event::updateOrCreate(['title' => $e['title']], $e + ['is_published' => true]);
         }
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TechFact extends Model
 {
     protected $fillable = [
-        'fact', 'source_url', 'category', 'published_at',
+        'fact', 'source_url', 'author', 'category', 'published_at',
     ];
 
     protected $casts = [
