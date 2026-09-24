@@ -105,8 +105,8 @@ jobs:
             mkdir -p bootstrap/cache
             chmod -R 775 storage bootstrap/cache
             php artisan optimize:clear || true
-            echo '--- migrations before ---'
-            php artisan migrate:status --no-ansi
+            echo '--- migrations before (diagnostic only) ---'
+            php artisan migrate:status --no-ansi || true
             echo '--- running all pending migrations ---'
             php artisan migrate --force --no-interaction
             echo '--- migrations after ---'
