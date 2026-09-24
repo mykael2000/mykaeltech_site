@@ -19,6 +19,18 @@ jobs:
           php-version: '8.2'
           tools: composer:v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install frontend dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build frontend assets
+        run: npm run build
+
       - name: Clean Composer state
         run: |
           rm -rf vendor
@@ -98,6 +110,8 @@ jobs:
           script: |
             set -euo pipefail
             cd ~/mykaeltech
+             test -f public/build/manifest.json || { echo '::error::Vite manifest is missing. Check the frontend build and upload steps.'; exit 1; }
+
             mkdir -p storage/framework/cache/data
             mkdir -p storage/framework/sessions
             mkdir -p storage/framework/views
