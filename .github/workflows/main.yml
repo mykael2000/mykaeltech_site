@@ -96,6 +96,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            set -euo pipefail
             cd ~/mykaeltech
             mkdir -p storage/framework/cache/data
             mkdir -p storage/framework/sessions
@@ -104,8 +105,13 @@ jobs:
             mkdir -p bootstrap/cache
             chmod -R 775 storage bootstrap/cache
             php artisan optimize:clear || true
-            php artisan migrate --force
-            php artisan db:seed --force || true
-            php artisan config:cache || true
-            php artisan route:cache || true
-            php artisan view:cache || true
+            echo '--- migrations before ---'
+            php artisan migrate:status --no-ansi
+            echo '--- running all pending migrations ---'
+            php artisan migrate --force --no-interaction
+            echo '--- migrations after ---'
+            php artisan migrate:status --no-ansi
+            php artisan db:seed --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
