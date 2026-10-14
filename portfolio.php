@@ -81,10 +81,10 @@ include 'includes/header/header.php';
 ?>
 
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+<section class="bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-down">Our Portfolio</h1>
-        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-blue-100 animate-slide-up">
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 animate-slide-up">
             Explore our latest projects and successful implementations
         </p>
     </div>
@@ -235,7 +235,7 @@ include 'includes/header/header.php';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
             <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                <i class="fas fa-info-circle text-blue-600 mr-3"></i>
+                <i class="fas fa-info-circle text-brand-primary mr-3"></i>
                 How to Update Portfolio
             </h3>
             <div class="space-y-3 text-gray-700">
@@ -261,17 +261,17 @@ include 'includes/header/header.php';
 </section>
 
 <!-- Call to Action -->
-<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+<section class="py-20 bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl md:text-5xl font-bold mb-6">Like What You See?</h2>
         <p class="text-xl mb-8">
             Let's work together to bring your ideas to life
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact.php" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 hover:text-blue-800 transition-all shadow-lg">
+            <a href="/contact.php" class="bg-white text-brand-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 hover:text-blue-800 transition-all shadow-lg">
                 Start a Project
             </a>
-            <a href="/services.php" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-all">
+            <a href="/services.php" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-brand-primary transition-all">
                 View Services
             </a>
         </div>

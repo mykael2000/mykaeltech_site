@@ -92,10 +92,10 @@ include 'includes/header/header.php';
 ?>
 
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+<section class="bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-down">Get in Touch</h1>
-        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-blue-100 animate-slide-up">
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 animate-slide-up">
             We'd love to hear from you. Let's start a conversation.
         </p>
     </div>
@@ -112,11 +112,11 @@ include 'includes/header/header.php';
                 <div class="space-y-6 mb-8">
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            <i class="fas fa-envelope text-brand-primary text-xl"></i>
                         </div>
                         <div>
                             <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                            <a href="mailto:<?php echo SITE_EMAIL; ?>" class="text-gray-600 hover:text-blue-600 transition-colors">
+                            <a href="mailto:<?php echo SITE_EMAIL; ?>" class="text-gray-600 hover:text-brand-primary transition-colors">
                                 <?php echo SITE_EMAIL; ?>
                             </a>
                         </div>
@@ -124,11 +124,11 @@ include 'includes/header/header.php';
                     
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                            <i class="fas fa-phone text-purple-600 text-xl"></i>
+                            <i class="fas fa-phone text-brand-secondary text-xl"></i>
                         </div>
                         <div>
                             <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
-                            <a href="tel:<?php echo str_replace([' ', '(', ')', '-'], '', SITE_PHONE); ?>" class="text-gray-600 hover:text-purple-600 transition-colors">
+                            <a href="tel:<?php echo str_replace([' ', '(', ')', '-'], '', SITE_PHONE); ?>" class="text-gray-600 hover:text-brand-secondary transition-colors">
                                 <?php echo SITE_PHONE; ?>
                             </a>
                         </div>
@@ -154,7 +154,7 @@ include 'includes/header/header.php';
                             <i class="fab fa-github text-xl"></i>
                         </a>
                         <a href="<?php echo CEO_LINKEDIN; ?>" target="_blank" rel="noopener noreferrer"
-                           class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                           class="w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                             <i class="fab fa-linkedin text-xl"></i>
                         </a>
                         <a href="mailto:<?php echo SITE_EMAIL; ?>"
@@ -167,7 +167,7 @@ include 'includes/header/header.php';
                 <!-- Business Hours -->
                 <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 mt-6">
                     <h3 class="font-semibold text-gray-900 mb-4 flex items-center">
-                        <i class="fas fa-clock text-blue-600 mr-2"></i>
+                        <i class="fas fa-clock text-brand-primary mr-2"></i>
                         Business Hours
                     </h3>
                     <div class="space-y-2 text-gray-700">
@@ -282,7 +282,7 @@ include 'includes/header/header.php';
             <div class="accordion-item scroll-animate" style="animation-delay: <?php echo $index * 0.1; ?>s">
                 <button class="accordion-header">
                     <span class="text-lg font-semibold text-gray-900"><?php echo $faq['question']; ?></span>
-                    <i class="fas fa-chevron-down accordion-icon transition-transform duration-300 text-blue-600"></i>
+                    <i class="fas fa-chevron-down accordion-icon transition-transform duration-300 text-brand-primary"></i>
                 </button>
                 <div class="accordion-content hidden">
                     <p class="text-gray-700"><?php echo $faq['answer']; ?></p>
@@ -294,7 +294,7 @@ include 'includes/header/header.php';
         <div class="mt-12 text-center">
             <p class="text-gray-600">
                 Still have questions? 
-                <a href="mailto:<?php echo SITE_EMAIL; ?>" class="text-blue-600 hover:text-blue-700 font-semibold">
+                <a href="mailto:<?php echo SITE_EMAIL; ?>" class="text-brand-primary hover:text-blue-700 font-semibold">
                     Email us directly
                 </a>
             </p>
@@ -306,7 +306,7 @@ include 'includes/header/header.php';
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-12 text-center">
-            <i class="fas fa-map-marked-alt text-6xl text-blue-600 mb-4"></i>
+            <i class="fas fa-map-marked-alt text-6xl text-brand-primary mb-4"></i>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">Visit Our Office</h3>
             <p class="text-gray-700 mb-2"><?php echo COMPANY_ADDRESS; ?></p>
             <p class="text-sm text-gray-600">

@@ -36,10 +36,16 @@ include 'includes/header/header.php';
 ?>
 
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-down">Our Services</h1>
-        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-blue-100 animate-slide-up">
+<section class="relative py-20 bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-pulse"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white mb-6">
+            <i class="fas fa-cogs"></i> Our Capabilities
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-slide-down">Our Services</h1>
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 animate-slide-up">
             Comprehensive technology and accounting solutions tailored to your business needs
         </p>
     </div>
@@ -50,7 +56,7 @@ include 'includes/header/header.php';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php foreach ($services as $index => $service): ?>
-            <div class="service-card scroll-animate" style="animation-delay: <?php echo $index * 0.1; ?>s">
+            <div class="service-card scroll-animate hover:shadow-2xl" style="animation-delay: <?php echo $index * 0.1; ?>s">
                 <div class="text-6xl mb-4"><?php echo $service['icon']; ?></div>
                 <h3 class="text-2xl font-bold mb-3 text-gray-900"><?php echo $service['name']; ?></h3>
                 <p class="text-gray-600 mb-4"><?php echo $service['description']; ?></p>
@@ -67,9 +73,9 @@ include 'includes/header/header.php';
                 <div class="border-t border-gray-200 pt-4 mt-auto">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-sm text-gray-600">Starting at</span>
-                        <span class="text-2xl font-bold text-blue-600"><?php echo $service['starting_price']; ?></span>
+                        <span class="text-2xl font-bold text-brand-primary"><?php echo $service['starting_price']; ?></span>
                     </div>
-                    <button class="w-full btn-primary" data-modal-target="quote-modal-<?php echo $index; ?>">
+                    <button class="w-full btn btn-primary" data-modal-target="quote-modal-<?php echo $index; ?>">
                         Request Quote
                     </button>
                 </div>
@@ -203,9 +209,9 @@ include 'includes/header/header.php';
             <div class="accordion-item scroll-animate" style="animation-delay: <?php echo $index * 0.1; ?>s">
                 <button class="accordion-header">
                     <span class="text-lg font-semibold text-gray-900"><?php echo $faq['question']; ?></span>
-                    <i class="fas fa-chevron-down accordion-icon transition-transform duration-300 text-blue-600"></i>
+                    <i class="fas fa-chevron-down accordion-icon transition-transform duration-300 text-brand-primary"></i>
                 </button>
-                <div class="accordion-content hidden">
+                <div class="accordion-content">
                     <p class="text-gray-700"><?php echo $faq['answer']; ?></p>
                 </div>
             </div>
@@ -215,17 +221,17 @@ include 'includes/header/header.php';
 </section>
 
 <!-- Call to Action -->
-<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+<section class="py-20 bg-gradient-to-r from-brand-primary to-violet-600 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
-        <p class="text-xl mb-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Ready to Get Started?</h2>
+        <p class="text-xl mb-8 text-white/90">
             Let's discuss your project and how we can help you succeed
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact.php" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 hover:text-blue-800 transition-all shadow-lg">
+            <a href="/contact.php" class="btn px-8 py-4 text-lg bg-white text-brand-primary hover:bg-yellow-300 hover:text-gray-900 transition-all shadow-lg font-bold">
                 Contact Us
             </a>
-            <a href="/portfolio.php" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-all">
+            <a href="/portfolio.php" class="btn px-8 py-4 text-lg border-2 border-white text-white hover:bg-white hover:text-brand-primary transition-all font-bold">
                 View Portfolio
             </a>
         </div>

@@ -78,7 +78,7 @@
             <!-- Bottom Bar -->
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. All rights reserved.</p>
-                <p class="mt-2 text-sm">Built with ❤️ using PHP and TailwindCSS</p>
+                <p class="mt-2 text-sm">Built with ❤️ by <?php echo SITE_NAME; ?></p>
             </div>
         </div>
         

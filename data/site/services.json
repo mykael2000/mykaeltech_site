@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Software Development",
+        "icon": "💻",
+        "description": "Custom software solutions tailored to your business needs using modern technologies and best practices.",
+        "features": [
+            "Web Applications",
+            "Mobile Apps",
+            "API Development",
+            "Legacy System Modernization"
+        ],
+        "starting_price": "$5,000"
+    },
+    {
+        "name": "Fintech & Accounting",
+        "icon": "💰",
+        "description": "Innovative financial technology solutions and comprehensive accounting services to streamline your business operations.",
+        "features": [
+            "Financial Modeling",
+            "Accounting Software",
+            "Payment Integration",
+            "Compliance Solutions"
+        ],
+        "starting_price": "$3,000"
+    },
+    {
+        "name": "Cloud Solutions",
+        "icon": "☁️",
+        "description": "Scalable cloud infrastructure design, migration, and management for modern businesses.",
+        "features": [
+            "Cloud Migration",
+            "AWS/Azure/GCP",
+            "DevOps",
+            "Infrastructure as Code"
+        ],
+        "starting_price": "$4,000"
+    },
+    {
+        "name": "UI/UX Design",
+        "icon": "🎨",
+        "description": "Beautiful, intuitive user interfaces that enhance user experience and drive engagement.",
+        "features": [
+            "User Research",
+            "Wireframing",
+            "Prototyping",
+            "Responsive Design"
+        ],
+        "starting_price": "$2,500"
+    },
+    {
+        "name": "Tech Consulting",
+        "icon": "🔍",
+        "description": "Strategic technology consulting to help your business make informed technology decisions.",
+        "features": [
+            "Technology Strategy",
+            "Digital Transformation",
+            "Architecture Review",
+            "Best Practices"
+        ],
+        "starting_price": "$200/hr"
+    },
+    {
+        "name": "Tech Teaching & Training",
+        "icon": "📚",
+        "description": "Comprehensive training programs to upskill your team in modern technologies.",
+        "features": [
+            "Corporate Training",
+            "Workshops",
+            "One-on-One Mentoring",
+            "Certification Prep"
+        ],
+        "starting_price": "$150/hr"
+    },
+    {
+        "name": "Maintenance & Support",
+        "icon": "🛠️",
+        "description": "Ongoing maintenance and technical support to keep your systems running smoothly.",
+        "features": [
+            "24/7 Monitoring",
+            "Bug Fixes",
+            "Performance Optimization",
+            "Security Updates"
+        ],
+        "starting_price": "$1,500/mo"
+    }
+]

@@ -20,103 +20,42 @@ $isLoggedIn = isLoggedIn();
     <meta name="author" content="<?php echo SITE_NAME; ?>">
     <title><?php echo isset($pageTitle) ? $pageTitle . ' - ' . SITE_NAME : SITE_TITLE; ?></title>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Professional CSS Design System -->
+    <link rel="stylesheet" href="<?php echo CSS_URL; ?>/style.css">
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php echo CSS_URL; ?>/style.css">
-    
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/public/logo.png">
-    
-    <script>
-        // Tailwind configuration for custom animations
-        tailwind.config = {
-            theme: {
-                extend: {
-                    animation: {
-                        'fade-in': 'fadeIn 1s ease-in',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'slide-down': 'slideDown 0.8s ease-out',
-                        'slide-in-left': 'slideInLeft 0.8s ease-out',
-                        'slide-in-right': 'slideInRight 0.8s ease-out',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'pulse-slow': 'pulse 3s infinite',
-                        'spin-slow': 'spin 3s linear infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(100px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        slideDown: {
-                            '0%': { transform: 'translateY(-100px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        slideInLeft: {
-                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
-                            '100%': { transform: 'translateX(0)', opacity: '1' },
-                        },
-                        slideInRight: {
-                            '0%': { transform: 'translateX(100px)', opacity: '0' },
-                            '100%': { transform: 'translateX(0)', opacity: '1' },
-                        },
-                    }
-                }
-            }
-        }
-    </script>
-</head>
+    <link rel="icon" type="image/svg+xml" href="<?php echo SITE_FAVICON; ?>">
 <body class="bg-gray-50 text-gray-900 antialiased">
     
     <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-md">
+    <nav id="navbar" class="navbar fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="/public/logo.png" alt="<?php echo SITE_NAME; ?> Logo" class="h-10 w-10 animate-pulse-slow">
-                    <a href="/index.php" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
-                        <?php echo SITE_NAME; ?>
-                    </a>
-                </div>
+                <a href="<?php echo SITE_URL; ?>" class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center text-white font-bold text-sm">
+                        <?php echo strtoupper(substr(SITE_NAME, 0, 2)); ?>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900"><?php echo SITE_NAME; ?></span>
+                </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.php" class="nav-link <?php echo $currentPage === 'home' ? 'active' : ''; ?>">
-                        Home
-                    </a>
-                    <a href="/services.php" class="nav-link <?php echo $currentPage === 'services' ? 'active' : ''; ?>">
-                        Services
-                    </a>
-                    <a href="/portfolio.php" class="nav-link <?php echo $currentPage === 'portfolio' ? 'active' : ''; ?>">
-                        Portfolio
-                    </a>
-                    <a href="/team.php" class="nav-link <?php echo $currentPage === 'team' ? 'active' : ''; ?>">
-                        Team
-                    </a>
-                    <a href="/contact.php" class="nav-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>">
-                        Contact
-                    </a>
+                    <a href="/index.php" class="nav-link <?php echo $currentPage === 'home' ? 'active' : ''; ?>"><i class="fas fa-home mr-1"></i>Home</a>
+                    <a href="/services.php" class="nav-link <?php echo $currentPage === 'services' ? 'active' : ''; ?>"><i class="fas fa-cogs mr-1"></i>Services</a>
+                    <a href="/portfolio.php" class="nav-link <?php echo $currentPage === 'portfolio' ? 'active' : ''; ?>"><i class="fas fa-briefcase mr-1"></i>Portfolio</a>
+                    <a href="/team.php" class="nav-link <?php echo $currentPage === 'team' ? 'active' : ''; ?>"><i class="fas fa-users mr-1"></i>Team</a>
+                    <a href="/contact.php" class="nav-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>"><i class="fas fa-envelope mr-1"></i>Contact</a>
                     
                     <?php if ($isLoggedIn): ?>
-                        <a href="/dashboard.php" class="nav-link <?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>">
-                            <i class="fas fa-user-circle"></i> Dashboard
-                        </a>
-                        <a href="/logout.php" class="btn-secondary">
-                            Logout
-                        </a>
+                        <a href="/dashboard.php" class="nav-link <?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>"><i class="fas fa-user-circle mr-1"></i>Dashboard</a>
+                        <a href="/logout.php" class="btn btn-secondary text-sm px-3 py-2"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
                     <?php else: ?>
-                        <a href="/login.php" class="btn-primary">
-                            Login
-                        </a>
+                        <a href="/login.php" class="btn btn-primary text-sm px-4 py-2"><i class="fas fa-sign-in-alt mr-1"></i>Login</a>
+                        <a href="/register.php" class="btn btn-outline text-sm px-4 py-2"><i class="fas fa-user-plus mr-1"></i>Register</a>
                     <?php endif; ?>
                 </div>
                 

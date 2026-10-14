@@ -49,10 +49,10 @@ include 'includes/header/header.php';
 ?>
 
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+<section class="bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-down">Meet Our Team</h1>
-        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-blue-100 animate-slide-up">
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 animate-slide-up">
             Talented professionals dedicated to delivering excellence
         </p>
     </div>
@@ -95,7 +95,7 @@ include 'includes/header/header.php';
                         Leadership
                     </div>
                     <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2"><?php echo $ceo['name']; ?></h2>
-                    <h3 class="text-2xl text-blue-600 font-semibold mb-6"><?php echo $ceo['role']; ?></h3>
+                    <h3 class="text-2xl text-brand-primary font-semibold mb-6"><?php echo $ceo['role']; ?></h3>
                     <p class="text-lg text-gray-700 mb-8 leading-relaxed">
                         <?php echo $ceo['bio']; ?>
                     </p>
@@ -113,7 +113,7 @@ include 'includes/header/header.php';
                     
                     <div class="flex items-center text-gray-600">
                         <i class="fas fa-envelope mr-2"></i>
-                        <a href="mailto:<?php echo $ceo['email']; ?>" class="hover:text-blue-600 transition-colors">
+                        <a href="mailto:<?php echo $ceo['email']; ?>" class="hover:text-brand-primary transition-colors">
                             <?php echo $ceo['email']; ?>
                         </a>
                     </div>
@@ -167,7 +167,7 @@ include 'includes/header/header.php';
                 <!-- Member Info -->
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-gray-900 mb-1"><?php echo $member['name']; ?></h3>
-                    <p class="text-blue-600 font-semibold mb-4"><?php echo $member['role']; ?></p>
+                    <p class="text-brand-primary font-semibold mb-4"><?php echo $member['role']; ?></p>
                     <p class="text-gray-600 mb-4"><?php echo $member['bio']; ?></p>
                     
                     <!-- Skills -->
@@ -192,12 +192,12 @@ include 'includes/header/header.php';
 <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12">
-            <div class="text-6xl mb-6">🚀</div>
+            <div class="text-6xl mb-6">ðŸš€</div>
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Want to Join Our Team?</h2>
             <p class="text-xl text-gray-600 mb-8">
                 We're always looking for talented individuals who are passionate about technology and innovation.
             </p>
-            <a href="/contact.php" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-all shadow-lg transform hover:-translate-y-1">
+            <a href="/contact.php" class="inline-block bg-brand-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-all shadow-lg transform hover:-translate-y-1">
                 <i class="fas fa-paper-plane mr-2"></i>Get in Touch
             </a>
         </div>
@@ -209,7 +209,7 @@ include 'includes/header/header.php';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
             <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                <i class="fas fa-users-cog text-blue-600 mr-3"></i>
+                <i class="fas fa-users-cog text-brand-primary mr-3"></i>
                 How to Add Team Members
             </h3>
             <div class="space-y-3 text-gray-700">
@@ -250,7 +250,7 @@ include 'includes/header/header.php';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="text-center scroll-animate">
                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-lightbulb text-blue-600 text-3xl"></i>
+                    <i class="fas fa-lightbulb text-brand-primary text-3xl"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Innovation</h3>
                 <p class="text-gray-600">
@@ -260,7 +260,7 @@ include 'includes/header/header.php';
             
             <div class="text-center scroll-animate" style="animation-delay: 0.1s">
                 <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-handshake text-purple-600 text-3xl"></i>
+                    <i class="fas fa-handshake text-brand-secondary text-3xl"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Integrity</h3>
                 <p class="text-gray-600">

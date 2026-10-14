@@ -9,40 +9,48 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Site configuration
-define('SITE_NAME', 'Mykaeltech');
-define('SITE_TITLE', 'Mykaeltech - Tech & Accounting Strategic Partners');
-define('SITE_URL', 'https://mykaeltech.com');
-define('SITE_EMAIL', 'info@mykaeltech.com');
-define('SITE_PHONE', '+1 (555) 987-6543');
+// Load data layer + admin-edited settings (from /data/site/*.json when present)
+require_once __DIR__ . '/data.php';
+$siteSettings = load_site_settings();
+
+// Site configuration (editable via Admin > Settings)
+define('SITE_NAME', $siteSettings['site_name'] ?? 'MykaelTech');
+define('SITE_TITLE', $siteSettings['site_title'] ?? 'Mykaeltech - Tech & Accounting Strategic Partners');
+define('SITE_URL', $siteSettings['site_url'] ?? 'https://mykaeltech.com');
+define('SITE_EMAIL', $siteSettings['site_email'] ?? 'info@mykaeltech.com');
+define('SITE_PHONE', $siteSettings['site_phone'] ?? '+1 (555) 987-6543');
+define('SITE_ADDRESS', $siteSettings['site_address'] ?? '123 Tech Boulevard, Innovation City, IC 12345');
+define('SITE_FAVICON', '/public/favicon.svg');
+define('SITE_LOGO', $siteSettings['site_logo'] ?? '/public/logo.png');
 
 // Directory paths
 define('BASE_PATH', dirname(__DIR__));
 define('INCLUDES_PATH', BASE_PATH . '/includes');
 define('ASSETS_PATH', BASE_PATH . '/assets');
+define('PUBLIC_PATH', BASE_PATH . '/public');
 define('DATA_PATH', BASE_PATH . '/data');
 define('USERS_DATA_PATH', DATA_PATH . '/users');
 define('SESSIONS_DATA_PATH', DATA_PATH . '/sessions');
 
-// Web paths
+// Web paths (relative to web root /public/)
 define('ASSETS_URL', '/assets');
-define('IMAGES_URL', ASSETS_URL . '/images');
-define('CSS_URL', ASSETS_URL . '/css');
-define('JS_URL', ASSETS_URL . '/js');
-define('ICONS_URL', ASSETS_URL . '/icons');
+define('IMAGES_URL', '/public/images');
+define('CSS_URL', '/public/css');
+define('JS_URL', '/public/js');
+define('ICONS_URL', '/public/icons');
 
-// CEO Information
-define('CEO_NAME', 'Michael Erameh');
-define('CEO_TITLE', 'CEO & Founder');
-define('CEO_BIO', 'Visionary leader with 10+ years of experience in technology and financial services. Passionate about bridging the gap between innovative technology solutions and strategic business accounting.');
-define('CEO_GITHUB', 'https://github.com/mykael2000');
-define('CEO_LINKEDIN', 'https://linkedin.com/in/michael-erameh');
-define('CEO_EMAIL', 'michael@mykaeltech.com');
+// CEO Information (editable via Admin > Settings)
+define('CEO_NAME', $siteSettings['ceo_name'] ?? 'Michael Erameh');
+define('CEO_TITLE', $siteSettings['ceo_title'] ?? 'CEO & Founder');
+define('CEO_BIO', $siteSettings['ceo_bio'] ?? 'Visionary leader with 10+ years of experience in technology and financial services. Passionate about bridging the gap between innovative technology solutions and strategic business accounting.');
+define('CEO_GITHUB', $siteSettings['ceo_github'] ?? 'https://github.com/mykael2000');
+define('CEO_LINKEDIN', $siteSettings['ceo_linkedin'] ?? 'https://linkedin.com/in/michael-erameh');
+define('CEO_EMAIL', $siteSettings['ceo_email'] ?? 'michael@mykaeltech.com');
 
-// Company information
-define('COMPANY_DESCRIPTION', 'Mykaeltech specializes in integrated solutions that bridge technology and accounting, providing transformative services from modern cloud infrastructure to precise financial modeling.');
-define('COMPANY_FOUNDED', '2015');
-define('COMPANY_ADDRESS', '123 Tech Boulevard, Innovation City, IC 12345');
+// Company information (editable via Admin > Settings)
+define('COMPANY_DESCRIPTION', $siteSettings['company_description'] ?? 'Mykaeltech specializes in integrated solutions that bridge technology and accounting, providing transformative services from modern cloud infrastructure to precise financial modeling.');
+define('COMPANY_FOUNDED', $siteSettings['company_founded'] ?? '2015');
+define('COMPANY_ADDRESS', $siteSettings['company_address'] ?? '123 Tech Boulevard, Innovation City, IC 12345');
 
 // Services
 $GLOBALS['services'] = [
@@ -146,6 +154,12 @@ $GLOBALS['stats'] = [
     ['label' => 'Team Members', 'value' => 12, 'suffix' => ''],
 ];
 
+// Collections are overridable by admin-managed JSON files in /data/site/
+$GLOBALS['services'] = load_collection('services', $GLOBALS['services']);
+$GLOBALS['technologies'] = load_collection('technologies', $GLOBALS['technologies']);
+$GLOBALS['testimonials'] = load_collection('testimonials', $GLOBALS['testimonials']);
+$GLOBALS['stats'] = load_collection('stats', $GLOBALS['stats']);
+
 // Helper function to get current page
 function getCurrentPage() {
     $page = basename($_SERVER['PHP_SELF'], '.php');
@@ -176,6 +190,32 @@ function sanitizeInput($data) {
 // Helper function to validate email
 function validateEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+// Helper function to build page URLs
+function route($name, $param = null) {
+    $routes = [
+        'home' => '/index.php',
+        'join' => '/register.php',
+        'login' => '/login.php',
+        'register' => '/register.php',
+        'logout' => '/logout.php',
+        'dashboard' => '/dashboard.php',
+        'services' => '/services.php',
+        'portfolio' => '/portfolio.php',
+        'team' => '/team.php',
+        'contact' => '/contact.php',
+        'admin' => '/admin/index.php',
+    ];
+    if ($name === 'services.show' && $param) {
+        return '/services.php#' . urlencode($param);
+    }
+    return $routes[$name] ?? '/' . $name . '.php';
+}
+
+// Helper function to build asset URLs (files under /public)
+function asset($path) {
+    return '/public/' . ltrim($path, '/');
 }
 
 // Create data directories if they don't exist
