@@ -58,7 +58,7 @@
                 <div class="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400">Status</div>
             </div>
             <div class="page-card rounded-2xl border border-white/5 bg-ink-800/60 text-center">
-                <div class="text-2xl font-extrabold text-white">{{ $project->getDurationAttribute() ?? '—' }}</div>
+                <div class="text-2xl font-extrabold text-white">{{ $project->duration ?? '—' }}</div>
                 <div class="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400">Duration</div>
             </div>
             <div class="page-card rounded-2xl border border-white/5 bg-ink-800/60 text-center">

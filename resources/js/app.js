@@ -1,100 +1,49 @@
-// MykaelTech interactive layer
+/* =====================================================================
+   MykaelTech — interactive layer (Alpine.js + Lucide)
+   ===================================================================== */
 import Alpine from 'alpinejs'
 import {
-    ArrowLeft,
-    ArrowRight,
-    ArrowUpRight,
-    BarChart3,
-    CalendarDays,
-    Check,
-    ChevronLeft,
-    ChevronRight,
-    CircleDollarSign,
-    Cpu,
-    ExternalLink,
-    Gift,
-    Github,
-    Globe2,
-    Layers3,
-    Lightbulb,
-    MapPin,
-    Monitor,
-    Palette,
-    Quote,
-    Rocket,
-    SearchX,
-    Send,
-    ShieldCheck,
-    Smartphone,
-    Sparkles,
-    Star,
-    TrendingUp,
-    Users,
-    X,
-    Zap,
-    createIcons,
+    ArrowLeft, ArrowRight, ArrowUpRight, BarChart3, Bell, CalendarDays,
+    Check, ChevronDown, ChevronLeft, ChevronRight, CircleDollarSign,
+    Cookie, Cpu, ExternalLink, Gift, Github, Globe2, Layers3, LayoutDashboard,
+    Lightbulb, LogOut, MapPin, Menu, Monitor, Palette, Quote, Rocket,
+    Search, SearchX, Send, Settings, ShieldCheck, Smartphone, Sparkles,
+    Star, TrendingUp, User, Users, X, Zap, createIcons,
 } from 'lucide'
 
 const iconSet = {
-    ArrowLeft,
-    ArrowRight,
-    ArrowUpRight,
-    BarChart3,
-    CalendarDays,
-    Check,
-    ChevronLeft,
-    ChevronRight,
-    CircleDollarSign,
-    Cpu,
-    ExternalLink,
-    Gift,
-    Github,
-    Globe2,
-    Layers3,
-    Lightbulb,
-    MapPin,
-    Monitor,
-    Palette,
-    Quote,
-    Rocket,
-    SearchX,
-    Send,
-    ShieldCheck,
-    Smartphone,
-    Sparkles,
-    Star,
-    TrendingUp,
-    Users,
-    X,
-    Zap,
+    ArrowLeft, ArrowRight, ArrowUpRight, BarChart3, Bell, CalendarDays,
+    Check, ChevronDown, ChevronLeft, ChevronRight, CircleDollarSign,
+    Cookie, Cpu, ExternalLink, Gift, Github, Globe2, Layers3, LayoutDashboard,
+    Lightbulb, LogOut, MapPin, Menu, Monitor, Palette, Quote, Rocket,
+    Search, SearchX, Send, Settings, ShieldCheck, Smartphone, Sparkles,
+    Star, TrendingUp, User, Users, X, Zap,
 }
 
 window.Alpine = Alpine
 
-// ---------- Typewriter component ----------
-// Usage: x-data="typewriter(['phrase one', 'phrase two'])" x-init="start()"
+function initializeIcons(root = document) {
+    createIcons({ icons: iconSet, attrs: { 'stroke-width': 2 }, nameAttr: 'data-lucide', root })
+}
+
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]
+))
+
+/* ---------- Alpine components ---------- */
+
 Alpine.data('typewriter', (phrases = []) => ({
-    phrases,
-    text: '',
-    i: 0,
-    deleting: false,
+    phrases, text: '', i: 0, deleting: false,
     start() {
         if (!this.phrases.length) return
         const tick = () => {
             const full = this.phrases[this.i % this.phrases.length]
             if (!this.deleting) {
                 this.text = full.slice(0, this.text.length + 1)
-                if (this.text === full) {
-                    this.deleting = true
-                    return setTimeout(tick, 1600)
-                }
+                if (this.text === full) { this.deleting = true; return setTimeout(tick, 1600) }
             } else {
                 this.text = full.slice(0, this.text.length - 1)
-                if (this.text === '') {
-                    this.deleting = false
-                    this.i += 1
-                    return setTimeout(tick, 350)
-                }
+                if (this.text === '') { this.deleting = false; this.i += 1; return setTimeout(tick, 350) }
             }
             setTimeout(tick, this.deleting ? 45 : 85)
         }
@@ -102,208 +51,132 @@ Alpine.data('typewriter', (phrases = []) => ({
     },
 }))
 
-function initializeIcons() {
-    createIcons({ icons: iconSet })
-}
+Alpine.data('cookieConsent', () => ({
+    visible: false,
+    KEY: 'mt_cookie_consent',
+    init() {
+        let stored = null
+        try { stored = localStorage.getItem(this.KEY) } catch (e) { stored = null }
+        if (!stored) setTimeout(() => { this.visible = true }, 1200)
+    },
+    accept() { this.decide('accepted') },
+    decline() { this.decide('declined') },
+    decide(value) {
+        try { localStorage.setItem(this.KEY, value) } catch (e) { /* private mode */ }
+        this.visible = false
+    },
+}))
 
-// ---------- Scroll reveal ----------
+Alpine.store('ui', {
+    open: false,
+    kind: null,
+    record: null,
+    openRecord(kind, record) { this.open = true; this.kind = kind; this.record = record },
+    close() { this.open = false; this.record = null; this.kind = null },
+})
+
+function toast(message, type = 'info') {
+    const el = document.createElement('div')
+    el.className = `toast toast-${type}`
+    el.innerHTML = `
+        <div class="toast-ico"><i data-lucide="${type === 'success' ? 'check' : type === 'error' ? 'x' : 'info'}"></i></div>
+        <div class="toast-msg"><p class="text-sm font-semibold text-white">MykaelTech</p><p class="text-xs text-slate-400">${esc(message)}</p></div>
+        <button class="toast-close-x" aria-label="Dismiss"><i data-lucide="x"></i></button>`
+    document.body.appendChild(el)
+    initializeIcons(el)
+    requestAnimationFrame(() => el.classList.add('show'))
+    const remove = () => { el.classList.remove('show'); setTimeout(() => el.remove(), 350) }
+    el.querySelector('.toast-close-x')?.addEventListener('click', remove)
+    setTimeout(remove, 5000)
+}
+window.toast = toast
+
+function testimonialSlider(data = []) {
+    return {
+        testimonials: data, current: 0, auto: null,
+        init() { if (this.testimonials.length) this.auto = setInterval(() => this.next(), 6000) },
+        destroyed() { clearInterval(this.auto) },
+        next() { this.current = (this.current + 1) % this.testimonials.length },
+        prev() { this.current = (this.current - 1 + this.testimonials.length) % this.testimonials.length },
+    }
+}
+window.testimonialSlider = testimonialSlider
+
+
+/* ---------- DOM behaviours ---------- */
+
 function revealOnScroll() {
-    const elements = document.querySelectorAll('[data-reveal]')
-
-    if (!('IntersectionObserver' in window)) {
-        return
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1'
-                entry.target.style.transform = 'translateY(0)'
-                observer.unobserve(entry.target)
-            }
-        })
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' })
-
-    elements.forEach(element => {
-        element.style.opacity = '0'
-        element.style.transform = 'translateY(16px)'
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
-        observer.observe(element)
-    })
-}
-
-// ---------- Mobile menu ----------
-function initMobileMenu() {
-    const toggler = document.querySelector('[data-mobile-menu-toggle]')
-    const menu = document.querySelector('[data-mobile-menu]')
-    if (!toggler || !menu) return
-
-    toggler.addEventListener('click', () => {
-        const open = menu.classList.toggle('hidden')
-        toggler.setAttribute('aria-expanded', open ? 'false' : 'true')
-    })
-
-    document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !toggler.contains(e.target)) {
-            menu.classList.add('hidden')
-            toggler.setAttribute('aria-expanded', 'false')
-        }
-    })
-}
-
-// ---------- Lightbox for portfolio ----------
-function initLightbox() {
-    const trigger = document.querySelector('[data-lightbox]')
-    const overlay = document.querySelector('[data-lightbox-overlay]')
-    if (!trigger || !overlay) return
-
-    trigger.addEventListener('click', () => {
-        const src = trigger.getAttribute('data-lightbox') || trigger.getAttribute('src')
-        const img = overlay.querySelector('img')
-        if (img) img.setAttribute('src', src)
-        overlay.classList.remove('hidden')
-        document.body.style.overflow = 'hidden'
-    })
-
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay || e.target.closest('[data-lightbox-close]')) {
-            overlay.classList.add('hidden')
-            document.body.style.overflow = ''
-        }
-    })
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
-            overlay.classList.add('hidden')
-            document.body.style.overflow = ''
-        }
-    })
-}
-
-// ---------- Smooth hover sound-less interaction ----------
-function initHoverEffects() {
-    // Parallax-like tilt effect on cards
-    document.querySelectorAll('.card-hover').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect()
-            const x = (e.clientX - rect.left) / rect.width - 0.5
-            const y = (e.clientY - rect.top) / rect.height - 0.5
-            card.style.transform = `perspective(800px) rotateY(${x * -4}deg) rotateX(${y * 4}deg) translateY(-4px)`
-        })
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = ''
-        })
-    })
-}
-
-// ---------- Page transition & scroll progress ----------
-function initPageTransitions() {
-    document.body.classList.add('page-enter')
-    setTimeout(() => document.body.classList.remove('page-enter'), 400)
-}
-
-// Scroll progress bar
-function initScrollProgress() {
-    const bar = document.createElement('div')
-    bar.className = 'scroll-progress'
-    document.body.appendChild(bar)
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight
-        bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%'
-    }, { passive: true })
-}
-
-// ---------- Keyboard shortcuts and theme ----------
-function initKeyboardShortcuts() {
-    document.addEventListener('keydown', (event) => {
-        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
-            event.preventDefault()
-            document.querySelector('[data-search-btn]')?.click()
-        }
-
-        if (event.key === 'Escape') {
-            document.querySelector('[data-mobile-menu]:not(.hidden)')?.classList.add('hidden')
-        }
-    })
-}
-
-function initTheme() {
-    try {
-        const savedTheme = localStorage.getItem('theme')
-        if (savedTheme === 'light') document.documentElement.classList.add('light')
-        if (savedTheme === 'dark') document.documentElement.classList.remove('light')
-    } catch {
-        // Storage can be disabled in private browsing; the default theme is fine.
-    }
-}
-
-// ---------- Counters ----------
-function initCounters() {
-    const elements = document.querySelectorAll('[data-counter]')
-    if (!elements.length) return
-
-    const animate = (element) => {
-        const target = Number.parseInt(element.dataset.counter || '0', 10)
-        if (!Number.isFinite(target)) return
-
-        const start = performance.now()
-        const duration = 1200
-        const frame = (now) => {
-            const progress = Math.min((now - start) / duration, 1)
-            const eased = 1 - Math.pow(1 - progress, 3)
-            element.textContent = Math.round(target * eased).toLocaleString()
-            if (progress < 1) requestAnimationFrame(frame)
-        }
-        requestAnimationFrame(frame)
-    }
-
-    if (!('IntersectionObserver' in window)) {
-        elements.forEach(animate)
-        return
-    }
-
-    const observer = new IntersectionObserver((entries) => {
+    const els = document.querySelectorAll('[data-reveal]')
+    if (!els.length) return
+    if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-visible')); return }
+    const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (!entry.isIntersecting) return
-            animate(entry.target)
-            observer.unobserve(entry.target)
+            if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target) }
         })
-    }, { threshold: 0.25 })
-    elements.forEach(element => observer.observe(element))
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    els.forEach((el) => io.observe(el))
 }
 
-// ---------- Offline status ----------
-function initOfflineStatus() {
-    if (!('connection' in navigator) || !document.body) return
-
-    const status = document.createElement('div')
-    status.id = 'net-status'
-    status.style.cssText = 'display:none;position:fixed;bottom:16px;right:16px;z-index:9999;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:500;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#34d399;'
-    document.body.appendChild(status)
-
-    const update = () => {
-        status.style.display = navigator.onLine ? 'none' : 'block'
-        status.textContent = navigator.onLine ? '' : 'Offline — some features may be limited.'
+function initCounters() {
+    const els = document.querySelectorAll('[data-counter]')
+    if (!els.length) return
+    const run = (el) => {
+        const target = parseInt(el.getAttribute('data-counter'), 10) || 0
+        const duration = 1400
+        const start = performance.now()
+        const step = (now) => {
+            const p = Math.min((now - start) / duration, 1)
+            const eased = 1 - Math.pow(1 - p, 3)
+            el.textContent = Math.round(target * eased).toLocaleString()
+            if (p < 1) requestAnimationFrame(step)
+        }
+        requestAnimationFrame(step)
     }
-    window.addEventListener('online', update)
-    window.addEventListener('offline', update)
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target) } })
+    }, { threshold: 0.4 })
+    els.forEach((el) => io.observe(el))
+}
+
+function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress')
+    if (!bar) return
+    const update = () => {
+        const h = document.documentElement
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1)
+        bar.style.width = `${Math.min(Math.max(scrolled, 0), 1) * 100}%`
+    }
+    window.addEventListener('scroll', update, { passive: true })
     update()
 }
 
+function initLightbox() {
+    const triggers = document.querySelectorAll('[data-lightbox]')
+    if (!triggers.length) return
+    const overlay = document.createElement('div')
+    overlay.className = 'fixed inset-0 z-[120] hidden items-center justify-center bg-black/85 p-4 backdrop-blur-sm'
+    overlay.innerHTML = '<img alt="" class="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl">'
+    const img = overlay.querySelector('img')
+    const close = () => { overlay.classList.add('hidden'); overlay.classList.remove('flex'); img.src = '' }
+    overlay.addEventListener('click', close)
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close() })
+    document.body.appendChild(overlay)
+    triggers.forEach((t) => t.addEventListener('click', (e) => {
+        e.preventDefault()
+        img.src = t.getAttribute('data-lightbox') || t.getAttribute('src') || t.querySelector('img')?.src || ''
+        overlay.classList.remove('hidden'); overlay.classList.add('flex')
+    }))
+}
+
 function initApp() {
-    initTheme()
-    initMobileMenu()
     initializeIcons()
     revealOnScroll()
-    initLightbox()
-    initHoverEffects()
-    initKeyboardShortcuts()
     initCounters()
-    initOfflineStatus()
-    initPageTransitions()
     initScrollProgress()
+    initLightbox()
     Alpine.start()
+    requestAnimationFrame(() => initializeIcons())
 }
 
 if (document.readyState === 'loading') {
@@ -311,68 +184,3 @@ if (document.readyState === 'loading') {
 } else {
     initApp()
 }
-
-// ---------- Global UI store (modal + toast) ----------
-Alpine.store('ui', {
-    open: false,
-    kind: null,
-    record: null,
-    openRecord(kind, record) {
-        this.open = true;
-        this.kind = kind;
-        this.record = record;
-    },
-    close() {
-        this.open = false;
-        this.record = null;
-        this.kind = null;
-    }
-});
-
-// ---------- HTML escaping helper ----------
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
-}[c]));
-
-// ---------- Testimonial slider ----------
-function testimonialSlider(data) {
-    return {
-        testimonials: data,
-        current: 0,
-        auto: null,
-        init() {
-            this.next();
-            this.auto = setInterval(() => this.next(), 6000);
-        },
-        destroyed() {
-            clearInterval(this.auto);
-        },
-        next() {
-            this.current = (this.current + 1) % this.testimonials.length;
-        },
-        prev() {
-            this.current = (this.current - 1 + this.testimonials.length) % this.testimonials.length;
-        }
-    };
-}
-
-// ---------- Toast notification ----------
-function toast(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `toast-pop show toast-${type}`;
-    toast.innerHTML = `
-        <div class="toast-ico"><i data-lucide="info"></i></div>
-        <div class="toast-msg"><p class="text-sm font-semibold text-white">MykaelTech</p><p class="text-xs text-slate-400">${esc(message)}</p></div>
-        <button class="toast-close-x" aria-label="Dismiss"><i data-lucide="x"></i></button>
-    `;
-    document.body.appendChild(toast);
-    requestAnimationFrame(() => toast.classList.add('show'));
-    if (typeof createIcons === 'function') createIcons();
-    toast.querySelector('.toast-close-x')?.addEventListener('click', () => toast.remove());
-}
-window.toast = toast;
-

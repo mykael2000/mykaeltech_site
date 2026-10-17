@@ -1,444 +1,381 @@
-{{-- MykaelTech — Homepage Redesign --}}
-{{-- Wrapped in the app layout component: renders head, Vite assets, header, main slot, footer. --}}
-
 <x-app-layout>
-    <x-slot name="title">Home — MykaelTech</x-slot>
+    <x-slot name="title">MykaelTech — Build. Learn. Belong.</x-slot>
+    <x-slot name="metaDescription">MykaelTech is a technology community: services, portfolio showcases, learning updates, tech facts and a CV builder for members.</x-slot>
 
-    <div id="main" tabindex="-1" class="sr-only-focusable">
+    {{-- ============ HERO ============ --}}
+    <section class="bg-glow relative overflow-hidden">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
-        {{-- Scroll progress --}}
-        <div id="scroll-progress" class="fixed top-0 left-0 h-1 w-0 bg-gradient-to-r from-brand-500 via-violet-500 to-brand-500 origin-top-left scale-x-0 scale-origin-left transition-transform z-[60]"></div>
+        <div class="page-shell relative grid items-center gap-14 py-20 md:py-28 lg:grid-cols-2">
+            <div class="text-center lg:text-left" data-reveal>
+                <span class="home-kicker"><i data-lucide="sparkles" class="h-4 w-4"></i> Welcome to the community</span>
 
-        {{-- Hero --}}
-        <section class="home-section relative overflow-hidden bg-glow min-h-[640px] md:min-h-[720px] flex items-center" id="hero" aria-labelledby="hero-heading">
-            <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-            <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-            <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
-            <div class="hero-grid" aria-hidden="true"></div>
+                <h1 class="mt-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+                    We build, learn and grow
+                    <span class="block h-[1.15em]">
+                        <span x-data="typewriter({{ \Illuminate\Support\Js::from(['innovative web apps','modern mobile experiences','open-source tools','the next big thing']) }})" x-init="start()" class="text-gradient"><span x-text="text"></span></span><span class="tw-caret" aria-hidden="true"></span>
+                    </span>
+                </h1>
 
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row gap-16 items-center w-full">
-                <div class="lg:w-1/2 [data-reveal]" style="transition-delay: 0.05s;">
-                    <div class="home-kicker inline-flex items-center gap-2 mb-6 text-brand-400 font-semibold uppercase tracking-wider text-sm">
-                        <i data-lucide="rocket" class="w-4 h-4"></i>
-                        <span>Building the future</span>
-                    </div>
-                    <h1 id="hero-heading" class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-7 text-white">
-                        <span class="block text-white">Next-gen</span>
-                        <span class="block mt-1 text-gradient">digital experiences</span>
-                        <span class="block mt-3 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white">
-                            <span x-data="typewriter(['for creators.', 'for builders.', 'for the web.'])" x-init="start()" class="inline-block">
-                                <span x-text="text"></span>
-                                <span class="tw-caret inline-block align-[-2px]"></span>
-                            </span>
-                        </span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-slate-400 leading-relaxed mb-10 max-w-lg">
-                        MykaelTech is a technology community for builders, designers, and engineers.
-                        Showcase your portfolio, publish learning updates, and grow with a network of makers.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="{{ route('contact') }}" class="btn btn-primary glass-strong text-white px-7 py-3.5 text-base font-semibold shadow-lg shadow-brand-500/25 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
-                            Start a Project <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i>
-                        </a>
-                        <a href="{{ route('portfolio') }}" class="btn glass px-7 py-3.5 text-base font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                            View Work
-                        </a>
-                    </div>
+                <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-400 lg:mx-0">
+                    A technology community where builders ship real projects, share what they learn, and lift each other up. Explore our services, browse the portfolio, and join the journey.
+                </p>
+
+                <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                    <a href="{{ route('portfolio') }}" class="btn btn-primary shine !px-7 !py-3 text-base">Explore portfolio <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    <a href="{{ route('join') }}" class="btn !border !border-white/10 !bg-white/5 !px-7 !py-3 text-base text-white hover:!bg-white/10">Join the community</a>
                 </div>
 
-                <div class="lg:w-1/2 flex justify-center [data-reveal]" style="transition-delay: 0.2s;">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute inset-0 bg-brand-500/10 rounded-2xl blur-3xl"></div>
-                        <div class="relative rounded-2xl border border-white/10 bg-ink-900/50 p-1 shadow-2xl shadow-black/40">
-                            <div class="grid grid-cols-3 gap-1">
-                                <div class="bg-white/5 rounded-lg aspect-square"></div>
-                                <div class="bg-brand-500/20 rounded-lg aspect-square"></div>
-                                <div class="bg-white/5 rounded-lg aspect-square"></div>
-                                <div class="bg-violet-500/20 rounded-lg aspect-square"></div>
-                                <div class="bg-brand-500/10 rounded-lg aspect-square"></div>
-                                <div class="bg-white/5 rounded-lg aspect-square"></div>
-                                <div class="bg-white/5 rounded-lg aspect-square"></div>
-                                <div class="bg-brand-500/15 rounded-lg aspect-square"></div>
-                                <div class="bg-white/10 rounded-lg aspect-square"></div>
-                            </div>
+                <div class="mt-10 flex items-center justify-center gap-8 text-sm text-slate-400 lg:justify-start">
+                    <div class="flex items-center gap-2"><i data-lucide="users" class="h-4 w-4 text-brand-400"></i><span><strong class="font-semibold text-white">{{ number_format($membersCount) }}+</strong> members</span></div>
+                    <div class="flex items-center gap-2"><i data-lucide="layers-3" class="h-4 w-4 text-brand-400"></i><span><strong class="font-semibold text-white">{{ $projects->count() }}+</strong> projects</span></div>
+                </div>
+            </div>
+
+            <div class="relative hidden lg:block" data-reveal>
+                <div class="float-card glass shine relative rounded-3xl p-6">
+                    <div class="flex items-center gap-3">
+                        <span class="pro-icon !h-11 !w-11"><i data-lucide="rocket" class="h-5 w-5"></i></span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Shipped this week</p>
+                            <p class="text-xs text-slate-400">Portfolio · Community · Learn</p>
                         </div>
                     </div>
+                    <div class="mt-5 space-y-3">
+                        <div class="h-2.5 w-full rounded-full bg-white/5"></div>
+                        <div class="h-2.5 w-4/5 rounded-full bg-brand-500/30"></div>
+                        <div class="h-2.5 w-3/5 rounded-full bg-violet-500/30"></div>
+                    </div>
+                </div>
+                <div class="float-card float-card-delay glass absolute -bottom-8 -left-10 w-56 rounded-2xl p-5">
+                    <div class="flex items-center gap-2 text-brand-300"><i data-lucide="zap" class="h-4 w-4"></i><span class="text-xs font-semibold uppercase tracking-widest">Community</span></div>
+                    <p class="mt-2 text-2xl font-bold text-white">{{ number_format($membersCount) }}+</p>
+                    <p class="text-xs text-slate-400">active builders</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            {{-- Animated stats band --}}
-            <div class="mt-14 flex flex-wrap gap-6 md:gap-8 -mx-2 overflow-hidden">
-                <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.35s;">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="1200">0</div>
-                    <div class="text-sm text-slate-400 uppercase tracking-wider">Hours logged</div>
-                </div>
-                <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.45s;">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="850">0</div>
-        {{-- Tech marquee --}}
-        <section class="home-section border-y border-white/5 bg-ink-900/40">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></div>
-                    <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Tech stack</h2>
-                </div>
-                <div class="overflow-hidden">
-                    <div class="inline-flex animate-marquee gap-8 md:gap-12 whitespace-nowrap">
-                        <span class="text-sm text-slate-400 font-medium">HTML5</span>
-                        <span class="text-sm text-slate-400 font-medium">CSS3</span>
-                        <span class="text-sm text-slate-400 font-medium">JavaScript</span>
-                        <span class="text-sm text-brand-400 font-medium">Tailwind CSS</span>
-                        <span class="text-sm text-slate-400 font-medium">Alpine.js</span>
-                        <span class="text-sm text-slate-400 font-medium">Laravel</span>
-                        <span class="text-sm text-purple-400 font-medium">PHP</span>
-                        <span class="text-sm text-slate-400 font-medium">MySQL</span>
-                        <span class="text-sm text-brand-400 font-medium">Vite</span>
-                        <span class="text-sm text-slate-400 font-medium">Git</span>
-                        <span class="text-sm text-emerald-400 font-medium">Docker</span>
-                        <span class="text-sm text-slate-400 font-medium">Figma</span>
-                    </div>
-                </div>
+    {{-- ============ TECH MARQUEE ============ --}}
+    @php $tech = ['Laravel', 'PHP', 'JavaScript', 'Tailwind CSS', 'Alpine.js', 'React', 'Node.js', 'MySQL', 'Git', 'Docker', 'Figma', 'Flutter']; @endphp
+    <section class="border-y border-white/5 bg-ink-900/40 py-6">
+        <div class="marquee">
+            <div class="marquee-track">
+                @foreach (array_merge($tech, $tech) as $t)
+                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>{{ $t }}</span>
+                @endforeach
             </div>
-        </section>
-        {{-- Services --}}
-        <section class="home-section py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="text-center [data-reveal]" style="transition-delay: 0.1s;">
-                    <h2 class="home-kicker inline-flex items-center gap-2 mb-4 text-brand-400 font-semibold uppercase tracking-wider text-sm">
-                        <i data-lucide="zap" class="w-4 h-4"></i>
-                        <span>What we build</span>
-                    </h2>
-                    <h3 class="section-title text-3xl sm:text-4xl font-bold text-white mb-2">Services</h3>
-                    <p class="text-slate-400 max-w-2xl mx-auto mt-3">From idea to production — custom web applications, community platforms, and developer tools tailored to your goals.</p>
-                </div>
+        </div>
+    </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-                    @php
-                        $services = [
-                            ['title' => 'Web Applications', 'desc' => 'Modern, responsive web apps built with Laravel and Tailwind. Fast, secure, and scalable.', 'icon' => 'monitor'],
-                            ['title' => 'Community Platforms', 'desc' => 'Member portals, event hubs, and learning communities where builders connect and grow.', 'icon' => 'users'],
-                            ['title' => 'Developer Tools', 'desc' => 'CV generators, portfolio showcases, and productivity tools for developers and designers.', 'icon' => 'tool'],
-                        ];
-                    @endphp
-                    @foreach ($services as $service)
-                        <div class="card-hover p-8 rounded-3xl border border-white/10 bg-ink-900/50 [data-reveal]" style="transition-delay: {{ $loop->index * 0.1 }}s;">
-                            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 mb-6">
-                                <i data-lucide="{{ $service['icon'] }}" class="w-5 h-5"></i>
-                            </div>
-                            <h4 class="text-xl font-bold text-white mb-3">{{ $service['title'] }}</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">{{ $service['desc'] }}</p>
-                        </div>
-                    @endforeach
-                </div>
+    {{-- ============ STATS ============ --}}
+    <section class="page-shell page-section">
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="users" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="{{ $membersCount }}">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Community members</p>
             </div>
-        {{-- Featured Projects --}}
-        <section class="home-section py-24 border-y border-white/5 bg-ink-900/30">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between mb-10 [data-reveal]" style="transition-delay: 0.1s;">
-                    <div>
-                        <h2 class="section-title text-3xl sm:text-4xl font-bold text-white mb-2">Featured Projects</h2>
-                        <p class="text-slate-400">A selection of work from the MykaelTech community.</p>
-                    </div>
-                    <a href="{{ route('portfolio') }}" class="btn glass text-sm font-semibold hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                        View all <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1"></i>
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @php
-                        $projects = [
-                            [
-                                'title' => 'DevFolio',
-                                'desc' => 'A portfolio platform for developers to showcase projects and track learning progress.',
-                                'status_label' => 'Live',
-                                'technologies' => ['Laravel', 'Tailwind', 'Alpine.js'],
-                                'slug' => 'devfolio',
-                                'external_url' => 'https://example.com/devfolio',
-                                'github_url' => 'https://github.com/example/devfolio',
-                            ],
-                            [
-                                'title' => 'LearnHub',
-                                'desc' => 'Community learning portal with course tracking, badges, and member discussions.',
-                                'status_label' => 'Beta',
-                                'technologies' => ['Laravel', 'Livewire', 'Alpine.js'],
-                                'slug' => 'learnhub',
-                                'external_url' => null,
-                                'github_url' => 'https://github.com/example/learnhub',
-                            ],
-                            [
-                                'title' => 'CV Forge',
-                                'desc' => 'Instant CV generator with multiple templates, export to PDF, and online publishing.',
-                                'status_label' => 'Live',
-                                'technologies' => ['Laravel', 'Tailwind', 'Alpine.js'],
-                                'slug' => 'cvforge',
-                                'external_url' => 'https://example.com/cvforge',
-                                'github_url' => null,
-                            ],
-                        ];
-                    @endphp
-                    @foreach ($projects as $project)
-                        <article
-                            class="group relative p-6 rounded-3xl border border-white/10 bg-ink-900/50 hover:border-brand-500/50 hover:bg-ink-800/50 transition-all card-hover [data-reveal]"
-                            style="transition-delay: {{ $loop->index * 0.08 }}s;"
-                        >
-                            <div class="flex justify-between items-start mb-5">
-                                <span class="text-xs font-semibold uppercase tracking-wider text-brand-400">{{ $project['status_label'] }}</span>
-                                <button @click="ui.openRecord('project', '{{ $project['slug'] }}')" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Quick view">
-                                    <i data-lucide="eye" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition">{{ $project['title'] }}</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-5">{{ $project['desc'] }}</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                @foreach ((array) $project['technologies'] as $tech)
-                                    <span class="px-2.5 py-1 rounded bg-white/5 text-xs text-slate-300 border border-white/5">{{ $tech }}</span>
-                                @endforeach
-                            </div>
-                            <div class="flex gap-3">
-                                @if($project['external_url'])
-                                    <a href="{{ $project['external_url'] }}" target="_blank" rel="noopener noreferrer" class="flex-1 btn btn-primary text-center py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">Live demo</a>
-                                @else
-                                    <button class="flex-1 btn glass text-center py-2 text-xs font-semibold text-slate-500 border-slate-700/50 cursor-not-allowed opacity-60" disabled>Live demo</button>
-                                @endif
-                                @if($project['github_url'])
-                                    <a href="{{ $project['github_url'] }}" target="_blank" rel="noopener noreferrer" class="flex-1 btn glass text-center py-2 text-xs font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">GitHub</a>
-                                @endif
-                            </div>
-                        </article>
-                    @endforeach
-                </div>
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="layers-3" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="{{ $projects->count() + 40 }}">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Projects delivered</p>
             </div>
-        {{-- Testimonials Slider --}}
-        <section class="home-section py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="text-center [data-reveal]" style="transition-delay: 0.1s;">
-                    <h2 class="home-kicker inline-flex items-center gap-2 mb-4 text-brand-400 font-semibold uppercase tracking-wider text-sm">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>What members say</span>
-                    </h2>
-                    <h3 class="section-title text-3xl sm:text-4xl font-bold text-white mb-8">Testimonials</h3>
-                </div>
-
-                <div x-data="testimonialSlider()" class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500 ease-in-out" x-bind:style="`transform: translateX(-${current * 100}%)`">
-                        <template x-for="(testimonial, index) in testimonials" :key="index">
-                            <div class="min-w-full flex items-center justify-center px-4">
-                                <div class="max-w-2xl text-center [data-reveal]" :style="`transition-delay: ${0.1 + index * 0.05}s`">
-                                    <div class="flex justify-center mb-6">
-                                        <template x-for="n in 5" :key="n">
-                                            <i data-lucide="star" class="w-4 h-4 text-brand-400 fill-current"></i>
-                                        </template>
-                                    </div>
-                                    <p class="text-lg text-slate-300 leading-relaxed mb-6 italic">"<span x-text="testimonial.text"></span>"</p>
-                                    <div class="flex items-center justify-center gap-3">
-                                        <img :src="testimonial.avatar" :alt="testimonial.name" class="w-10 h-10 rounded-full border border-white/10 object-cover">
-                                        <div class="text-left">
-                                            <h4 class="text-sm font-bold text-white" x-text="testimonial.name"></h4>
-                                            <p class="text-xs text-slate-500" x-text="testimonial.role"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-
-                    <div class="flex justify-center mt-8 gap-2">
-                        <template x-for="n in testimonials.length" :key="n">
-                            <button @click="current = n - 1" :class="current === n - 1 ? 'bg-brand-500 w-6' : 'bg-white/10 w-3'" class="h-1.5 rounded-full transition hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-brand-500/30"></button>
-                        </template>
-                    </div>
-
-                    <button @click="prev()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Previous">
-                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                    </button>
-                    <button @click="next()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Next">
-                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="book-open" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="{{ $posts->count() + 60 }}">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Learning posts</p>
             </div>
-        </section>
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="calendar-days" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="25">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Events hosted</p>
+            </div>
+        </div>
+    </section>
 
-        {{-- CTA Band --}}
-        <section class="home-section py-20">
-            <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center [data-reveal]" style="transition-delay: 0.1s;">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to start your next project?</h2>
-                <p class="text-slate-400 mb-8 text-lg">Join 800+ builders in the MykaelTech community. Get help, share your work, and grow together.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('contact') }}" class="flex-1 btn btn-primary glass-strong text-white px-8 py-4 text-base font-semibold shadow-lg shadow-brand-500/25 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
-                        Start a Project <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i>
-                    </a>
-                    <a href="{{ route('join') }}" class="flex-1 btn glass text-center px-8 py-4 text-base font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                        Join free
-        {{-- Project quick-view modals --}}
-        @foreach ($projects as $project)
-            <div
-                x-show="ui.open && ui.kind === 'project' && ui.record === '{{ $project['slug'] }}'"
-                x-transition:enter="transition-opacity ease-out duration-300"
-                x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100"
-                x-transition:leave="transition-opacity ease-in duration-200"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
-                @click.outside="ui.close()"
-                aria-modal="true" role="dialog"
-            >
-                <div
-                    x-show="ui.open && ui.kind === 'project' && ui.record === '{{ $project['slug'] }}'"
-                    x-transition:enter="transition-opacity ease-out duration-300"
-                    x-transition:enter-start="opacity-0"
-                    x-transition:enter-end="opacity-100"
-                    x-transition:leave="transition-opacity ease-in duration-200"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
-                    @click="ui.close()"
-                    aria-hidden="true"
-                ></div>
-                <div
-                    x-show="ui.open && ui.kind === 'project' && ui.record === '{{ $project['slug'] }}'"
-                    x-transition:enter="transition ease-out duration-300"
-                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
-                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                    x-transition:leave="transition ease-in duration-200"
-                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
-                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
-                    @click.stop
-                >
-                    <div class="flex justify-between items-start mb-6">
-                        <h3 class="text-xl font-bold text-white">{{ $project['title'] }}</h3>
-                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
-                            <i data-lucide="x" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">{{ $project['desc'] }}</p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
-                            <span class="text-slate-400">Status</span>
-                            <span class="font-semibold text-brand-400">{{ $project['status_label'] }}</span>
-                        </div>
-                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
-                            <span class="text-slate-400">Technologies</span>
-                            <span class="font-semibold text-white">
-                                @foreach ((array) $project['technologies'] as $tech) {{ $tech }} @if(!$loop->last), @endif @endforeach
-                            </span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
-                        @if($project['external_url'])
-                            <a href="{{ $project['external_url'] }}" target="_blank" rel="noopener noreferrer" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
-                                Live demo <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1.5"></i>
-                            </a>
-                        @else
-                            <button class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-500 border-slate-700/50 cursor-not-allowed opacity-60" disabled>
-                                Live demo
+    {{-- ============ SERVICES ============ --}}
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="layers-3" class="h-4 w-4"></i> What we do</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Services built for modern teams</h2>
+            </div>
+            <a href="{{ route('services') }}" class="pro-link !mt-0">All services <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+
+        <div class="page-grid md:grid-cols-2 lg:grid-cols-3">
+            @forelse ($services as $service)
+                <a href="{{ route('services.show', $service->slug) }}" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">{{ $service->title }}</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{{ $service->excerpt }}</p>
+                    @if ($service->starting_price)
+                        <p class="mt-4 text-sm font-semibold text-brand-300">From {{ $service->starting_price }}</p>
+                    @endif
+                    <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+            @empty
+                <p class="text-slate-400">Services coming soon.</p>
+            @endforelse
+        </div>
+    </section>
+
+
+    {{-- ============ FEATURED PROJECTS ============ --}}
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="rocket" class="h-4 w-4"></i> Featured work</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Projects we're proud of</h2>
+            </div>
+            <a href="{{ route('portfolio') }}" class="pro-link !mt-0">Full portfolio <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+
+        <div class="page-grid md:grid-cols-2 lg:grid-cols-3">
+            @forelse ($projects as $project)
+                @php $cover = $project->cover_photo ?? $project->image_path ?? null; @endphp
+                <article class="card-hover group glass overflow-hidden rounded-2xl" data-reveal>
+                    <div class="relative h-44 w-full overflow-hidden bg-gradient-to-br from-brand-600/30 via-ink-800 to-violet-600/30">
+                        @if ($cover)
+                            <button type="button" class="h-full w-full" data-lightbox="{{ $cover }}" aria-label="View {{ $project->title }} image">
+                                <img src="{{ $cover }}" alt="{{ $project->title }}" loading="lazy" class="hover-zoom h-full w-full object-cover">
                             </button>
+                        @else
+                            <div class="flex h-full w-full items-center justify-center">
+                                <i data-lucide="{{ $project->category === 'Mobile' ? 'smartphone' : ($project->category === 'Web' ? 'monitor' : 'bar-chart-3') }}" class="h-10 w-10 text-brand-300"></i>
+                            </div>
                         @endif
-                        @if($project['github_url'])
-                            <a href="{{ $project['github_url'] }}" target="_blank" rel="noopener noreferrer" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">
-                                <i data-lucide="github" class="w-3.5 h-3.5 mr-1.5"></i> GitHub
-                            </a>
-                        @endif
+                        <span class="absolute left-3 top-3 rounded-full bg-ink-950/80 px-3 py-1 text-xs font-semibold text-brand-300 backdrop-blur">{{ $project->category }}</span>
                     </div>
-                </div>
-            </div>
-        @endforeach
-        {{-- Contact / Quote modal --}}
-        <div
-            x-show="ui.open && ui.kind === 'contact'"
-            x-transition:enter="transition-opacity ease-out duration-300"
-            x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100"
-            x-transition:leave="transition-opacity ease-in duration-200"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0"
-            class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
-            @click.outside="ui.close()"
-            aria-modal="true" role="dialog"
-        >
-            <div
-                x-show="ui.open && ui.kind === 'contact'"
-                x-transition:enter="transition-opacity ease-out duration-300"
-                x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100"
-                x-transition:leave="transition-opacity ease-in duration-200"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
-                @click="ui.close()"
-                aria-hidden="true"
-            ></div>
-            <div
-                x-show="ui.open && ui.kind === 'contact'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
-                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                x-transition:leave="transition ease-in duration-200"
-                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
-                class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
-                @click.stop
-            >
-                <div class="flex justify-between items-start mb-7">
-                    <h3 class="text-xl font-bold text-white">Get a Quote</h3>
-                    <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
-                        <i data-lucide="x" class="w-5 h-5"></i>
-                    </button>
-                </div>
-                <p class="text-slate-400 text-sm leading-relaxed mb-7">Tell us about your project and we'll get back to you within one business day.</p>
-                <form method="POST" action="{{ route('contact.store') }}" class="space-y-4">
-                    @csrf
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Name</label>
-                        <input type="text" name="name" required class="w-full rounded-lg border border-white/10 bg-ink-950/50 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/20" placeholder="Your name">
+                    <div class="page-card">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-300">{{ $project->title }}</h3>
+                        <p class="mt-2 line-clamp-2 text-sm text-slate-400">{{ Str::limit($project->excerpt ?? $project->short_description, 120) }}</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            @foreach (array_slice($project->technologies ?? $project->tech_stack ?? [], 0, 4) as $tech)
+                                <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">{{ $tech }}</span>
+                            @endforeach
+                        </div>
+                        <a href="{{ route('portfolio.show', $project->slug) }}" class="pro-link">Case study <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full rounded-lg border border-white/10 bg-ink-950/50 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/20" placeholder="you@example.com">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">What are you building?</label>
-                        <textarea name="message" required rows="4" class="w-full rounded-lg border border-white/10 bg-ink-950/50 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/20" placeholder="Briefly describe your project..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full btn btn-primary py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">Send message</button>
-                </form>
-                <p class="mt-6 text-xs text-slate-500 text-center">Protected by reCAPTCHA — Privacy Policy · Terms of Service</p>
-            </div>
+                </article>
+            @empty
+                <p class="text-slate-400">Featured projects coming soon.</p>
+            @endforelse
         </div>
-        {{-- Once-per-session promo pop-up --}}
-        <div
-            x-data="{ promoOpen: (() => { try { return localStorage.getItem('mt_promo_dismissed') === '1'; } catch(e) { return true; } })() }"
-            x-init="
-                if (!promoOpen) {
-                    setTimeout(() => { promoOpen = true; }, 2500);
-                }
-            "
-        >
-            <div
-                x-show="promoOpen"
-                x-transition:enter="transition ease-out duration-500"
-                x-transition:enter-start="opacity-0 translate-y-10"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 translate-y-0"
-                x-transition:leave-end="opacity-0 translate-y-10"
-                class="fixed bottom-6 right-6 z-[100] glass-strong rounded-2xl border border-brand-500/30 p-5 md:p-7 max-w-xs w-full shadow-2xl shadow-brand-500/10"
-            >
-                <div class="flex gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-400 shrink-0">
-                        <i data-lucide="gift" class="w-5 h-5"></i>
-                    </div>
-                    <div class="flex flex-col leading-tight">
-                        <h4 class="text-sm font-bold text-white">Free community access</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed mt-0.5">Join 800+ builders. Get early access to events, project showcases, and the CV generator.</p>
-                    </div>
-                </div>
-                <div class="mt-5 flex flex-col sm:flex-row gap-3 pt-4 border-t border-white/10">
-                    <a href="{{ route('join') }}" class="flex-1 btn btn-primary text-center py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">Join free</a>
-                    <button @click="promoOpen = false; try { localStorage.setItem('mt_promo_dismissed', '1'); } catch(e) {}" class="btn glass text-center py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">Maybe later</button>
-                </div>
+    </section>
+
+    {{-- ============ LEARN / POSTS ============ --}}
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="book-open" class="h-4 w-4"></i> From the blog</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Latest learning updates</h2>
             </div>
+            <a href="{{ route('learn') }}" class="pro-link !mt-0">Read more <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
         </div>
 
-    </div>
+        <div class="page-grid md:grid-cols-3">
+            @forelse ($posts as $post)
+                <a href="{{ route('learn.show', $post->slug) }}" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <span class="w-fit rounded-full bg-violet-500/15 px-2.5 py-1 text-xs font-semibold text-violet-300">{{ $post->type_label }}</span>
+                    <h3 class="mt-4 text-lg font-bold text-white group-hover:text-brand-300">{{ $post->title }}</h3>
+                    <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">{{ Str::limit($post->excerpt, 130) }}</p>
+                    <div class="mt-4 flex items-center gap-3 text-xs text-slate-500">
+                        <span>{{ $post->user?->name ?? 'MykaelTech' }}</span> ·
+                        <time datetime="{{ optional($post->published_at)->toDateString() }}">{{ optional($post->published_at)->format('M j, Y') }}</time> ·
+                        <span>{{ $post->views }} views</span>
+                    </div>
+                </a>
+            @empty
+                <p class="text-slate-400">No posts yet.</p>
+            @endforelse
+        </div>
+    </section>
+
+
+    {{-- ============ TECH FACTS ============ --}}
+    @if ($facts->isNotEmpty())
+    <section class="border-y border-white/5 bg-ink-900/40 page-section">
+        <div class="page-shell">
+            <div class="mb-10 text-center" data-reveal>
+                <span class="home-kicker"><i data-lucide="lightbulb" class="h-4 w-4"></i> Did you know?</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Tech facts worth knowing</h2>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach ($facts as $fact)
+                    <div class="glass card-hover rounded-2xl p-5" data-reveal>
+                        <i data-lucide="zap" class="h-5 w-5 text-brand-400"></i>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">{{ $fact->fact }}</p>
+                        @if ($fact->source_url)
+                            <a href="{{ $fact->source_url }}" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-300 hover:underline">Source <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></a>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+
+    {{-- ============ TESTIMONIALS ============ --}}
+    @if ($testimonials->isNotEmpty())
+    <section class="page-shell page-section">
+        <div class="mb-10 text-center" data-reveal>
+            <span class="home-kicker"><i data-lucide="quote" class="h-4 w-4"></i> Testimonials</span>
+            <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">What members say</h2>
+        </div>
+
+        <div class="mx-auto max-w-3xl" data-reveal
+             x-data="testimonialSlider({{ \Illuminate\Support\Js::from($testimonials->map(fn ($t) => ['content' => $t->content, 'author_name' => $t->author_name, 'author_role' => $t->author_role, 'company' => $t->company, 'rating' => $t->rating])->values()->all()) }})">
+            <div class="glass relative rounded-3xl p-8 text-center sm:p-10">
+                <i data-lucide="quote" class="mx-auto h-8 w-8 text-brand-500/50"></i>
+                <template x-if="testimonials.length">
+                    <div>
+                        <p class="mt-5 text-lg leading-relaxed text-slate-300" x-text="`“${testimonials[current].content}”`"></p>
+                        <div class="mt-6 flex items-center justify-center gap-1" x-show="testimonials[current].rating">
+                            <template x-for="n in 5" :key="n">
+                                <i data-lucide="star" class="h-4 w-4" :class="(n <= (testimonials[current].rating || 0)) ? 'fill-amber-400 text-amber-400' : 'text-slate-600'"></i>
+                            </template>
+                        </div>
+                        <div class="mt-5">
+                            <p class="font-semibold text-white" x-text="testimonials[current].author_name"></p>
+                            <p class="text-sm text-slate-400" x-text="[testimonials[current].author_role, testimonials[current].company].filter(Boolean).join(' · ')"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="mt-6 flex items-center justify-center gap-4">
+                <button type="button" @click="prev()" class="btn !border !border-white/10 !bg-white/5 !p-2.5 text-white hover:!bg-white/10" aria-label="Previous testimonial"><i data-lucide="chevron-left" class="h-5 w-5"></i></button>
+                <span class="text-sm text-slate-400"><span x-text="current + 1"></span> / <span x-text="testimonials.length"></span></span>
+                <button type="button" @click="next()" class="btn !border !border-white/10 !bg-white/5 !p-2.5 text-white hover:!bg-white/10" aria-label="Next testimonial"><i data-lucide="chevron-right" class="h-5 w-5"></i></button>
+            </div>
+        </div>
+    </section>
+    @endif
+
+
+    {{-- ============ EVENTS ============ --}}
+    @if ($events->isNotEmpty())
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="calendar-days" class="h-4 w-4"></i> Upcoming</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Events & meetups</h2>
+            </div>
+            <a href="{{ route('community') }}" class="pro-link !mt-0">Community <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+        <div class="page-grid md:grid-cols-3">
+            @foreach ($events as $event)
+                <article class="glass card-hover rounded-2xl page-card" data-reveal>
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-gradient-to-br from-brand-600/30 to-violet-600/30 text-white">
+                            <span class="text-lg font-extrabold leading-none">{{ optional($event->starts_at)->format('d') }}</span>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider">{{ optional($event->starts_at)->format('M') }}</span>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="truncate text-base font-bold text-white">{{ $event->title }}</h3>
+                            <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400"><i data-lucide="map-pin" class="h-3.5 w-3.5"></i>{{ $event->location ?? 'Online' }}</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-400">{{ $event->description }}</p>
+                    @if ($event->registration_url)
+                        <a href="{{ $event->registration_url }}" target="_blank" rel="noopener" class="pro-link">Register <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    @endif
+                </article>
+            @endforeach
+        </div>
+    </section>
+    @endif
+
+    {{-- ============ COMMUNITY CTA (promo modal) ============ --}}
+    <section class="page-shell page-section" data-reveal>
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand-600/20 via-ink-900 to-violet-600/20 p-10 text-center sm:p-14">
+            <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+            <div class="relative">
+                <span class="home-kicker"><i data-lucide="users" class="h-4 w-4"></i> Join us</span>
+                <h2 class="mt-4 text-3xl font-extrabold text-white sm:text-4xl">Ready to build in public?</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+                    Create a free account to publish your portfolio, share learning updates and generate a polished CV — all in one place.
+                </p>
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                    <a href="{{ route('join') }}" class="btn btn-primary shine !px-7 !py-3 text-base">Create free account <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    <button type="button"
+                            @click="$store.ui.openRecord('promo', { title: 'MykaelTech membership', body: 'Members get a public portfolio, a CV generator, learning updates, community events and a profile at /cv/your-username — free, no credit card required.' })"
+                            class="btn !border !border-white/10 !bg-white/5 !px-7 !py-3 text-base text-white hover:!bg-white/10">
+                        <i data-lucide="gift" class="h-4 w-4"></i> What's included?
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{-- ============ CONTACT + NEWSLETTER ============ --}}
+    <section class="page-shell page-section grid gap-6 lg:grid-cols-2">
+        {{-- Quick contact --}}
+        <div class="glass rounded-3xl p-8 sm:p-10" data-reveal>
+            <span class="home-kicker"><i data-lucide="send" class="h-4 w-4"></i> Get in touch</span>
+            <h2 class="mt-4 text-2xl font-extrabold text-white sm:text-3xl">Have a project in mind?</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">Tell us what you're building and we'll get back to you within 24 hours. Or reach us directly via the contact page.</p>
+
+            <form method="POST" action="{{ route('contact.store') }}" class="mt-7 space-y-4">
+                @csrf
+                <div class="hidden" aria-hidden="true">
+                    <label for="home-website">Website</label>
+                    <input type="text" id="home-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                        <label for="home-name" class="label">Name *</label>
+                        <input type="text" id="home-name" name="name" value="{{ old('name') }}" required maxlength="120" class="input" placeholder="Your name">
+                        @error('name')<p class="mt-1 text-sm text-rose-400">{{ $message }}</p>@enderror
+                    </div>
+                    <div>
+                        <label for="home-email" class="label">Email *</label>
+                        <input type="email" id="home-email" name="email" value="{{ old('email') }}" required maxlength="190" class="input" placeholder="you@example.com">
+                        @error('email')<p class="mt-1 text-sm text-rose-400">{{ $message }}</p>@enderror
+                    </div>
+                </div>
+                <div>
+                    <label for="home-subject" class="label">Subject</label>
+                    <input type="text" id="home-subject" name="subject" value="{{ old('subject') }}" maxlength="190" class="input" placeholder="How can we help?">
+                    @error('subject')<p class="mt-1 text-sm text-rose-400">{{ $message }}</p>@enderror
+                </div>
+                <div>
+                    <label for="home-message" class="label">Message *</label>
+                    <textarea id="home-message" name="message" rows="4" required maxlength="5000" class="input resize-y" placeholder="Tell us a little about your project…">{{ old('message') }}</textarea>
+                    @error('message')<p class="mt-1 text-sm text-rose-400">{{ $message }}</p>@enderror
+                </div>
+                <button type="submit" class="btn btn-primary shine w-full !py-3">Send message <i data-lucide="send" class="h-4 w-4"></i></button>
+            </form>
+        </div>
+
+        {{-- Newsletter --}}
+        <div class="glass flex flex-col rounded-3xl p-8 sm:p-10" data-reveal>
+            <span class="home-kicker"><i data-lucide="bell" class="h-4 w-4"></i> Newsletter</span>
+            <h2 class="mt-4 text-2xl font-extrabold text-white sm:text-3xl">Stay in the loop</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">Learning updates, tech facts and community news — straight to your inbox. No spam, unsubscribe anytime.</p>
+
+            <form method="POST" action="{{ route('newsletter.subscribe') }}" class="mt-7">
+                @csrf
+                <label for="home-newsletter" class="label">Email address</label>
+                <div class="flex gap-3">
+                    <input type="email" id="home-newsletter" name="email" value="{{ old('email') }}" required maxlength="190" class="input flex-1" placeholder="you@example.com">
+                    <button type="submit" class="btn btn-primary !px-5">Subscribe</button>
+                </div>
+                @error('email')<p class="mt-2 text-sm text-rose-400">{{ $message }}</p>@enderror
+            </form>
+
+            <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Weekly digest</div>
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Event invites</div>
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Tutorials & tips</div>
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Portfolio features</div>
+            </div>
+        </div>
+    </section>
 </x-app-layout>
+
