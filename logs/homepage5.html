@@ -1,0 +1,1630 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="VeXoem6RbEjOFsN6XlniSdFep0hRxS7XZACzajrM">
+
+    <title>Home — MykaelTech — MykaelTech </title>
+    <meta name="description" content=" MykaelTech is a technology community: services, portfolio showcases, learning updates, tech facts and a CV builder for members. ">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MykaelTech">
+    <meta property="og:title" content="Home — MykaelTech ">
+    <meta property="og:description" content=" Join a growing community of builders. Showcase your portfolio, publish learning updates, and generate a polished CV. ">
+    <meta property="og:url" content="http://127.0.0.1:8000">
+
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20d%3D%22M24%202.5%2042.5%2013v22L24%2045.5%205.5%2035V13L24%202.5Z%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%223%22%20fill%3D%22rgba%2814%2C165%2C233%2C0.15%29%22%2F%3E%3Cpath%20d%3D%22M14%2032V17.5l5.5%208%204.5-8%204.5%208%205.5-8V32%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%223.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+
+    <script type="module" src="http://127.0.0.1:5173/@vite/client" data-navigate-track="reload"></script><link rel="stylesheet" href="http://127.0.0.1:5173/resources/css/app.css" data-navigate-track="reload" /><script type="module" src="http://127.0.0.1:5173/resources/js/app.js" data-navigate-track="reload"></script></head>
+<body class="min-h-screen bg-ink-950 antialiased" x-data="{
+    mobileOpen: false,
+    toastMessage: null}" x-init="
+    $nextTick(() => {
+        if (toastMessage) setTimeout(() => toastMessage = null, 4000);
+    });
+    $watch('mobileOpen', (val) => {
+        document.documentElement.classList.toggle('mobile-menu-open', val);
+    });
+">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
+
+    <header class="sticky top-0 z-50 border-b border-white/5 bg-ink-950/80 backdrop-blur-lg">
+        <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main">
+            <a href="http://127.0.0.1:8000" class="flex items-center" aria-label="MykaelTech home">
+                <span class="inline-flex items-center gap-2.5 select-none">
+    
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" aria-hidden="true">
+        <defs>
+            <linearGradient id="mt-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#22D3EE"/>
+                <stop offset="0.55" stop-color="#0EA5E9"/>
+                <stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+        </defs>
+        <path d="M24 2.5 42.5 13v22L24 45.5 5.5 35V13L24 2.5Z" stroke="url(#mt-grad)" stroke-width="3" fill="rgba(14,165,233,0.08)"/>
+        <path d="M14 32V17.5l5.5 8 4.5-8 4.5 8 5.5-8V32" stroke="url(#mt-grad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="24" cy="8.6" r="2" fill="#22D3EE"/>
+        <circle cx="39.5" cy="17.6" r="1.7" fill="#8B5CF6"/>
+        <circle cx="8.5" cy="17.6" r="1.7" fill="#0EA5E9"/>
+    </svg>
+            <span class="text-xl font-bold tracking-tight text-white">
+            Mykael<span class="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Tech</span>
+        </span>
+    </span>
+            </a>
+
+            <div class="hidden items-center gap-1 md:flex">
+                                    <a href="http://127.0.0.1:8000/services"
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">
+                        Services
+                    </a>
+                                    <a href="http://127.0.0.1:8000/portfolio"
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">
+                        Portfolio
+                    </a>
+                                    <a href="http://127.0.0.1:8000/learn"
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">
+                        Learn
+                    </a>
+                                    <a href="http://127.0.0.1:8000/community"
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">
+                        Community
+                    </a>
+                                    <a href="http://127.0.0.1:8000/team"
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">
+                        Team
+                    </a>
+                                    <a href="http://127.0.0.1:8000/contact"
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">
+                        Contact
+                    </a>
+                            </div>
+            <div class="hidden items-center gap-3 md:flex">
+                                    <a href="http://127.0.0.1:8000/login" class="text-sm font-medium text-slate-300 transition hover:text-white">Log in</a>
+                    <a href="http://127.0.0.1:8000/join" class="rounded-lg bg-gradient-to-r from-brand-500 to-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition hover:from-brand-400 hover:to-violet-500">
+                        Join Community
+                    </a>
+                            </div>
+
+            <button class="rounded-lg p-2 text-slate-300 hover:bg-white/10 md:hidden" x-on:click="mobileOpen = ! mobileOpen" aria-label="Toggle menu" :aria-expanded="mobileOpen">
+                <svg x-show="! mobileOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg x-show="mobileOpen" x-cloak class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </nav>
+
+        
+        <div x-show="mobileOpen" x-cloak x-transition.origin.top class="border-t border-white/5 bg-ink-900 px-4 pb-6 pt-3 md:hidden">
+            <div class="flex flex-col gap-1">
+                                    <a href="http://127.0.0.1:8000/services" class="rounded-lg px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-white/5 ">Services</a>
+                                    <a href="http://127.0.0.1:8000/portfolio" class="rounded-lg px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-white/5 ">Portfolio</a>
+                                    <a href="http://127.0.0.1:8000/learn" class="rounded-lg px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-white/5 ">Learn</a>
+                                    <a href="http://127.0.0.1:8000/community" class="rounded-lg px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-white/5 ">Community</a>
+                                    <a href="http://127.0.0.1:8000/team" class="rounded-lg px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-white/5 ">Team</a>
+                                    <a href="http://127.0.0.1:8000/contact" class="rounded-lg px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-white/5 ">Contact</a>
+                                <div class="mt-3 flex flex-col gap-2 border-t border-white/5 pt-4">
+                                            <a href="http://127.0.0.1:8000/login" class="rounded-lg px-4 py-2.5 text-center text-slate-300">Log in</a>
+                        <a href="http://127.0.0.1:8000/join" class="rounded-lg bg-gradient-to-r from-brand-500 to-violet-600 px-4 py-2.5 text-center font-semibold text-white">Join Community</a>
+                                    </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        
+        <div id="main" tabindex="-1" class="sr-only-focusable">
+
+        
+        <div id="scroll-progress" class="fixed top-0 left-0 h-1 w-0 bg-gradient-to-r from-brand-500 via-violet-500 to-brand-500 origin-top-left scale-x-0 scale-origin-left transition-transform z-[60]"></div>
+
+        
+        <section class="home-section relative overflow-hidden bg-glow min-h-[640px] md:min-h-[720px] flex items-center" id="hero" aria-labelledby="hero-heading">
+            <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+            <div class="hero-grid" aria-hidden="true"></div>
+
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row gap-16 items-center w-full">
+                <div class="lg:w-1/2 [data-reveal]" style="transition-delay: 0.05s;">
+                    <div class="home-kicker inline-flex items-center gap-2 mb-6 text-brand-400 font-semibold uppercase tracking-wider text-sm">
+                        <i data-lucide="rocket" class="w-4 h-4"></i>
+                        <span>Building the future</span>
+                    </div>
+                    <h1 id="hero-heading" class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-7 text-white">
+                        <span class="block text-white">Next-gen</span>
+                        <span class="block mt-1 text-gradient">digital experiences</span>
+                        <span class="block mt-3 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white">
+                            <span x-data="typewriter(['for creators.', 'for builders.', 'for the web.'])" x-init="start()" class="inline-block">
+                                <span x-text="text"></span>
+                                <span class="tw-caret inline-block align-[-2px]"></span>
+                            </span>
+                        </span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-400 leading-relaxed mb-10 max-w-lg">
+                        MykaelTech is a technology community for builders, designers, and engineers.
+                        Showcase your portfolio, publish learning updates, and grow with a network of makers.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="http://127.0.0.1:8000/contact" class="btn btn-primary glass-strong text-white px-7 py-3.5 text-base font-semibold shadow-lg shadow-brand-500/25 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+                            Start a Project <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i>
+                    
+                    <div class="mt-14 flex flex-wrap gap-6 md:gap-8 -mx-2 overflow-hidden">
+                        <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.35s;">
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="1200">0</div>
+                            <div class="text-sm text-slate-400 uppercase tracking-wider">Hours logged</div>
+                        </div>
+                        <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.5s;">
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="85">0</div>
+                            <div class="text-sm text-slate-400 uppercase tracking-wider">Projects shipped</div>
+                        </div>
+                        <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.65s;">
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="2">0</div>
+                            <div class="text-sm text-slate-400 uppercase tracking-wider">Community members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 [data-reveal] relative" style="transition-delay: 0.2s;">
+                    <div class="glass-strong rounded-3xl p-8 md:p-12 border-brand-500/20 shadow-[0_0_80px_rgba(6,182,212,0.12)] relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-transparent to-brand-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                        <div class="absolute top-6 left-6 w-12 h-12 rounded-full bg-brand-500/20 flex items-center justify-center border border-brand-500/30">
+                            <i data-lucide="layers3" class="w-6 h-6 text-brand-400"></i>
+                        </div>
+                        <div class="relative z-10 grid grid-cols-2 gap-4 md:gap-6">
+                            <div class="col-span-2 bg-ink-950/60 rounded-xl p-4 md:p-5 border border-white/6">
+                                <div class="flex items-center gap-2.5 mb-3">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/90"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/90"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/90"></div>
+                                </div>
+                                <pre class="text-xs md:text-sm text-slate-400 font-mono leading-relaxed overflow-x-auto"><code>&lt;MykaelTech /&gt;<br/><span class="text-brand-400">  build</span> --community --learn --ship</code></pre>
+                            </div>
+                            <div class="h-32 md:h-40 bg-ink-800/60 rounded-xl border border-white/8"></div>
+                            <div class="h-32 md:h-40 bg-ink-800/60 rounded-xl border border-white/8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="bg-ink-900 border-y border-white/5 py-8 overflow-hidden">
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee-track">
+                                                                <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">HTML5</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">CSS3</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">JavaScript</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Laravel</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Vue.js</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">React</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Tailwind CSS</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Node.js</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Python</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">PostgreSQL</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Git</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Docker</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Figma</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Web Accessibility</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Performance</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">API Design</span>
+                                                                <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">HTML5</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">CSS3</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">JavaScript</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Laravel</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Vue.js</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">React</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Tailwind CSS</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Node.js</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Python</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">PostgreSQL</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Git</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Docker</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Figma</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Web Accessibility</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">Performance</span>
+                                            <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium">API Design</span>
+                                    </div>
+    
+    <section class="home-section py-24 lg:py-32" id="services">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 lg:mb-24 [data-reveal]">
+                <h2 class="home-kicker inline-flex items-center gap-2 text-brand-400 font-semibold uppercase tracking-wider text-sm mb-4">
+                    <i data-lucide="cpu" class="w-4 h-4"></i>
+                    <span>Services</span>
+                </h2>
+                <h3 class="section-title text-3xl md:text-4xl font-bold text-white mb-6">What we build</h3>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    From idea to production. We design, develop, and deploy digital products that scale — for
+                    creators, builders, and the open web.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
+                                    <article
+                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View Web Development details"
+                        @click="ui.openRecord('service', 'web-development')"
+                    >
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
+                            <i data-lucide="🌐" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">Web Development</h4>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1">Modern, responsive websites and web apps built with cutting-edge technologies.</p>
+                        <ul class="space-y-2.5 mb-8 mt-auto">
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Custom web applications
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    E-commerce solutions
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    CMS &amp; blogs
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    API development
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Performance optimization
+                                </li>
+                                                    </ul>
+                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
+                            <span class="text-sm font-semibold text-white">
+                                From $0
+                            </span>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </article>
+                                    <article
+                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View Mobile App Development details"
+                        @click="ui.openRecord('service', 'mobile-app-development')"
+                    >
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
+                            <i data-lucide="📱" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">Mobile App Development</h4>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1">Cross-platform mobile apps that feel native on both iOS and Android.</p>
+                        <ul class="space-y-2.5 mb-8 mt-auto">
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    iOS &amp; Android
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Progressive Web Apps
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Push notifications
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    App store deployment
+                                </li>
+                                                    </ul>
+                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
+                            <span class="text-sm font-semibold text-white">
+                                From $0
+                            </span>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </article>
+                                    <article
+                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View UI/UX Design details"
+                        @click="ui.openRecord('service', 'ui-ux-design')"
+                    >
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
+                            <i data-lucide="🎨" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">UI/UX Design</h4>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1">User-centered design that converts visitors into customers.</p>
+                        <ul class="space-y-2.5 mb-8 mt-auto">
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    User research
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Wireframing &amp; prototyping
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Design systems
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Usability testing
+                                </li>
+                                                    </ul>
+                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
+                            <span class="text-sm font-semibold text-white">
+                                From $0
+                            </span>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </article>
+                                    <article
+                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View Cloud Solutions details"
+                        @click="ui.openRecord('service', 'cloud-solutions')"
+                    >
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
+                            <i data-lucide="☁️" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">Cloud Solutions</h4>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1">Scalable cloud architecture, migrations and DevOps automation.</p>
+                        <ul class="space-y-2.5 mb-8 mt-auto">
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Cloud migration
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    CI/CD pipelines
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Server management
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Backup &amp; recovery
+                                </li>
+                                                    </ul>
+                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
+                            <span class="text-sm font-semibold text-white">
+                                From $0
+                            </span>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </article>
+                                    <article
+                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View Tech Consulting &amp; Training details"
+                        @click="ui.openRecord('service', 'tech-consulting-training')"
+                    >
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
+                            <i data-lucide="🧠" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">Tech Consulting &amp; Training</h4>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1">Strategic guidance and hands-on training for teams and individuals.</p>
+                        <ul class="space-y-2.5 mb-8 mt-auto">
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Technology audits
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Team training
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Career mentorship
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Workshops &amp; bootcamps
+                                </li>
+                                                    </ul>
+                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
+                            <span class="text-sm font-semibold text-white">
+                                From $0
+                            </span>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </article>
+                                    <article
+                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View Maintenance &amp; Support details"
+                        @click="ui.openRecord('service', 'maintenance-support')"
+                    >
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
+                            <i data-lucide="🛠️" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">Maintenance &amp; Support</h4>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1">Keep your products secure, updated and running smoothly.</p>
+                        <ul class="space-y-2.5 mb-8 mt-auto">
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Security monitoring
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Regular updates
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Uptime monitoring
+                                </li>
+                                                            <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    Priority support
+                                </li>
+                                                    </ul>
+                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
+                            <span class="text-sm font-semibold text-white">
+                                From $0
+                            </span>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </article>
+                            </div>
+        </div>
+    
+    <section class="home-section py-24 lg:py-32 bg-ink-900/30" id="portfolio">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 lg:mb-24 [data-reveal]">
+                <div>
+                    <h2 class="home-kicker inline-flex items-center gap-2 text-brand-400 font-semibold uppercase tracking-wider text-sm mb-4">
+                        <i data-lucide="globe2" class="w-4 h-4"></i>
+                        <span>Featured Work</span>
+                    </h2>
+                    <h3 class="section-title text-3xl md:text-4xl font-bold text-white">Selected projects</h3>
+                </div>
+                <a href="http://127.0.0.1:8000/portfolio" class="btn glass text-sm px-5 py-2.5 text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                    All projects <i data-lucide="arrow-right" class="w-3 h-3 ml-1.5"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                                    <div
+                        class="glass card-hover rounded-2xl overflow-hidden group border border-white/5 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View MykaelTech Community Platform project"
+                        @click="ui.openRecord('project', 'community-platform')"
+                    >
+                        <div class="relative h-48 md:h-56 lg:h-60 overflow-hidden">
+                                                            <div class="w-full h-full bg-ink-800 border border-white/10 flex items-center justify-center">
+                                    <i data-lucide="image" class="w-10 h-10 text-slate-500 group-hover:text-brand-400 transition-colors"></i>
+                                </div>
+                                                        <span class="absolute top-4 left-4 text-xs font-semibold px-2 py-1 rounded bg-brand-500/10 text-brand-300 border border-brand-500/20 backdrop-blur-sm">
+                                Live
+                            </span>
+                            <a
+                                href=""
+                                target="_blank" rel="noopener noreferrer"
+                                class="absolute top-4 right-4 w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-400 hover:bg-brand-500/10 transition focus:outline-none focus:ring-2 focus:ring-brand-500/30"
+                                aria-label="Open MykaelTech Community Platform"
+                            >
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">MykaelTech Community Platform</h4>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">The platform you are on: community, learning hub and CV generator in one.</p>
+                            <div class="flex flex-wrap gap-2">
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Laravel 12
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Tailwind CSS
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Filament
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        MySQL
+                                    </span>
+                                                            </div>
+                        </div>
+                    </div>
+                                    <div
+                        class="glass card-hover rounded-2xl overflow-hidden group border border-white/5 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View E-Commerce Storefront project"
+                        @click="ui.openRecord('project', 'ecommerce-storefront')"
+                    >
+                        <div class="relative h-48 md:h-56 lg:h-60 overflow-hidden">
+                                                            <div class="w-full h-full bg-ink-800 border border-white/10 flex items-center justify-center">
+                                    <i data-lucide="image" class="w-10 h-10 text-slate-500 group-hover:text-brand-400 transition-colors"></i>
+                                </div>
+                                                        <span class="absolute top-4 left-4 text-xs font-semibold px-2 py-1 rounded bg-brand-500/10 text-brand-300 border border-brand-500/20 backdrop-blur-sm">
+                                Live
+                            </span>
+                            <a
+                                href=""
+                                target="_blank" rel="noopener noreferrer"
+                                class="absolute top-4 right-4 w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-400 hover:bg-brand-500/10 transition focus:outline-none focus:ring-2 focus:ring-brand-500/30"
+                                aria-label="Open E-Commerce Storefront"
+                            >
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">E-Commerce Storefront</h4>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">A fast, conversion-focused online store with payment integration.</p>
+                            <div class="flex flex-wrap gap-2">
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Laravel
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Vue.js
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        MySQL
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        M-Pesa API
+                                    </span>
+                                                            </div>
+                        </div>
+                    </div>
+                                    <div
+                        class="glass card-hover rounded-2xl overflow-hidden group border border-white/5 [data-reveal]"
+                        role="button" tabindex="0"
+                        aria-label="View FinTrack Dashboard project"
+                        @click="ui.openRecord('project', 'fintrack-dashboard')"
+                    >
+                        <div class="relative h-48 md:h-56 lg:h-60 overflow-hidden">
+                                                            <div class="w-full h-full bg-ink-800 border border-white/10 flex items-center justify-center">
+                                    <i data-lucide="image" class="w-10 h-10 text-slate-500 group-hover:text-brand-400 transition-colors"></i>
+                                </div>
+                                                        <span class="absolute top-4 left-4 text-xs font-semibold px-2 py-1 rounded bg-brand-500/10 text-brand-300 border border-brand-500/20 backdrop-blur-sm">
+                                Live
+                            </span>
+                            <a
+                                href=""
+                                target="_blank" rel="noopener noreferrer"
+                                class="absolute top-4 right-4 w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-400 hover:bg-brand-500/10 transition focus:outline-none focus:ring-2 focus:ring-brand-500/30"
+                                aria-label="Open FinTrack Dashboard"
+                            >
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">FinTrack Dashboard</h4>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">Financial tracking dashboard bridging accounting and technology.</p>
+                            <div class="flex flex-wrap gap-2">
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Laravel
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Chart.js
+                                    </span>
+                                                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
+                                        Tailwind CSS
+                                    </span>
+                                                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    
+    <section class="home-section py-24 lg:py-32" id="testimonials">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 lg:mb-24 [data-reveal]">
+                <h2 class="home-kicker inline-flex items-center gap-2 text-brand-400 font-semibold uppercase tracking-wider text-sm mb-4">
+                    <i data-lucide="quote" class="w-4 h-4"></i>
+                    <span>Testimonials</span>
+                </h2>
+                <h3 class="section-title text-3xl md:text-4xl font-bold text-white">What they're saying</h3>
+            </div>
+
+            <div
+                x-data="testimonialSlider(JSON.parse('[{\u0022id\u0022:1,\u0022author_name\u0022:\u0022Sarah Kimani\u0022,\u0022author_role\u0022:\u0022Operations Manager\u0022,\u0022content\u0022:\u0022MykaelTech rebuilt our entire storefront. Sales are up 40% and the site loads instantly. Truly professional work.\u0022,\u0022company\u0022:\u0022RetailChain Ltd\u0022,\u0022rating\u0022:5,\u0022is_active\u0022:true,\u0022created_at\u0022:\u00222026-09-14T17:53:33.000000Z\u0022,\u0022updated_at\u0022:\u00222026-09-14T17:53:33.000000Z\u0022,\u0022name\u0022:null,\u0022role\u0022:null,\u0022quote\u0022:null,\u0022sort_order\u0022:0},{\u0022id\u0022:2,\u0022author_name\u0022:\u0022David Otieno\u0022,\u0022author_role\u0022:\u0022Small Business Owner\u0022,\u0022content\u0022:\u0022The FinTrack dashboard gave me clarity on my business finances for the first time. Worth every shilling.\u0022,\u0022company\u0022:\u0022FinTrack user\u0022,\u0022rating\u0022:5,\u0022is_active\u0022:true,\u0022created_at\u0022:\u00222026-09-14T17:53:33.000000Z\u0022,\u0022updated_at\u0022:\u00222026-09-14T17:53:33.000000Z\u0022,\u0022name\u0022:null,\u0022role\u0022:null,\u0022quote\u0022:null,\u0022sort_order\u0022:0},{\u0022id\u0022:3,\u0022author_name\u0022:\u0022Grace Wanjiru\u0022,\u0022author_role\u0022:\u0022Community Member\u0022,\u0022content\u0022:\u0022I joined the community to learn Laravel. Six months later I landed my first developer job \\u2014 the learning updates and mentorship made the difference.\u0022,\u0022company\u0022:null,\u0022rating\u0022:5,\u0022is_active\u0022:true,\u0022created_at\u0022:\u00222026-09-14T17:53:33.000000Z\u0022,\u0022updated_at\u0022:\u00222026-09-14T17:53:33.000000Z\u0022,\u0022name\u0022:null,\u0022role\u0022:null,\u0022quote\u0022:null,\u0022sort_order\u0022:0}]'))"
+                x-init="init()"
+            >
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="overflow-hidden rounded-2xl border border-white/5 bg-ink-900/40 p-1 md:p-2">
+                        <div class="flex transition-transform duration-700 ease-in-out will-change-transform"
+                             :style="`transform: translateX(-${current * 100}%)`"
+                         >
+                                                            <div class="min-w-full px-2 md:px-4">
+                                    <div class="glass rounded-3xl p-8 md:p-12 h-full flex flex-col">
+                                        <div class="flex items-center gap-3 mb-7">
+                                            <div class="w-11 h-11 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400 font-bold text-sm">
+                                                S
+                                            </div>
+                                            <div>
+                                                <div class="text-sm font-bold text-white">Sarah Kimani</div>
+                                                <div class="text-xs text-slate-400">Operations Manager <span class="mx-1">•</span> RetailChain Ltd</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-1 text-yellow-400 mb-7">
+                                                                                                                                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                    </div>
+                                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed italic">“MykaelTech rebuilt our entire storefront. Sales are up 40% and the site loads instantly. Truly professional work.”</p>
+                                    </div>
+                                </div>
+                                                            <div class="min-w-full px-2 md:px-4">
+                                    <div class="glass rounded-3xl p-8 md:p-12 h-full flex flex-col">
+                                        <div class="flex items-center gap-3 mb-7">
+                                            <div class="w-11 h-11 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400 font-bold text-sm">
+                                                D
+                                            </div>
+                                            <div>
+                                                <div class="text-sm font-bold text-white">David Otieno</div>
+                                                <div class="text-xs text-slate-400">Small Business Owner <span class="mx-1">•</span> FinTrack user</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-1 text-yellow-400 mb-7">
+                                                                                                                                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                    </div>
+                                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed italic">“The FinTrack dashboard gave me clarity on my business finances for the first time. Worth every shilling.”</p>
+                                    </div>
+                                </div>
+                                                            <div class="min-w-full px-2 md:px-4">
+                                    <div class="glass rounded-3xl p-8 md:p-12 h-full flex flex-col">
+                                        <div class="flex items-center gap-3 mb-7">
+                                            <div class="w-11 h-11 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400 font-bold text-sm">
+                                                G
+                                            </div>
+                                            <div>
+                                                <div class="text-sm font-bold text-white">Grace Wanjiru</div>
+                                                <div class="text-xs text-slate-400">Community Member <span class="mx-1">•</span> </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-1 text-yellow-400 mb-7">
+                                                                                                                                        <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
+                                                                                    </div>
+                                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed italic">“I joined the community to learn Laravel. Six months later I landed my first developer job — the learning updates and mentorship made the difference.”</p>
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+
+                    
+                    <div class="flex justify-center gap-3 mt-10">
+                                                    <button
+                                @click="current = 0"
+                                :class="current === 0 ? 'w-8 bg-brand-500' : 'w-3 bg-slate-700'"
+                                class="h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                                aria-label="Slide 1"
+                            ></button>
+                                                    <button
+                                @click="current = 1"
+                                :class="current === 1 ? 'w-8 bg-brand-500' : 'w-3 bg-slate-700'"
+                                class="h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                                aria-label="Slide 2"
+                            ></button>
+                                                    <button
+                                @click="current = 2"
+                                :class="current === 2 ? 'w-8 bg-brand-500' : 'w-3 bg-slate-700'"
+                                class="h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                                aria-label="Slide 3"
+                            ></button>
+                                            </div>
+
+                    
+                    <button @click="prev()" class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition md:hidden">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button @click="next()" class="absolute -right-10 sm:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition md:hidden">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+    
+    <section class="home-section py-24 lg:py-32 relative overflow-hidden">
+        <div class="glass-strong rounded-3xl p-10 md:p-16 mx-auto max-w-4xl border-brand-500/20 relative z-10 [data-reveal] text-center">
+            <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/10 via-transparent to-violet-500/10 rounded-3xl -z-1"></div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to build something great?</h2>
+            <p class="text-slate-400 mb-10 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                Get a free quote and let's discuss your next project. No obligation, just a conversation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="http://127.0.0.1:8000/contact" class="btn btn-primary px-9 py-4 text-lg font-semibold shadow-lg shadow-brand-500/30 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+                    Request a Quote <i data-lucide="send" class="w-4 h-4 ml-2"></i>
+                </a>
+                <a href="http://127.0.0.1:8000/portfolio" class="btn glass px-9 py-4 text-lg font-semibold text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                    Explore Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+        
+                    <div
+                x-show="ui.open && ui.kind === 'service' && ui.record === 'web-development'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'web-development'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'web-development'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">Web Development</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">From corporate sites to complex web applications — we design and build fast, secure and scalable digital products tailored to your business needs.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Starting price</span>
+                            <span class="font-semibold text-white">Contact us</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Category</span>
+                            <span class="font-semibold text-white">—</span>
+                        </div>
+                    </div>
+                                            <div class="mb-6">
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
+                            <ul class="space-y-2">
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Custom web applications
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        E-commerce solutions
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        CMS &amp; blogs
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        API development
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Performance optimization
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                        <a href="http://127.0.0.1:8000/services/web-development" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                            Full details
+                        </a>
+                        <a href="http://127.0.0.1:8000/contact" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            Get quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'service' && ui.record === 'mobile-app-development'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'mobile-app-development'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'mobile-app-development'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">Mobile App Development</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">We ship cross-platform mobile applications with smooth UX, offline capability and clean architecture.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Starting price</span>
+                            <span class="font-semibold text-white">Contact us</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Category</span>
+                            <span class="font-semibold text-white">—</span>
+                        </div>
+                    </div>
+                                            <div class="mb-6">
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
+                            <ul class="space-y-2">
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        iOS &amp; Android
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Progressive Web Apps
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Push notifications
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        App store deployment
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                        <a href="http://127.0.0.1:8000/services/mobile-app-development" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                            Full details
+                        </a>
+                        <a href="http://127.0.0.1:8000/contact" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            Get quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'service' && ui.record === 'ui-ux-design'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'ui-ux-design'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'ui-ux-design'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">UI/UX Design</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Research-driven interfaces: wireframes, prototypes and polished design systems for web and mobile.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Starting price</span>
+                            <span class="font-semibold text-white">Contact us</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Category</span>
+                            <span class="font-semibold text-white">—</span>
+                        </div>
+                    </div>
+                                            <div class="mb-6">
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
+                            <ul class="space-y-2">
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        User research
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Wireframing &amp; prototyping
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Design systems
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Usability testing
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                        <a href="http://127.0.0.1:8000/services/ui-ux-design" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                            Full details
+                        </a>
+                        <a href="http://127.0.0.1:8000/contact" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            Get quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'service' && ui.record === 'cloud-solutions'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'cloud-solutions'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'cloud-solutions'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">Cloud Solutions</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">We move your infrastructure to the cloud and automate deployments, monitoring and backups.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Starting price</span>
+                            <span class="font-semibold text-white">Contact us</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Category</span>
+                            <span class="font-semibold text-white">—</span>
+                        </div>
+                    </div>
+                                            <div class="mb-6">
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
+                            <ul class="space-y-2">
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Cloud migration
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        CI/CD pipelines
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Server management
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Backup &amp; recovery
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                        <a href="http://127.0.0.1:8000/services/cloud-solutions" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                            Full details
+                        </a>
+                        <a href="http://127.0.0.1:8000/contact" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            Get quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'service' && ui.record === 'tech-consulting-training'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'tech-consulting-training'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'tech-consulting-training'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">Tech Consulting &amp; Training</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Advisory on tech stack decisions, digital transformation and structured training programs — including community-led learning.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Starting price</span>
+                            <span class="font-semibold text-white">Contact us</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Category</span>
+                            <span class="font-semibold text-white">—</span>
+                        </div>
+                    </div>
+                                            <div class="mb-6">
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
+                            <ul class="space-y-2">
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Technology audits
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Team training
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Career mentorship
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Workshops &amp; bootcamps
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                        <a href="http://127.0.0.1:8000/services/tech-consulting-training" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                            Full details
+                        </a>
+                        <a href="http://127.0.0.1:8000/contact" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            Get quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'service' && ui.record === 'maintenance-support'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'maintenance-support'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'service' && ui.record === 'maintenance-support'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">Maintenance &amp; Support</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Ongoing maintenance plans: security patches, upgrades, monitoring and rapid support.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Starting price</span>
+                            <span class="font-semibold text-white">Contact us</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Category</span>
+                            <span class="font-semibold text-white">—</span>
+                        </div>
+                    </div>
+                                            <div class="mb-6">
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
+                            <ul class="space-y-2">
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Security monitoring
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Regular updates
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Uptime monitoring
+                                    </li>
+                                                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
+                                        Priority support
+                                    </li>
+                                                            </ul>
+                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                        <a href="http://127.0.0.1:8000/services/maintenance-support" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                            Full details
+                        </a>
+                        <a href="http://127.0.0.1:8000/contact" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            Get quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+        
+                    <div
+                x-show="ui.open && ui.kind === 'project' && ui.record === 'community-platform'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'project' && ui.record === 'community-platform'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'project' && ui.record === 'community-platform'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">MykaelTech Community Platform</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                                        <p class="text-slate-400 text-sm leading-relaxed mb-6">A Laravel-powered platform where members join a tech community, publish learning updates, access a curated facts feed, showcase portfolios and generate professional CVs on demand.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Status</span>
+                            <span class="font-semibold text-brand-400">Live</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Technologies</span>
+                            <span class="font-semibold text-white">
+                                 Laravel 12 ,   Tailwind CSS ,   Filament ,   MySQL                              </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                                                    <button class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-500 border-slate-700/50 cursor-not-allowed opacity-60" disabled>
+                                Live demo
+                            </button>
+                                                                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'project' && ui.record === 'ecommerce-storefront'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'project' && ui.record === 'ecommerce-storefront'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'project' && ui.record === 'ecommerce-storefront'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">E-Commerce Storefront</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Full-featured e-commerce solution with cart, checkout, M-Pesa and card payments, inventory management and an analytics dashboard.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Status</span>
+                            <span class="font-semibold text-brand-400">Live</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Technologies</span>
+                            <span class="font-semibold text-white">
+                                 Laravel ,   Vue.js ,   MySQL ,   M-Pesa API                              </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                                                    <button class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-500 border-slate-700/50 cursor-not-allowed opacity-60" disabled>
+                                Live demo
+                            </button>
+                                                                    </div>
+                </div>
+            </div>
+                    <div
+                x-show="ui.open && ui.kind === 'project' && ui.record === 'fintrack-dashboard'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                @click.outside="ui.close()"
+                aria-modal="true" role="dialog"
+            >
+                <div
+                    x-show="ui.open && ui.kind === 'project' && ui.record === 'fintrack-dashboard'"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                    @click="ui.close()"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    x-show="ui.open && ui.kind === 'project' && ui.record === 'fintrack-dashboard'"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                    @click.stop
+                >
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold text-white">FinTrack Dashboard</h3>
+                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Real-time expense and revenue tracking with automated report generation, built for small businesses.</p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Status</span>
+                            <span class="font-semibold text-brand-400">Live</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
+                            <span class="text-slate-400">Technologies</span>
+                            <span class="font-semibold text-white">
+                                 Laravel ,   Chart.js ,   Tailwind CSS                              </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
+                                                    <button class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-500 border-slate-700/50 cursor-not-allowed opacity-60" disabled>
+                                Live demo
+                            </button>
+                                                                    </div>
+                </div>
+            </div>
+        
+        
+        <div
+            x-show="ui.open && ui.kind === 'contact'"
+            x-transition:enter="transition-opacity ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition-opacity ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+            @click.outside="ui.close()"
+            aria-modal="true" role="dialog"
+        >
+            <div
+                x-show="ui.open && ui.kind === 'contact'"
+                x-transition:enter="transition-opacity ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
+                @click="ui.close()"
+                aria-hidden="true"
+            ></div>
+            <div
+                x-show="ui.open && ui.kind === 'contact'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
+                class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
+                @click.stop
+            >
+                <div class="flex justify-between items-start mb-7">
+                    <h3 class="text-xl font-bold text-white">Get a Quote</h3>
+                    <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mb-7">Tell us about your project and we'll get back to you within one business day.</p>
+                <form method="POST" action="http://127.0.0.1:8000/contact" class="space-y-4">
+                    <input type="hidden" name="_token" value="VeXoem6RbEjOFsN6XlniSdFep0hRxS7XZACzajrM" autocomplete="off">                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Name</label>
+                        <input type="text" name="name" required class="w-full rounded-lg border border-white/10 bg-ink-950/50 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/20" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full rounded-lg border border-white/10 bg-ink-950/50 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/20" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">What are you building?</label>
+                        <textarea name="message" required rows="4" class="w-full rounded-lg border border-white/10 bg-ink-950/50 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/20" placeholder="Briefly describe your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full btn btn-primary py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">Send message</button>
+                </form>
+                <p class="mt-6 text-xs text-slate-500 text-center">Protected by reCAPTCHA — Privacy Policy · Terms of Service</p>
+            </div>
+        </div>
+
+        
+        <div
+            x-data="{ promoOpen: (() => { try { return localStorage.getItem('mt_promo_dismissed') === '1'; } catch(e) { return true; } })() }"
+            x-init="
+                if (!promoOpen) {
+                    setTimeout(() => { promoOpen = true; }, 2500);
+                }
+            "
+        >
+            <div
+                x-show="promoOpen"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-10"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-10"
+                class="fixed bottom-6 right-6 z-[100] glass-strong rounded-2xl border border-brand-500/30 p-5 md:p-7 max-w-xs w-full shadow-2xl shadow-brand-500/10"
+            >
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-400 shrink-0">
+                        <i data-lucide="gift" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex flex-col leading-tight">
+                        <h4 class="text-sm font-bold text-white">Free community access</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-0.5">Join 800+ builders. Get early access to events, project showcases, and the CV generator.</p>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-col sm:flex-row gap-3 pt-4 border-t border-white/10">
+                    <a href="http://127.0.0.1:8000/join" class="flex-1 btn btn-primary text-center py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">Join free</a>
+                    <button @click="promoOpen = false; try { localStorage.setItem('mt_promo_dismissed', '1'); } catch(e) {}" class="btn glass text-center py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">Maybe later</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </main>
+    <footer class="mt-24 border-t border-white/5 bg-ink-900/60">
+        <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+            <div class="grid gap-10 md:grid-cols-4">
+                <div class="md:col-span-2">
+                    <span class="inline-flex items-center gap-2.5 select-none">
+    
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" aria-hidden="true">
+        <defs>
+            <linearGradient id="mt-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#22D3EE"/>
+                <stop offset="0.55" stop-color="#0EA5E9"/>
+                <stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+        </defs>
+        <path d="M24 2.5 42.5 13v22L24 45.5 5.5 35V13L24 2.5Z" stroke="url(#mt-grad)" stroke-width="3" fill="rgba(14,165,233,0.08)"/>
+        <path d="M14 32V17.5l5.5 8 4.5-8 4.5 8 5.5-8V32" stroke="url(#mt-grad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="24" cy="8.6" r="2" fill="#22D3EE"/>
+        <circle cx="39.5" cy="17.6" r="1.7" fill="#8B5CF6"/>
+        <circle cx="8.5" cy="17.6" r="1.7" fill="#0EA5E9"/>
+    </svg>
+            <span class="text-xl font-bold tracking-tight text-white">
+            Mykael<span class="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Tech</span>
+        </span>
+    </span>
+                    <p class="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
+                        Building technology, people and community. Showcase your work, learn in public,
+                        and grow with a network of builders, designers and engineers.
+                    </p>
+                    <form method="POST" action="http://127.0.0.1:8000/newsletter" class="mt-6 flex max-w-sm gap-2">
+                        <input type="hidden" name="_token" value="VeXoem6RbEjOFsN6XlniSdFep0hRxS7XZACzajrM" autocomplete="off">                        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"
+                               class="w-full rounded-lg border border-white/10 bg-ink-800 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                        <button class="rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-500">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Explore</h3>
+                    <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
+                                                    <li><a href="http://127.0.0.1:8000/services" class="transition hover:text-brand-300">Services</a></li>
+                                                    <li><a href="http://127.0.0.1:8000/portfolio" class="transition hover:text-brand-300">Portfolio</a></li>
+                                                    <li><a href="http://127.0.0.1:8000/learn" class="transition hover:text-brand-300">Learning Updates</a></li>
+                                                    <li><a href="http://127.0.0.1:8000/community" class="transition hover:text-brand-300">Community</a></li>
+                                                    <li><a href="http://127.0.0.1:8000/team" class="transition hover:text-brand-300">Team</a></li>
+                                                    <li><a href="http://127.0.0.1:8000/contact" class="transition hover:text-brand-300">Contact</a></li>
+                                            </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Community</h3>
+                    <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
+                        <li><a href="http://127.0.0.1:8000/join" class="transition hover:text-brand-300">Become a member</a></li>
+                        <li><a href="http://127.0.0.1:8000/login" class="transition hover:text-brand-300">Member login</a></li>
+                        <li><a href="http://127.0.0.1:8000/dashboard/cv" class="transition hover:text-brand-300">CV generator</a></li>
+                        <li><a href="http://127.0.0.1:8000/community" class="transition hover:text-brand-300">Events</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-sm text-slate-500 sm:flex-row">
+                <p>&copy; 2026 MykaelTech. All rights reserved.</p>
+                <p class="flex items-center gap-1.5">
+                    <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span>
+                    Built with Laravel — always online, always improving.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <style>[x-cloak]{display:none!important}</style>
+</body>
+</html>
+
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    </section>
+
+            </div>
+        </div>
+
+                        </a>
+                        <a href="http://127.0.0.1:8000/portfolio" class="btn glass px-7 py-3.5 text-base font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            View Work
+                        </a>
+                    </div>
+
+
+

@@ -48,345 +48,239 @@
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="<?php echo e(route('contact')); ?>" class="btn btn-primary glass-strong text-white px-7 py-3.5 text-base font-semibold shadow-lg shadow-brand-500/25 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
                             Start a Project <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i>
-                    
-                    <div class="mt-14 flex flex-wrap gap-6 md:gap-8 -mx-2 overflow-hidden">
-                        <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.35s;">
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="1200">0</div>
-                            <div class="text-sm text-slate-400 uppercase tracking-wider">Hours logged</div>
-                        </div>
-                        <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.5s;">
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="85">0</div>
-                            <div class="text-sm text-slate-400 uppercase tracking-wider">Projects shipped</div>
-                        </div>
-                        <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.65s;">
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="<?php echo e($membersCount ?? 0); ?>">0</div>
-                            <div class="text-sm text-slate-400 uppercase tracking-wider">Community members</div>
-                        </div>
+                        </a>
+                        <a href="<?php echo e(route('portfolio')); ?>" class="btn glass px-7 py-3.5 text-base font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                            View Work
+                        </a>
                     </div>
                 </div>
 
-                <div class="lg:w-1/2 [data-reveal] relative" style="transition-delay: 0.2s;">
-                    <div class="glass-strong rounded-3xl p-8 md:p-12 border-brand-500/20 shadow-[0_0_80px_rgba(6,182,212,0.12)] relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-transparent to-brand-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        <div class="absolute top-6 left-6 w-12 h-12 rounded-full bg-brand-500/20 flex items-center justify-center border border-brand-500/30">
-                            <i data-lucide="layers3" class="w-6 h-6 text-brand-400"></i>
-                        </div>
-                        <div class="relative z-10 grid grid-cols-2 gap-4 md:gap-6">
-                            <div class="col-span-2 bg-ink-950/60 rounded-xl p-4 md:p-5 border border-white/6">
-                                <div class="flex items-center gap-2.5 mb-3">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/90"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/90"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/90"></div>
-                                </div>
-                                <pre class="text-xs md:text-sm text-slate-400 font-mono leading-relaxed overflow-x-auto"><code>&lt;MykaelTech /&gt;<br/><span class="text-brand-400">  build</span> --community --learn --ship</code></pre>
+                <div class="lg:w-1/2 flex justify-center [data-reveal]" style="transition-delay: 0.2s;">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute inset-0 bg-brand-500/10 rounded-2xl blur-3xl"></div>
+                        <div class="relative rounded-2xl border border-white/10 bg-ink-900/50 p-1 shadow-2xl shadow-black/40">
+                            <div class="grid grid-cols-3 gap-1">
+                                <div class="bg-white/5 rounded-lg aspect-square"></div>
+                                <div class="bg-brand-500/20 rounded-lg aspect-square"></div>
+                                <div class="bg-white/5 rounded-lg aspect-square"></div>
+                                <div class="bg-violet-500/20 rounded-lg aspect-square"></div>
+                                <div class="bg-brand-500/10 rounded-lg aspect-square"></div>
+                                <div class="bg-white/5 rounded-lg aspect-square"></div>
+                                <div class="bg-white/5 rounded-lg aspect-square"></div>
+                                <div class="bg-brand-500/15 rounded-lg aspect-square"></div>
+                                <div class="bg-white/10 rounded-lg aspect-square"></div>
                             </div>
-                            <div class="h-32 md:h-40 bg-ink-800/60 rounded-xl border border-white/8"></div>
-                            <div class="h-32 md:h-40 bg-ink-800/60 rounded-xl border border-white/8"></div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            
+            <div class="mt-14 flex flex-wrap gap-6 md:gap-8 -mx-2 overflow-hidden">
+                <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.35s;">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="1200">0</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider">Hours logged</div>
+                </div>
+                <div class="px-2 flex-shrink-0 glass rounded-2xl p-5 md:p-6 min-w-[200px] md:min-w-[220px] flex flex-col items-center text-center [data-reveal]" style="transition-delay: 0.45s;">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 [data-counter]" data-target="850">0</div>
+        
+        <section class="home-section border-y border-white/5 bg-ink-900/40">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></div>
+                    <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Tech stack</h2>
+                </div>
+                <div class="overflow-hidden">
+                    <div class="inline-flex animate-marquee gap-8 md:gap-12 whitespace-nowrap">
+                        <span class="text-sm text-slate-400 font-medium">HTML5</span>
+                        <span class="text-sm text-slate-400 font-medium">CSS3</span>
+                        <span class="text-sm text-slate-400 font-medium">JavaScript</span>
+                        <span class="text-sm text-brand-400 font-medium">Tailwind CSS</span>
+                        <span class="text-sm text-slate-400 font-medium">Alpine.js</span>
+                        <span class="text-sm text-slate-400 font-medium">Laravel</span>
+                        <span class="text-sm text-purple-400 font-medium">PHP</span>
+                        <span class="text-sm text-slate-400 font-medium">MySQL</span>
+                        <span class="text-sm text-brand-400 font-medium">Vite</span>
+                        <span class="text-sm text-slate-400 font-medium">Git</span>
+                        <span class="text-sm text-emerald-400 font-medium">Docker</span>
+                        <span class="text-sm text-slate-400 font-medium">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="home-section py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center [data-reveal]" style="transition-delay: 0.1s;">
+                    <h2 class="home-kicker inline-flex items-center gap-2 mb-4 text-brand-400 font-semibold uppercase tracking-wider text-sm">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        <span>What we build</span>
+                    </h2>
+                    <h3 class="section-title text-3xl sm:text-4xl font-bold text-white mb-2">Services</h3>
+                    <p class="text-slate-400 max-w-2xl mx-auto mt-3">From idea to production — custom web applications, community platforms, and developer tools tailored to your goals.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                    <?php
+                        $services = [
+                            ['title' => 'Web Applications', 'desc' => 'Modern, responsive web apps built with Laravel and Tailwind. Fast, secure, and scalable.', 'icon' => 'monitor'],
+                            ['title' => 'Community Platforms', 'desc' => 'Member portals, event hubs, and learning communities where builders connect and grow.', 'icon' => 'users'],
+                            ['title' => 'Developer Tools', 'desc' => 'CV generators, portfolio showcases, and productivity tools for developers and designers.', 'icon' => 'tool'],
+                        ];
+                    ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="card-hover p-8 rounded-3xl border border-white/10 bg-ink-900/50 [data-reveal]" style="transition-delay: <?php echo e($loop->index * 0.1); ?>s;">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 mb-6">
+                                <i data-lucide="<?php echo e($service['icon']); ?>" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3"><?php echo e($service['title']); ?></h4>
+                            <p class="text-slate-400 text-sm leading-relaxed"><?php echo e($service['desc']); ?></p>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                </div>
+            </div>
+        
+        <section class="home-section py-24 border-y border-white/5 bg-ink-900/30">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-10 [data-reveal]" style="transition-delay: 0.1s;">
+                    <div>
+                        <h2 class="section-title text-3xl sm:text-4xl font-bold text-white mb-2">Featured Projects</h2>
+                        <p class="text-slate-400">A selection of work from the MykaelTech community.</p>
+                    </div>
+                    <a href="<?php echo e(route('portfolio')); ?>" class="btn glass text-sm font-semibold hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                        View all <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <?php
+                        $projects = [
+                            [
+                                'title' => 'DevFolio',
+                                'desc' => 'A portfolio platform for developers to showcase projects and track learning progress.',
+                                'status_label' => 'Live',
+                                'technologies' => ['Laravel', 'Tailwind', 'Alpine.js'],
+                                'slug' => 'devfolio',
+                                'external_url' => 'https://example.com/devfolio',
+                                'github_url' => 'https://github.com/example/devfolio',
+                            ],
+                            [
+                                'title' => 'LearnHub',
+                                'desc' => 'Community learning portal with course tracking, badges, and member discussions.',
+                                'status_label' => 'Beta',
+                                'technologies' => ['Laravel', 'Livewire', 'Alpine.js'],
+                                'slug' => 'learnhub',
+                                'external_url' => null,
+                                'github_url' => 'https://github.com/example/learnhub',
+                            ],
+                            [
+                                'title' => 'CV Forge',
+                                'desc' => 'Instant CV generator with multiple templates, export to PDF, and online publishing.',
+                                'status_label' => 'Live',
+                                'technologies' => ['Laravel', 'Tailwind', 'Alpine.js'],
+                                'slug' => 'cvforge',
+                                'external_url' => 'https://example.com/cvforge',
+                                'github_url' => null,
+                            ],
+                        ];
+                    ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <article
+                            class="group relative p-6 rounded-3xl border border-white/10 bg-ink-900/50 hover:border-brand-500/50 hover:bg-ink-800/50 transition-all card-hover [data-reveal]"
+                            style="transition-delay: <?php echo e($loop->index * 0.08); ?>s;"
+                        >
+                            <div class="flex justify-between items-start mb-5">
+                                <span class="text-xs font-semibold uppercase tracking-wider text-brand-400"><?php echo e($project['status_label']); ?></span>
+                                <button @click="ui.openRecord('project', '<?php echo e($project['slug']); ?>')" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Quick view">
+                                    <i data-lucide="eye" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition"><?php echo e($project['title']); ?></h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-5"><?php echo e($project['desc']); ?></p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = (array) $project['technologies']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tech): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <span class="px-2.5 py-1 rounded bg-white/5 text-xs text-slate-300 border border-white/5"><?php echo e($tech); ?></span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            </div>
+                            <div class="flex gap-3">
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project['external_url']): ?>
+                                    <a href="<?php echo e($project['external_url']); ?>" target="_blank" rel="noopener noreferrer" class="flex-1 btn btn-primary text-center py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">Live demo</a>
+                                <?php else: ?>
+                                    <button class="flex-1 btn glass text-center py-2 text-xs font-semibold text-slate-500 border-slate-700/50 cursor-not-allowed opacity-60" disabled>Live demo</button>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project['github_url']): ?>
+                                    <a href="<?php echo e($project['github_url']); ?>" target="_blank" rel="noopener noreferrer" class="flex-1 btn glass text-center py-2 text-xs font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">GitHub</a>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            </div>
+                        </article>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                </div>
+            </div>
+        
+        <section class="home-section py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center [data-reveal]" style="transition-delay: 0.1s;">
+                    <h2 class="home-kicker inline-flex items-center gap-2 mb-4 text-brand-400 font-semibold uppercase tracking-wider text-sm">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>What members say</span>
+                    </h2>
+                    <h3 class="section-title text-3xl sm:text-4xl font-bold text-white mb-8">Testimonials</h3>
+                </div>
+
+                <div x-data="testimonialSlider()" class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out" x-bind:style="`transform: translateX(-${current * 100}%)`">
+                        <template x-for="(testimonial, index) in testimonials" :key="index">
+                            <div class="min-w-full flex items-center justify-center px-4">
+                                <div class="max-w-2xl text-center [data-reveal]" :style="`transition-delay: ${0.1 + index * 0.05}s`">
+                                    <div class="flex justify-center mb-6">
+                                        <template x-for="n in 5" :key="n">
+                                            <i data-lucide="star" class="w-4 h-4 text-brand-400 fill-current"></i>
+                                        </template>
+                                    </div>
+                                    <p class="text-lg text-slate-300 leading-relaxed mb-6 italic">"<span x-text="testimonial.text"></span>"</p>
+                                    <div class="flex items-center justify-center gap-3">
+                                        <img :src="testimonial.avatar" :alt="testimonial.name" class="w-10 h-10 rounded-full border border-white/10 object-cover">
+                                        <div class="text-left">
+                                            <h4 class="text-sm font-bold text-white" x-text="testimonial.name"></h4>
+                                            <p class="text-xs text-slate-500" x-text="testimonial.role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <div class="flex justify-center mt-8 gap-2">
+                        <template x-for="n in testimonials.length" :key="n">
+                            <button @click="current = n - 1" :class="current === n - 1 ? 'bg-brand-500 w-6' : 'bg-white/10 w-3'" class="h-1.5 rounded-full transition hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-brand-500/30"></button>
+                        </template>
+                    </div>
+
+                    <button @click="prev()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Previous">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button @click="next()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Next">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </div>
         </section>
 
         
-        <div class="bg-ink-900 border-y border-white/5 py-8 overflow-hidden">
-            <div class="marquee" aria-hidden="true">
-                <div class="marquee-track">
-                    <?php
-                        $_marquee = ['HTML5', 'CSS3', 'JavaScript', 'Laravel', 'Vue.js', 'React', 'Tailwind CSS', 'Node.js', 'Python', 'PostgreSQL', 'Git', 'Docker', 'Figma', 'Web Accessibility', 'Performance', 'API Design'];
-                    ?>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $_marquee; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_tech): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium"><?php echo e($_tech); ?></span>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $_marquee; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_tech): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <span class="px-4 py-1.5 text-sm text-slate-400 whitespace-nowrap font-medium"><?php echo e($_tech); ?></span>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                </div>
-    
-    <section class="home-section py-24 lg:py-32" id="services">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 lg:mb-24 [data-reveal]">
-                <h2 class="home-kicker inline-flex items-center gap-2 text-brand-400 font-semibold uppercase tracking-wider text-sm mb-4">
-                    <i data-lucide="cpu" class="w-4 h-4"></i>
-                    <span>Services</span>
-                </h2>
-                <h3 class="section-title text-3xl md:text-4xl font-bold text-white mb-6">What we build</h3>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                    From idea to production. We design, develop, and deploy digital products that scale — for
-                    creators, builders, and the open web.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <article
-                        class="glass card-hover rounded-3xl p-8 md:p-10 flex flex-col group border border-white/5 hover:border-brand-500/30 [data-reveal]"
-                        role="button" tabindex="0"
-                        aria-label="View <?php echo e($service->title); ?> details"
-                        @click="ui.openRecord('service', '<?php echo e($service->slug); ?>')"
-                    >
-                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-7 group-hover:bg-brand-500/20 transition-colors duration-300">
-                            <i data-lucide="<?php echo e($service->icon ?? 'code2'); ?>" class="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors"></i>
-                        </div>
-                        <h4 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors"><?php echo e($service->title); ?></h4>
-                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-7 flex-1"><?php echo e($service->excerpt); ?></p>
-                        <ul class="space-y-2.5 mb-8 mt-auto">
-                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = (array) ($service->features ?? []); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feature): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li class="flex items-center gap-3 text-xs md:text-sm text-slate-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                                    <?php echo e($feature); ?>
-
-                                </li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                        </ul>
-                        <div class="flex items-center justify-between pt-7 border-t border-white/5">
-                            <span class="text-sm font-semibold text-white">
-                                <?php echo e($service->starting_price ? '$'.number_format($service->starting_price) : 'From $0'); ?>
-
-                            </span>
-                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
-                                View details <i data-lucide="chevron-right" class="w-3 h-3"></i>
-                            </span>
-                        </div>
-                    </article>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-            </div>
-        </div>
-    
-    <section class="home-section py-24 lg:py-32 bg-ink-900/30" id="portfolio">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 lg:mb-24 [data-reveal]">
-                <div>
-                    <h2 class="home-kicker inline-flex items-center gap-2 text-brand-400 font-semibold uppercase tracking-wider text-sm mb-4">
-                        <i data-lucide="globe2" class="w-4 h-4"></i>
-                        <span>Featured Work</span>
-                    </h2>
-                    <h3 class="section-title text-3xl md:text-4xl font-bold text-white">Selected projects</h3>
-                </div>
-                <a href="<?php echo e(route('portfolio')); ?>" class="btn glass text-sm px-5 py-2.5 text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                    All projects <i data-lucide="arrow-right" class="w-3 h-3 ml-1.5"></i>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div
-                        class="glass card-hover rounded-2xl overflow-hidden group border border-white/5 [data-reveal]"
-                        role="button" tabindex="0"
-                        aria-label="View <?php echo e($project->title); ?> project"
-                        @click="ui.openRecord('project', '<?php echo e($project->slug); ?>')"
-                    >
-                        <div class="relative h-48 md:h-56 lg:h-60 overflow-hidden">
-                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->cover_photo): ?>
-                                <img
-                                    src="<?php echo e(asset('storage/'.$project->cover_photo)); ?>"
-                                    alt="<?php echo e($project->title); ?>"
-                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                                    loading="lazy"
-                                >
-                            <?php else: ?>
-                                <div class="w-full h-full bg-ink-800 border border-white/10 flex items-center justify-center">
-                                    <i data-lucide="image" class="w-10 h-10 text-slate-500 group-hover:text-brand-400 transition-colors"></i>
-                                </div>
-                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                            <span class="absolute top-4 left-4 text-xs font-semibold px-2 py-1 rounded bg-brand-500/10 text-brand-300 border border-brand-500/20 backdrop-blur-sm">
-                                <?php echo e($project->status_label); ?>
-
-                            </span>
-                            <a
-                                href="<?php echo e($project->external_url); ?>"
-                                target="_blank" rel="noopener noreferrer"
-                                class="absolute top-4 right-4 w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-400 hover:bg-brand-500/10 transition focus:outline-none focus:ring-2 focus:ring-brand-500/30"
-                                aria-label="Open <?php echo e($project->title); ?>"
-                            >
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors"><?php echo e($project->title); ?></h4>
-                            <p class="text-xs text-slate-400 mb-4 line-clamp-2"><?php echo e($project->excerpt); ?></p>
-                            <div class="flex flex-wrap gap-2">
-                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = (array) ($project->technologies ?? []); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tech): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <span class="text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 uppercase tracking-wider">
-                                        <?php echo e($tech); ?>
-
-                                    </span>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-            </div>
-        </div>
-    
-    <section class="home-section py-24 lg:py-32" id="testimonials">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 lg:mb-24 [data-reveal]">
-                <h2 class="home-kicker inline-flex items-center gap-2 text-brand-400 font-semibold uppercase tracking-wider text-sm mb-4">
-                    <i data-lucide="quote" class="w-4 h-4"></i>
-                    <span>Testimonials</span>
-                </h2>
-                <h3 class="section-title text-3xl md:text-4xl font-bold text-white">What they're saying</h3>
-            </div>
-
-            <div
-                x-data="testimonialSlider(<?php echo \Illuminate\Support\Js::from($testimonials)->toHtml() ?>)"
-                x-init="init()"
-            >
-                <div class="relative max-w-4xl mx-auto">
-                    <div class="overflow-hidden rounded-2xl border border-white/5 bg-ink-900/40 p-1 md:p-2">
-                        <div class="flex transition-transform duration-700 ease-in-out will-change-transform"
-                             :style="`transform: translateX(-${current * 100}%)`"
-                         >
-                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="min-w-full px-2 md:px-4">
-                                    <div class="glass rounded-3xl p-8 md:p-12 h-full flex flex-col">
-                                        <div class="flex items-center gap-3 mb-7">
-                                            <div class="w-11 h-11 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400 font-bold text-sm">
-                                                <?php echo e(strtoupper(substr($testimonial->author_name ?? '?', 0, 1))); ?>
-
-                                            </div>
-                                            <div>
-                                                <div class="text-sm font-bold text-white"><?php echo e($testimonial->author_name); ?></div>
-                                                <div class="text-xs text-slate-400"><?php echo e($testimonial->author_role); ?> <span class="mx-1">•</span> <?php echo e($testimonial->company); ?></div>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-1 text-yellow-400 mb-7">
-                                            <?php $_rating = max(1, min(5, (int) ($testimonial->rating ?? 5))); ?>
-                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($_i = 0; $_i < $_rating; $_i++): ?>
-                                                <i data-lucide="star" class="w-4 h-4 fill-yellow-400"></i>
-                                            <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                                        </div>
-                                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed italic">“<?php echo e($testimonial->content); ?>”</p>
-                                    </div>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                        </div>
-                    </div>
-
-                    
-                    <div class="flex justify-center gap-3 mt-10">
-                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_i => $_t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <button
-                                @click="current = <?php echo e($_i); ?>"
-                                :class="current === <?php echo e($_i); ?> ? 'w-8 bg-brand-500' : 'w-3 bg-slate-700'"
-                                class="h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
-                                aria-label="Slide <?php echo e($_i + 1); ?>"
-                            ></button>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    </div>
-
-                    
-                    <button @click="prev()" class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition md:hidden">
-                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                    </button>
-                    <button @click="next()" class="absolute -right-10 sm:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition md:hidden">
-                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                    </button>
-                </div>
-    
-    <section class="home-section py-24 lg:py-32 relative overflow-hidden">
-        <div class="glass-strong rounded-3xl p-10 md:p-16 mx-auto max-w-4xl border-brand-500/20 relative z-10 [data-reveal] text-center">
-            <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/10 via-transparent to-violet-500/10 rounded-3xl -z-1"></div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to build something great?</h2>
-            <p class="text-slate-400 mb-10 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-                Get a free quote and let's discuss your next project. No obligation, just a conversation.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="<?php echo e(route('contact')); ?>" class="btn btn-primary px-9 py-4 text-lg font-semibold shadow-lg shadow-brand-500/30 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
-                    Request a Quote <i data-lucide="send" class="w-4 h-4 ml-2"></i>
-                </a>
-                <a href="<?php echo e(route('portfolio')); ?>" class="btn glass px-9 py-4 text-lg font-semibold text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                    Explore Work
-                </a>
-            </div>
-        </div>
-    </section>
-
-        
-        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div
-                x-show="ui.open && ui.kind === 'service' && ui.record === '<?php echo e($service->slug); ?>'"
-                x-transition:enter="transition-opacity ease-out duration-300"
-                x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100"
-                x-transition:leave="transition-opacity ease-in duration-200"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
-                @click.outside="ui.close()"
-                aria-modal="true" role="dialog"
-            >
-                <div
-                    x-show="ui.open && ui.kind === 'service' && ui.record === '<?php echo e($service->slug); ?>'"
-                    x-transition:enter="transition-opacity ease-out duration-300"
-                    x-transition:enter-start="opacity-0"
-                    x-transition:enter-end="opacity-100"
-                    x-transition:leave="transition-opacity ease-in duration-200"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    class="fixed inset-0 bg-ink-950/70 backdrop-blur-sm"
-                    @click="ui.close()"
-                    aria-hidden="true"
-                ></div>
-                <div
-                    x-show="ui.open && ui.kind === 'service' && ui.record === '<?php echo e($service->slug); ?>'"
-                    x-transition:enter="transition ease-out duration-300"
-                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
-                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                    x-transition:leave="transition ease-in duration-200"
-                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
-                    class="bg-ink-900 border border-white/10 rounded-3xl p-6 md:p-10 max-w-md w-full shadow-2xl shadow-black/50"
-                    @click.stop
-                >
-                    <div class="flex justify-between items-start mb-6">
-                        <h3 class="text-xl font-bold text-white"><?php echo e($service->title); ?></h3>
-                        <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
-                            <i data-lucide="x" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6"><?php echo e($service->description ?? $service->excerpt); ?></p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
-                            <span class="text-slate-400">Starting price</span>
-                            <span class="font-semibold text-white"><?php echo e($service->starting_price ? '$'.number_format($service->starting_price) : 'Contact us'); ?></span>
-                        </div>
-                        <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
-                            <span class="text-slate-400">Category</span>
-                            <span class="font-semibold text-white"><?php echo e($service->category ?? '—'); ?></span>
-                        </div>
-                    </div>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if((array) ($service->features ?? []) && count((array) $service->features)): ?>
-                        <div class="mb-6">
-                            <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Features</h5>
-                            <ul class="space-y-2">
-                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = (array) $service->features; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feature): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li class="flex items-center gap-2.5 text-sm text-slate-300">
-                                        <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 shrink-0"></i>
-                                        <?php echo e($feature); ?>
-
-                                    </li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
-                        <a href="<?php echo e(route('services.show', $service->slug)); ?>" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
-                            Full details
-                        </a>
-                        <a href="<?php echo e(route('contact')); ?>" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                            Get quote
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
+        <section class="home-section py-20">
+            <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center [data-reveal]" style="transition-delay: 0.1s;">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to start your next project?</h2>
+                <p class="text-slate-400 mb-8 text-lg">Join 800+ builders in the MykaelTech community. Get help, share your work, and grow together.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="<?php echo e(route('contact')); ?>" class="flex-1 btn btn-primary glass-strong text-white px-8 py-4 text-base font-semibold shadow-lg shadow-brand-500/25 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+                        Start a Project <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                    <a href="<?php echo e(route('join')); ?>" class="flex-1 btn glass text-center px-8 py-4 text-base font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
+                        Join free
         
         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div
-                x-show="ui.open && ui.kind === 'project' && ui.record === '<?php echo e($project->slug); ?>'"
+                x-show="ui.open && ui.kind === 'project' && ui.record === '<?php echo e($project['slug']); ?>'"
                 x-transition:enter="transition-opacity ease-out duration-300"
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
@@ -398,7 +292,7 @@
                 aria-modal="true" role="dialog"
             >
                 <div
-                    x-show="ui.open && ui.kind === 'project' && ui.record === '<?php echo e($project->slug); ?>'"
+                    x-show="ui.open && ui.kind === 'project' && ui.record === '<?php echo e($project['slug']); ?>'"
                     x-transition:enter="transition-opacity ease-out duration-300"
                     x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100"
@@ -410,7 +304,7 @@
                     aria-hidden="true"
                 ></div>
                 <div
-                    x-show="ui.open && ui.kind === 'project' && ui.record === '<?php echo e($project->slug); ?>'"
+                    x-show="ui.open && ui.kind === 'project' && ui.record === '<?php echo e($project['slug']); ?>'"
                     x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-4 sm:scale-95"
                     x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
@@ -421,30 +315,27 @@
                     @click.stop
                 >
                     <div class="flex justify-between items-start mb-6">
-                        <h3 class="text-xl font-bold text-white"><?php echo e($project->title); ?></h3>
+                        <h3 class="text-xl font-bold text-white"><?php echo e($project['title']); ?></h3>
                         <button @click="ui.close()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition" aria-label="Close">
                             <i data-lucide="x" class="w-5 h-5"></i>
                         </button>
                     </div>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->cover_photo): ?>
-                        <img src="<?php echo e(asset('storage/'.$project->cover_photo)); ?>" alt="<?php echo e($project->title); ?>" class="w-full rounded-xl mb-5 object-cover h-48 md:h-56">
-                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6"><?php echo e($project->description ?? $project->excerpt); ?></p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6"><?php echo e($project['desc']); ?></p>
                     <div class="space-y-3 mb-6">
                         <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
                             <span class="text-slate-400">Status</span>
-                            <span class="font-semibold text-brand-400"><?php echo e($project->status_label); ?></span>
+                            <span class="font-semibold text-brand-400"><?php echo e($project['status_label']); ?></span>
                         </div>
                         <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2">
                             <span class="text-slate-400">Technologies</span>
                             <span class="font-semibold text-white">
-                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = (array) ($project->technologies ?? []); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_tech): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <?php echo e($_tech); ?> <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!$loop->last): ?>, <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = (array) $project['technologies']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tech): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <?php echo e($tech); ?> <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!$loop->last): ?>, <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </span>
                         </div>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/5">
-                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->external_url): ?>
-                            <a href="<?php echo e($project->external_url); ?>" target="_blank" rel="noopener noreferrer" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project['external_url']): ?>
+                            <a href="<?php echo e($project['external_url']); ?>" target="_blank" rel="noopener noreferrer" class="flex-1 btn btn-primary text-center py-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500/40">
                                 Live demo <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1.5"></i>
                             </a>
                         <?php else: ?>
@@ -452,8 +343,8 @@
                                 Live demo
                             </button>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->github_url): ?>
-                            <a href="<?php echo e($project->github_url); ?>" target="_blank" rel="noopener noreferrer" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project['github_url']): ?>
+                            <a href="<?php echo e($project['github_url']); ?>" target="_blank" rel="noopener noreferrer" class="flex-1 btn glass text-center py-3 text-sm font-semibold text-slate-300 hover:text-white hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/20">
                                 <i data-lucide="github" class="w-3.5 h-3.5 mr-1.5"></i> GitHub
                             </a>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
@@ -461,7 +352,6 @@
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
         
         <div
             x-show="ui.open && ui.kind === 'contact'"
@@ -524,7 +414,6 @@
                 <p class="mt-6 text-xs text-slate-500 text-center">Protected by reCAPTCHA — Privacy Policy · Terms of Service</p>
             </div>
         </div>
-
         
         <div
             x-data="{ promoOpen: (() => { try { return localStorage.getItem('mt_promo_dismissed') === '1'; } catch(e) { return true; } })() }"
@@ -571,23 +460,4 @@
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
 <?php endif; ?>
-
-            </div>
-        </div>
-    </section>
-
-    </section>
-
-    </section>
-
-            </div>
-        </div>
-
-                        </a>
-                        <a href="<?php echo e(route('portfolio')); ?>" class="btn glass px-7 py-3.5 text-base font-semibold text-slate-300 hover:text-white hover:border-brand-500/50 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
-                            View Work
-                        </a>
-                    </div>
-
-
 <?php /**PATH C:\xampp\htdocs\mykaeltech_site\resources\views/pages/home.blade.php ENDPATH**/ ?>
