@@ -13,7 +13,7 @@
                 <!-- Company Info -->
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center space-x-3 mb-4">
-                        <img src="/public/logo.png" alt="<?php echo SITE_NAME; ?> Logo" class="h-10 w-10">
+                        <img src="<?php echo SITE_LOGO; ?>" alt="<?php echo SITE_NAME; ?> Logo" class="h-10 w-10">
                         <h3 class="text-2xl font-bold"><?php echo SITE_NAME; ?></h3>
                     </div>
                     <p class="text-gray-400 mb-4">
@@ -43,11 +43,11 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="/index.php" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="/services.php" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="/portfolio.php" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-                        <li><a href="/team.php" class="text-gray-400 hover:text-white transition-colors">Team</a></li>
-                        <li><a href="/contact.php" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="<?php echo url('index.php'); ?>" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="<?php echo url('services.php'); ?>" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="<?php echo url('portfolio.php'); ?>" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="<?php echo url('team.php'); ?>" class="text-gray-400 hover:text-white transition-colors">Team</a></li>
+                        <li><a href="<?php echo url('contact.php'); ?>" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 

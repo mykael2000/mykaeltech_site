@@ -9,9 +9,40 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Derive the application base path from the request so the plain-PHP site
+// works both at the web root (/) and inside a sub-directory (e.g. /mykaeltech_site).
+//   SCRIPT_NAME "/mykaeltech_site/index.php" -> "/mykaeltech_site"
+//   SCRIPT_NAME "/index.php"                 -> ""  (web root)
+// Using SCRIPT_NAME (not DOCUMENT_ROOT) keeps BASE_URL === "" at the web root,
+// which avoids broken "//public/..." protocol-relative asset URLs there.
+$__scriptName = isset($_SERVER['SCRIPT_NAME']) ? str_replace('\\', '/', $_SERVER['SCRIPT_NAME']) : '';
+$__baseDir = rtrim(dirname($__scriptName), '/');
+define('BASE_URL', ($__baseDir === '' || $__baseDir === '.') ? '' : $__baseDir);
+unset($__scriptName, $__baseDir);
+
 // Load data layer + admin-edited settings (from /data/site/*.json when present)
 require_once __DIR__ . '/data.php';
 $siteSettings = load_site_settings();
+
+// Helper to build an internal URL that is aware of the current base path.
+function url($path = '') {
+    return BASE_URL . '/' . ltrim($path, '/');
+}
+
+// Detect the base URL path so the site works both at a domain root (vhost)
+// and inside a subdirectory such as /mykaeltech_site/ on XAMPP.
+if (!defined('BASE_URL')) {
+    $__script = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : (isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '/');
+    $__base = rtrim(str_replace('\\', '/', dirname($__script)), '/');
+    define('BASE_URL', $__base);
+}
+
+// Helper to build internal URLs relative to the detected base path.
+if (!function_exists('url')) {
+    function url($path = '') {
+        return BASE_URL . '/' . ltrim($path, '/');
+    }
+}
 
 // Site configuration (editable via Admin > Settings)
 define('SITE_NAME', $siteSettings['site_name'] ?? 'MykaelTech');
@@ -20,8 +51,10 @@ define('SITE_URL', $siteSettings['site_url'] ?? 'https://mykaeltech.com');
 define('SITE_EMAIL', $siteSettings['site_email'] ?? 'info@mykaeltech.com');
 define('SITE_PHONE', $siteSettings['site_phone'] ?? '+1 (555) 987-6543');
 define('SITE_ADDRESS', $siteSettings['site_address'] ?? '123 Tech Boulevard, Innovation City, IC 12345');
-define('SITE_FAVICON', '/public/favicon.svg');
-define('SITE_LOGO', $siteSettings['site_logo'] ?? '/public/logo.png');
+define('SITE_FAVICON', BASE_URL . '/public/favicon.svg');
+$__logo = $siteSettings['site_logo'] ?? '/public/logo.png';
+define('SITE_LOGO', (strpos($__logo, 'http') === 0 || strpos($__logo, '//') === 0) ? $__logo : BASE_URL . '/' . ltrim($__logo, '/'));
+unset($__logo);
 
 // Directory paths
 define('BASE_PATH', dirname(__DIR__));
@@ -32,12 +65,12 @@ define('DATA_PATH', BASE_PATH . '/data');
 define('USERS_DATA_PATH', DATA_PATH . '/users');
 define('SESSIONS_DATA_PATH', DATA_PATH . '/sessions');
 
-// Web paths (relative to web root /public/)
-define('ASSETS_URL', '/assets');
-define('IMAGES_URL', '/public/images');
-define('CSS_URL', '/public/css');
-define('JS_URL', '/public/js');
-define('ICONS_URL', '/public/icons');
+// Web paths (base-path aware: work at domain root or inside a subfolder like /mykaeltech_site)
+define('ASSETS_URL', BASE_URL . '/assets');
+define('IMAGES_URL', BASE_URL . '/public/images');
+define('CSS_URL', BASE_URL . '/public/css');
+define('JS_URL', BASE_URL . '/public/js');
+define('ICONS_URL', BASE_URL . '/public/icons');
 
 // CEO Information (editable via Admin > Settings)
 define('CEO_NAME', $siteSettings['ceo_name'] ?? 'Michael Erameh');
@@ -192,30 +225,30 @@ function validateEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-// Helper function to build page URLs
+// Helper function to build page URLs (base-path aware)
 function route($name, $param = null) {
     $routes = [
-        'home' => '/index.php',
-        'join' => '/register.php',
-        'login' => '/login.php',
-        'register' => '/register.php',
-        'logout' => '/logout.php',
-        'dashboard' => '/dashboard.php',
-        'services' => '/services.php',
-        'portfolio' => '/portfolio.php',
-        'team' => '/team.php',
-        'contact' => '/contact.php',
-        'admin' => '/admin/index.php',
+        'home' => 'index.php',
+        'join' => 'register.php',
+        'login' => 'login.php',
+        'register' => 'register.php',
+        'logout' => 'logout.php',
+        'dashboard' => 'dashboard.php',
+        'services' => 'services.php',
+        'portfolio' => 'portfolio.php',
+        'team' => 'team.php',
+        'contact' => 'contact.php',
+        'admin' => 'admin/index.php',
     ];
     if ($name === 'services.show' && $param) {
-        return '/services.php#' . urlencode($param);
+        return url('services.php') . '#' . urlencode($param);
     }
-    return $routes[$name] ?? '/' . $name . '.php';
+    return url($routes[$name] ?? $name . '.php');
 }
 
-// Helper function to build asset URLs (files under /public)
+// Helper function to build asset URLs (files under /public, base-path aware)
 function asset($path) {
-    return '/public/' . ltrim($path, '/');
+    return BASE_URL . '/public/' . ltrim($path, '/');
 }
 
 // Create data directories if they don't exist

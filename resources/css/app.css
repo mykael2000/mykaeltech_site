@@ -551,3 +551,55 @@ input::placeholder, textarea::placeholder { color: #64748b; }
 ::selection { background: rgba(34, 211, 238, 0.3); color: #fff; }
 
 :focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
+/* ============================================================
+   HOMEPAGE REDESIGN � animations, marquee, typewriter, popups
+   ============================================================ */
+
+/* Floating hero orbs */
+@keyframes orbFloat {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(0, -26px, 0) scale(1.07); }
+}
+.hero-orb { position: absolute; border-radius: 9999px; filter: blur(64px); opacity: 0.5; pointer-events: none; animation: orbFloat 13s ease-in-out infinite; }
+.hero-orb-1 { width: 22rem; height: 22rem; background: #0891b2; top: -6rem; left: -6rem; }
+.hero-orb-2 { width: 18rem; height: 18rem; background: #7c3aed; bottom: -5rem; right: -4rem; animation-delay: -6s; }
+.hero-orb-3 { width: 13rem; height: 13rem; background: #22d3ee; top: 42%; right: 22%; opacity: 0.22; animation-delay: -3s; }
+
+/* Subtle grid overlay */
+.hero-grid {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.4;
+    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
+}
+
+/* Tech marquee */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee-track { display: flex; gap: 3rem; width: max-content; animation: marqueeScroll 32s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Typewriter caret */
+.tw-caret { display: inline-block; width: 2px; height: 1em; margin-left: 3px; background: #22d3ee; vertical-align: -2px; animation: caretBlink 1s step-end infinite; }
+@keyframes caretBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Floating glass stat cards */
+.float-card { animation: orbFloat 7.5s ease-in-out infinite; }
+.float-card-delay { animation-delay: -3.5s; }
+
+/* Shine sweep on interactive cards */
+.shine { position: relative; overflow: hidden; }
+.shine::after {
+    content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.12), transparent);
+    transform: skewX(-20deg); transition: left 0.7s ease; pointer-events: none;
+}
+.shine:hover::after { left: 130%; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-orb, .marquee-track, .tw-caret, .float-card { animation: none !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+}

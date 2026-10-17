@@ -6,8 +6,13 @@ import {
     ArrowUpRight,
     BarChart3,
     CalendarDays,
+    Check,
+    ChevronLeft,
+    ChevronRight,
     CircleDollarSign,
+    Cpu,
     ExternalLink,
+    Gift,
     Github,
     Globe2,
     Layers3,
@@ -15,10 +20,18 @@ import {
     MapPin,
     Monitor,
     Palette,
+    Quote,
+    Rocket,
     SearchX,
     Send,
+    ShieldCheck,
     Smartphone,
+    Sparkles,
+    Star,
+    TrendingUp,
     Users,
+    X,
+    Zap,
     createIcons,
 } from 'lucide'
 
@@ -28,8 +41,13 @@ const iconSet = {
     ArrowUpRight,
     BarChart3,
     CalendarDays,
+    Check,
+    ChevronLeft,
+    ChevronRight,
     CircleDollarSign,
+    Cpu,
     ExternalLink,
+    Gift,
     Github,
     Globe2,
     Layers3,
@@ -37,13 +55,52 @@ const iconSet = {
     MapPin,
     Monitor,
     Palette,
+    Quote,
+    Rocket,
     SearchX,
     Send,
+    ShieldCheck,
     Smartphone,
+    Sparkles,
+    Star,
+    TrendingUp,
     Users,
+    X,
+    Zap,
 }
 
 window.Alpine = Alpine
+
+// ---------- Typewriter component ----------
+// Usage: x-data="typewriter(['phrase one', 'phrase two'])" x-init="start()"
+Alpine.data('typewriter', (phrases = []) => ({
+    phrases,
+    text: '',
+    i: 0,
+    deleting: false,
+    start() {
+        if (!this.phrases.length) return
+        const tick = () => {
+            const full = this.phrases[this.i % this.phrases.length]
+            if (!this.deleting) {
+                this.text = full.slice(0, this.text.length + 1)
+                if (this.text === full) {
+                    this.deleting = true
+                    return setTimeout(tick, 1600)
+                }
+            } else {
+                this.text = full.slice(0, this.text.length - 1)
+                if (this.text === '') {
+                    this.deleting = false
+                    this.i += 1
+                    return setTimeout(tick, 350)
+                }
+            }
+            setTimeout(tick, this.deleting ? 45 : 85)
+        }
+        tick()
+    },
+}))
 
 function initializeIcons() {
     createIcons({ icons: iconSet })
@@ -254,3 +311,68 @@ if (document.readyState === 'loading') {
 } else {
     initApp()
 }
+
+// ---------- Global UI store (modal + toast) ----------
+Alpine.store('ui', {
+    open: false,
+    kind: null,
+    record: null,
+    openRecord(kind, record) {
+        this.open = true;
+        this.kind = kind;
+        this.record = record;
+    },
+    close() {
+        this.open = false;
+        this.record = null;
+        this.kind = null;
+    }
+});
+
+// ---------- HTML escaping helper ----------
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+}[c]));
+
+// ---------- Testimonial slider ----------
+function testimonialSlider(data) {
+    return {
+        testimonials: data,
+        current: 0,
+        auto: null,
+        init() {
+            this.next();
+            this.auto = setInterval(() => this.next(), 6000);
+        },
+        destroyed() {
+            clearInterval(this.auto);
+        },
+        next() {
+            this.current = (this.current + 1) % this.testimonials.length;
+        },
+        prev() {
+            this.current = (this.current - 1 + this.testimonials.length) % this.testimonials.length;
+        }
+    };
+}
+
+// ---------- Toast notification ----------
+function toast(message, type = 'info') {
+    const toast = document.createElement('div');
+    toast.className = `toast-pop show toast-${type}`;
+    toast.innerHTML = `
+        <div class="toast-ico"><i data-lucide="info"></i></div>
+        <div class="toast-msg"><p class="text-sm font-semibold text-white">MykaelTech</p><p class="text-xs text-slate-400">${esc(message)}</p></div>
+        <button class="toast-close-x" aria-label="Dismiss"><i data-lucide="x"></i></button>
+    `;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('show'));
+    if (typeof createIcons === 'function') createIcons();
+    toast.querySelector('.toast-close-x')?.addEventListener('click', () => toast.remove());
+}
+window.toast = toast;
+
