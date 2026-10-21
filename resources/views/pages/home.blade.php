@@ -9,7 +9,7 @@
         <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
         <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
-        <div class="page-shell relative grid items-center gap-14 py-20 md:py-28 lg:grid-cols-2">
+        <div class="page-shell relative grid items-start gap-6 py-8 md:py-12 lg:grid-cols-2">
             <div class="text-center lg:text-left">
                 <span class="home-kicker"><i data-lucide="sparkles" class="h-4 w-4"></i> Welcome to the community</span>
 
