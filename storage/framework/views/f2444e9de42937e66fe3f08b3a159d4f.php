@@ -19,7 +19,7 @@
         <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
         <div class="page-shell relative grid items-center gap-14 py-20 md:py-28 lg:grid-cols-2">
-            <div class="text-center lg:text-left" data-reveal>
+            <div class="text-center lg:text-left">
                 <span class="home-kicker"><i data-lucide="sparkles" class="h-4 w-4"></i> Welcome to the community</span>
 
                 <h1 class="mt-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="relative hidden lg:block" data-reveal>
+            <div class="relative hidden lg:block">
                 <div class="float-card glass shine relative rounded-3xl p-6">
                     <div class="flex items-center gap-3">
                         <span class="pro-icon !h-11 !w-11"><i data-lucide="rocket" class="h-5 w-5"></i></span>
