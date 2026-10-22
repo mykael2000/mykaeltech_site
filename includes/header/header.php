@@ -19,17 +19,17 @@ $isLoggedIn = isLoggedIn();
     <meta name="keywords" content="software development, fintech, accounting, cloud solutions, UI/UX design, tech consulting">
     <meta name="author" content="<?php echo SITE_NAME; ?>">
     <title><?php echo isset($pageTitle) ? $pageTitle . ' - ' . SITE_NAME : SITE_TITLE; ?></title>
-    
+
     <!-- Professional CSS Design System -->
     <link rel="stylesheet" href="<?php echo CSS_URL; ?>/style.css">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="<?php echo SITE_FAVICON; ?>">
 <body class="bg-gray-50 text-gray-900 antialiased">
-    
+
     <!-- Navigation Bar -->
     <nav id="navbar" class="navbar fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ $isLoggedIn = isLoggedIn();
                     </div>
                     <span class="text-xl font-bold text-gray-900"><?php echo SITE_NAME; ?></span>
                 </a>
-                
+
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="<?php echo url('index.php'); ?>" class="nav-link <?php echo $currentPage === 'home' ? 'active' : ''; ?>"><i class="fas fa-home mr-1"></i>Home</a>
@@ -49,7 +49,7 @@ $isLoggedIn = isLoggedIn();
                     <a href="<?php echo url('portfolio.php'); ?>" class="nav-link <?php echo $currentPage === 'portfolio' ? 'active' : ''; ?>"><i class="fas fa-briefcase mr-1"></i>Portfolio</a>
                     <a href="<?php echo url('team.php'); ?>" class="nav-link <?php echo $currentPage === 'team' ? 'active' : ''; ?>"><i class="fas fa-users mr-1"></i>Team</a>
                     <a href="<?php echo url('contact.php'); ?>" class="nav-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>"><i class="fas fa-envelope mr-1"></i>Contact</a>
-                    
+
                     <?php if ($isLoggedIn): ?>
                         <a href="<?php echo url('dashboard.php'); ?>" class="nav-link <?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>"><i class="fas fa-user-circle mr-1"></i>Dashboard</a>
                         <a href="<?php echo url('logout.php'); ?>" class="btn btn-secondary text-sm px-3 py-2"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
@@ -58,7 +58,7 @@ $isLoggedIn = isLoggedIn();
                         <a href="<?php echo url('register.php'); ?>" class="btn btn-outline text-sm px-4 py-2"><i class="fas fa-user-plus mr-1"></i>Register</a>
                     <?php endif; ?>
                 </div>
-                
+
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ $isLoggedIn = isLoggedIn();
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-4 py-3 space-y-3">
@@ -87,7 +87,7 @@ $isLoggedIn = isLoggedIn();
                 <a href="<?php echo url('contact.php'); ?>" class="mobile-nav-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>">
                     Contact
                 </a>
-                
+
                 <?php if ($isLoggedIn): ?>
                     <a href="<?php echo url('dashboard.php'); ?>" class="mobile-nav-link <?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>">
                         <i class="fas fa-user-circle"></i> Dashboard
@@ -106,6 +106,6 @@ $isLoggedIn = isLoggedIn();
             </div>
         </div>
     </nav>
-    
+
     <!-- Main Content (pages will add content here) -->
-    <main class="pt-16">
+    <main class="pt-2">
