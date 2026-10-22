@@ -41,21 +41,21 @@ include 'includes/header/header.php';
                     A community of builders, not just an agency
                 </span>
 
-                <h1 class="hero-title hero-anim-2" style="margin-top: 1.4rem; color: #fff;">
+                <h1 class="hero-title hero-anim-2" color: #fff;">
                     Build. Learn. <span class="text-gradient-hero">Belong.</span>
                 </h1>
 
-                <p class="typewriter-line hero-anim-3" style="margin-top: 1.2rem;">
+                <p class="typewriter-line hero-anim-3" color: #fff;">
                     We turn ideas into&nbsp;<span id="typewriter" data-words="<?php echo $typewriterWords; ?>">software products</span>
                 </p>
 
-                <p class="hero-sub hero-anim-3" style="margin-top: 1.3rem;">
+                <p class="hero-sub hero-anim-3">
                     MykaelTech bridges technology and accounting — explore our services,
                     showcase your portfolio, track your learning, and generate a
                     professional CV, all in one place.
                 </p>
 
-                <div class="hero-anim-4" style="margin-top: 2.1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <div class="hero-anim-4" display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
                     <a href="<?php echo route('join'); ?>" class="btn btn-white px-7 py-3.5 text-base">
                         <i class="fas fa-user-plus"></i>Join the Community
                     </a>
