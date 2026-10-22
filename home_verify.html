@@ -1,0 +1,705 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="XpIXFwGa5qb3B1UT50MMlW0eQpojhgrwb5mrnRjZ">
+
+    <title>MykaelTech — Build. Learn. Belong. — MykaelTech </title>
+    <meta name="description" content="MykaelTech is a technology community: services, portfolio showcases, learning updates, tech facts and a CV builder for members. ">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MykaelTech">
+    <meta property="og:title" content="MykaelTech — Build. Learn. Belong. ">
+    <meta property="og:description" content="MykaelTech is a technology community: services, portfolio showcases, learning updates, tech facts and a CV builder for members. ">
+    <meta property="og:url" content="http://127.0.0.1:8000">
+
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20d%3D%22M24%202.5%2042.5%2013v22L24%2045.5%205.5%2035V13L24%202.5Z%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%223%22%20fill%3D%22rgba%2814%2C165%2C233%2C0.15%29%22%2F%3E%3Cpath%20d%3D%22M14%2032V17.5l5.5%208%204.5-8%204.5%208%205.5-8V32%22%20stroke%3D%22%2322d3ee%22%20stroke-width%3D%223.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+
+    <script type="module" src="http://127.0.0.1:5173/@vite/client" data-navigate-track="reload"></script><link rel="stylesheet" href="http://127.0.0.1:5173/resources/css/app.css" data-navigate-track="reload" /><script type="module" src="http://127.0.0.1:5173/resources/js/app.js" data-navigate-track="reload"></script></head>
+<body class="min-h-screen bg-ink-950 antialiased"
+      x-data="{ mobileOpen: false, searchOpen: false, toastMessage: null }"
+      x-init="$nextTick(() => { if (toastMessage) setTimeout(() => toastMessage = null, 4000); })"
+      @keydown.escape.window="mobileOpen = false; searchOpen = false">
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <header class="sticky top-0 z-50 border-b border-white/5 bg-ink-950/80 backdrop-blur-lg">
+        <nav class="page-shell flex h-16 items-center justify-between gap-4" aria-label="Main">
+            <a href="http://127.0.0.1:8000" class="flex shrink-0 items-center" aria-label="MykaelTech home"><span class="inline-flex items-center gap-2.5 select-none">
+    
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" aria-hidden="true">
+        <defs>
+            <linearGradient id="mt-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#22D3EE"/>
+                <stop offset="0.55" stop-color="#0EA5E9"/>
+                <stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+        </defs>
+        <path d="M24 2.5 42.5 13v22L24 45.5 5.5 35V13L24 2.5Z" stroke="url(#mt-grad)" stroke-width="3" fill="rgba(14,165,233,0.08)"/>
+        <path d="M14 32V17.5l5.5 8 4.5-8 4.5 8 5.5-8V32" stroke="url(#mt-grad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="24" cy="8.6" r="2" fill="#22D3EE"/>
+        <circle cx="39.5" cy="17.6" r="1.7" fill="#8B5CF6"/>
+        <circle cx="8.5" cy="17.6" r="1.7" fill="#0EA5E9"/>
+    </svg>
+            <span class="text-xl font-bold tracking-tight text-white">
+            Mykael<span class="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Tech</span>
+        </span>
+    </span>
+</a>
+
+            <div class="hidden items-center gap-1 md:flex">
+                                    <a href="http://127.0.0.1:8000/services" data-nav-link
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Services</a>
+                                    <a href="http://127.0.0.1:8000/portfolio" data-nav-link
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Portfolio</a>
+                                    <a href="http://127.0.0.1:8000/learn" data-nav-link
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Learn</a>
+                                    <a href="http://127.0.0.1:8000/community" data-nav-link
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Community</a>
+                                    <a href="http://127.0.0.1:8000/team" data-nav-link
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Team</a>
+                                    <a href="http://127.0.0.1:8000/contact" data-nav-link
+                       class="rounded-lg px-3 py-2 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Contact</a>
+                            </div>
+
+            <div class="hidden items-center gap-2 md:flex">
+                <button type="button" @click="searchOpen = !searchOpen" class="rounded-lg p-2 text-slate-300 transition hover:bg-white/5 hover:text-white" aria-label="Search"><i data-lucide="search" class="h-5 w-5"></i></button>
+                                    <a href="http://127.0.0.1:8000/login" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-white">Log in</a>
+                    <a href="http://127.0.0.1:8000/join" class="btn btn-primary !px-4 !py-2">Join free</a>
+                            </div>
+
+
+            <button type="button" @click="mobileOpen = !mobileOpen" class="rounded-lg p-2 text-slate-300 transition hover:bg-white/5 hover:text-white md:hidden" :aria-expanded="mobileOpen.toString()" aria-label="Toggle menu">
+                <i data-lucide="menu" class="h-6 w-6" x-show="!mobileOpen"></i>
+                <i data-lucide="x" class="h-6 w-6" x-show="mobileOpen" x-cloak></i>
+            </button>
+        </nav>
+
+
+        
+        <div x-show="searchOpen" x-transition.opacity x-cloak style="display:none" class="border-t border-white/5 bg-ink-950/95 py-4 backdrop-blur-lg">
+            <form method="GET" action="http://127.0.0.1:8000/search" class="page-shell flex gap-3">
+                <input type="text" name="q" placeholder="Search services, projects, posts…" class="input flex-1" autofocus>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        
+        <div x-show="mobileOpen"
+             x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 -translate-y-2"
+             x-cloak style="display:none" class="border-t border-white/5 bg-ink-950/95 backdrop-blur-lg md:hidden">
+            <div class="page-shell flex flex-col gap-1 py-4">
+                                    <a href="http://127.0.0.1:8000/services" @click="mobileOpen = false" data-nav-link class="rounded-lg px-3 py-2.5 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Services</a>
+                                    <a href="http://127.0.0.1:8000/portfolio" @click="mobileOpen = false" data-nav-link class="rounded-lg px-3 py-2.5 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Portfolio</a>
+                                    <a href="http://127.0.0.1:8000/learn" @click="mobileOpen = false" data-nav-link class="rounded-lg px-3 py-2.5 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Learn</a>
+                                    <a href="http://127.0.0.1:8000/community" @click="mobileOpen = false" data-nav-link class="rounded-lg px-3 py-2.5 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Community</a>
+                                    <a href="http://127.0.0.1:8000/team" @click="mobileOpen = false" data-nav-link class="rounded-lg px-3 py-2.5 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Team</a>
+                                    <a href="http://127.0.0.1:8000/contact" @click="mobileOpen = false" data-nav-link class="rounded-lg px-3 py-2.5 text-sm font-medium transition text-slate-300 hover:bg-white/5 hover:text-white">Contact</a>
+                                <div class="my-2 border-t border-white/5"></div>
+                <form method="GET" action="http://127.0.0.1:8000/search" class="flex gap-2 px-1 pb-2">
+                    <input type="text" name="q" placeholder="Search…" class="input flex-1 !py-2.5 text-sm">
+                    <button type="submit" class="btn btn-primary !px-3" aria-label="Search"><i data-lucide="search" class="h-4 w-4"></i></button>
+                </form>
+                                    <a href="http://127.0.0.1:8000/login" @click="mobileOpen = false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-white">Log in</a>
+                    <a href="http://127.0.0.1:8000/join" @click="mobileOpen = false" class="btn btn-primary mt-1">Join free</a>
+                            </div>
+        </div>
+    </header>
+
+
+    <main id="main" class="relative">
+        
+        <div x-show="toastMessage" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 translate-y-4" x-cloak style="display:none" class="fixed bottom-6 left-1/2 z-[95] -translate-x-1/2">
+            <div class="glass-strong flex items-center gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300 shadow-2xl">
+                <i data-lucide="check" class="h-4 w-4"></i>
+                <span x-text="toastMessage"></span>
+            </div>
+        </div>
+
+        
+        <section class="bg-glow relative overflow-hidden">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+
+        <div class="page-shell relative grid items-start gap-6 py-8 md:py-12 lg:grid-cols-2">
+            <div class="text-center lg:text-left">
+                <span class="home-kicker"><i data-lucide="sparkles" class="h-4 w-4"></i> Welcome to the community</span>
+
+                <h1 class="mt-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+                    We build, learn and grow
+                    <span class="block h-[1.15em]">
+                        <span x-data="typewriter(JSON.parse('[\u0022innovative web apps\u0022,\u0022modern mobile experiences\u0022,\u0022open-source tools\u0022,\u0022the next big thing\u0022]'))" x-init="start()" class="text-gradient"><span x-text="text"></span></span><span class="tw-caret" aria-hidden="true"></span>
+                    </span>
+                </h1>
+
+                <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-400 lg:mx-0">
+                    A technology community where builders ship real projects, share what they learn, and lift each other up. Explore our services, browse the portfolio, and join the journey.
+                </p>
+
+                <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                    <a href="http://127.0.0.1:8000/portfolio" class="btn btn-primary shine !px-7 !py-3 text-base">Explore portfolio <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    <a href="http://127.0.0.1:8000/join" class="btn !border !border-white/10 !bg-white/5 !px-7 !py-3 text-base text-white hover:!bg-white/10">Join the community</a>
+                </div>
+
+                <div class="mt-10 flex items-center justify-center gap-8 text-sm text-slate-400 lg:justify-start">
+                    <div class="flex items-center gap-2"><i data-lucide="users" class="h-4 w-4 text-brand-400"></i><span><strong class="font-semibold text-white">2+</strong> members</span></div>
+                    <div class="flex items-center gap-2"><i data-lucide="layers-3" class="h-4 w-4 text-brand-400"></i><span><strong class="font-semibold text-white">3+</strong> projects</span></div>
+                </div>
+            </div>
+
+            <div class="relative hidden lg:block">
+                <div class="float-card glass shine relative rounded-3xl p-6">
+                    <div class="flex items-center gap-3">
+                        <span class="pro-icon !h-11 !w-11"><i data-lucide="rocket" class="h-5 w-5"></i></span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Shipped this week</p>
+                            <p class="text-xs text-slate-400">Portfolio · Community · Learn</p>
+                        </div>
+                    </div>
+                    <div class="mt-5 space-y-3">
+                        <div class="h-2.5 w-full rounded-full bg-white/5"></div>
+                        <div class="h-2.5 w-4/5 rounded-full bg-brand-500/30"></div>
+                        <div class="h-2.5 w-3/5 rounded-full bg-violet-500/30"></div>
+                    </div>
+                </div>
+                <div class="float-card float-card-delay glass absolute -bottom-8 -left-10 w-56 rounded-2xl p-5">
+                    <div class="flex items-center gap-2 text-brand-300"><i data-lucide="zap" class="h-4 w-4"></i><span class="text-xs font-semibold uppercase tracking-widest">Community</span></div>
+                    <p class="mt-2 text-2xl font-bold text-white">2+</p>
+                    <p class="text-xs text-slate-400">active builders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+        <section class="border-y border-white/5 bg-ink-900/40 py-6">
+        <div class="marquee">
+            <div class="marquee-track">
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Laravel</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>PHP</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>JavaScript</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Tailwind CSS</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Alpine.js</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>React</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Node.js</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>MySQL</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Git</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Docker</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Figma</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Flutter</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Laravel</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>PHP</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>JavaScript</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Tailwind CSS</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Alpine.js</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>React</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Node.js</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>MySQL</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Git</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Docker</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Figma</span>
+                                    <span class="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-400"><i data-lucide="cpu" class="h-4 w-4 text-brand-500"></i>Flutter</span>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="page-shell page-section">
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="users" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="2">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Community members</p>
+            </div>
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="layers-3" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="43">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Projects delivered</p>
+            </div>
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="book-open" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="63">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Learning posts</p>
+            </div>
+            <div class="stat-tile" data-reveal>
+                <i data-lucide="calendar-days" class="mx-auto h-7 w-7 text-brand-400"></i>
+                <p class="mt-3 text-3xl font-extrabold text-white"><span data-counter="25">0</span>+</p>
+                <p class="mt-1 text-sm text-slate-400">Events hosted</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="layers-3" class="h-4 w-4"></i> What we do</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Services built for modern teams</h2>
+            </div>
+            <a href="http://127.0.0.1:8000/services" class="pro-link !mt-0">All services <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+
+        <div class="page-grid md:grid-cols-2 lg:grid-cols-3">
+                            <a href="http://127.0.0.1:8000/services/web-development" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">Web Development</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">Modern, responsive websites and web apps built with cutting-edge technologies.</p>
+                                        <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+                            <a href="http://127.0.0.1:8000/services/mobile-app-development" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">Mobile App Development</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">Cross-platform mobile apps that feel native on both iOS and Android.</p>
+                                        <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+                            <a href="http://127.0.0.1:8000/services/ui-ux-design" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">UI/UX Design</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">User-centered design that converts visitors into customers.</p>
+                                        <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+                            <a href="http://127.0.0.1:8000/services/cloud-solutions" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">Cloud Solutions</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">Scalable cloud architecture, migrations and DevOps automation.</p>
+                                        <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+                            <a href="http://127.0.0.1:8000/services/tech-consulting-training" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">Tech Consulting &amp; Training</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">Strategic guidance and hands-on training for teams and individuals.</p>
+                                        <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+                            <a href="http://127.0.0.1:8000/services/maintenance-support" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <div class="pro-icon" aria-hidden="true"><i data-lucide="zap" class="h-7 w-7"></i></div>
+                    <h3 class="mt-5 text-xl font-bold text-white group-hover:text-brand-300">Maintenance &amp; Support</h3>
+                    <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400">Keep your products secure, updated and running smoothly.</p>
+                                        <span class="pro-link">Details <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span>
+                </a>
+                    </div>
+    </section>
+
+
+    
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="rocket" class="h-4 w-4"></i> Featured work</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Projects we're proud of</h2>
+            </div>
+            <a href="http://127.0.0.1:8000/portfolio" class="pro-link !mt-0">Full portfolio <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+
+        <div class="page-grid md:grid-cols-2 lg:grid-cols-3">
+                                            <article class="card-hover group glass overflow-hidden rounded-2xl" data-reveal>
+                    <div class="relative h-44 w-full overflow-hidden bg-gradient-to-br from-brand-600/30 via-ink-800 to-violet-600/30">
+                                                    <div class="flex h-full w-full items-center justify-center">
+                                <i data-lucide="bar-chart-3" class="h-10 w-10 text-brand-300"></i>
+                            </div>
+                                                <span class="absolute left-3 top-3 rounded-full bg-ink-950/80 px-3 py-1 text-xs font-semibold text-brand-300 backdrop-blur">Web App</span>
+                    </div>
+                    <div class="page-card">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-300">MykaelTech Community Platform</h3>
+                        <p class="mt-2 line-clamp-2 text-sm text-slate-400">The platform you are on: community, learning hub and CV generator in one.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Laravel 12</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Tailwind CSS</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Filament</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">MySQL</span>
+                                                    </div>
+                        <a href="http://127.0.0.1:8000/portfolio/community-platform" class="pro-link">Case study <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    </div>
+                </article>
+                                            <article class="card-hover group glass overflow-hidden rounded-2xl" data-reveal>
+                    <div class="relative h-44 w-full overflow-hidden bg-gradient-to-br from-brand-600/30 via-ink-800 to-violet-600/30">
+                                                    <div class="flex h-full w-full items-center justify-center">
+                                <i data-lucide="bar-chart-3" class="h-10 w-10 text-brand-300"></i>
+                            </div>
+                                                <span class="absolute left-3 top-3 rounded-full bg-ink-950/80 px-3 py-1 text-xs font-semibold text-brand-300 backdrop-blur">E-Commerce</span>
+                    </div>
+                    <div class="page-card">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-300">E-Commerce Storefront</h3>
+                        <p class="mt-2 line-clamp-2 text-sm text-slate-400">A fast, conversion-focused online store with payment integration.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Laravel</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Vue.js</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">MySQL</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">M-Pesa API</span>
+                                                    </div>
+                        <a href="http://127.0.0.1:8000/portfolio/ecommerce-storefront" class="pro-link">Case study <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    </div>
+                </article>
+                                            <article class="card-hover group glass overflow-hidden rounded-2xl" data-reveal>
+                    <div class="relative h-44 w-full overflow-hidden bg-gradient-to-br from-brand-600/30 via-ink-800 to-violet-600/30">
+                                                    <div class="flex h-full w-full items-center justify-center">
+                                <i data-lucide="bar-chart-3" class="h-10 w-10 text-brand-300"></i>
+                            </div>
+                                                <span class="absolute left-3 top-3 rounded-full bg-ink-950/80 px-3 py-1 text-xs font-semibold text-brand-300 backdrop-blur">Web App</span>
+                    </div>
+                    <div class="page-card">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-300">FinTrack Dashboard</h3>
+                        <p class="mt-2 line-clamp-2 text-sm text-slate-400">Financial tracking dashboard bridging accounting and technology.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Laravel</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Chart.js</span>
+                                                            <span class="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-300">Tailwind CSS</span>
+                                                    </div>
+                        <a href="http://127.0.0.1:8000/portfolio/fintrack-dashboard" class="pro-link">Case study <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    </div>
+                </article>
+                    </div>
+    </section>
+
+    
+    <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="book-open" class="h-4 w-4"></i> From the blog</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Latest learning updates</h2>
+            </div>
+            <a href="http://127.0.0.1:8000/learn" class="pro-link !mt-0">Read more <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+
+        <div class="page-grid md:grid-cols-3">
+                            <a href="http://127.0.0.1:8000/learn/week4-understood-eloquent-relationships" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <span class="w-fit rounded-full bg-violet-500/15 px-2.5 py-1 text-xs font-semibold text-violet-300">Learning Update</span>
+                    <h3 class="mt-4 text-lg font-bold text-white group-hover:text-brand-300">Week 4: Finally understood Laravel Eloquent relationships</h3>
+                    <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">This week I stopped fighting Eloquent and started using it properly. Here is what finally clicked for me with hasOne, hasMany and...</p>
+                    <div class="mt-4 flex items-center gap-3 text-xs text-slate-500">
+                        <span>Aisha Developer</span> ·
+                        <time datetime="2026-09-21">Sep 21, 2026</time> ·
+                        <span>89 views</span>
+                    </div>
+                </a>
+                            <a href="http://127.0.0.1:8000/learn/shipped-my-first-client-project" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <span class="w-fit rounded-full bg-violet-500/15 px-2.5 py-1 text-xs font-semibold text-violet-300">Learning Update</span>
+                    <h3 class="mt-4 text-lg font-bold text-white group-hover:text-brand-300">Shipped my first client project!</h3>
+                    <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">From community member to shipping a real e-commerce site for a local business. Here is the journey.</p>
+                    <div class="mt-4 flex items-center gap-3 text-xs text-slate-500">
+                        <span>Aisha Developer</span> ·
+                        <time datetime="2026-09-16">Sep 16, 2026</time> ·
+                        <span>134 views</span>
+                    </div>
+                </a>
+                            <a href="http://127.0.0.1:8000/learn/welcome-to-new-mykaeltech-platform" class="card-hover group glass flex flex-col rounded-2xl page-card shine" data-reveal>
+                    <span class="w-fit rounded-full bg-violet-500/15 px-2.5 py-1 text-xs font-semibold text-violet-300">News</span>
+                    <h3 class="mt-4 text-lg font-bold text-white group-hover:text-brand-300">Welcome to the new MykaelTech platform</h3>
+                    <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">We rebuilt MykaelTech from the ground up: a community platform with learning updates, tech facts, portfolio showcases and a CV gen...</p>
+                    <div class="mt-4 flex items-center gap-3 text-xs text-slate-500">
+                        <span>Mykael Oduya</span> ·
+                        <time datetime="2026-09-12">Sep 12, 2026</time> ·
+                        <span>152 views</span>
+                    </div>
+                </a>
+                    </div>
+    </section>
+
+
+    
+        <section class="border-y border-white/5 bg-ink-900/40 page-section">
+        <div class="page-shell">
+            <div class="mb-10 text-center" data-reveal>
+                <span class="home-kicker"><i data-lucide="lightbulb" class="h-4 w-4"></i> Did you know?</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Tech facts worth knowing</h2>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                    <div class="glass card-hover rounded-2xl p-5" data-reveal>
+                        <i data-lucide="zap" class="h-5 w-5 text-brand-400"></i>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">The first 1GB hard drive (IBM 1956) weighed about 1 ton. Today a fingernail-sized microSD holds 1TB.</p>
+                                            </div>
+                                    <div class="glass card-hover rounded-2xl p-5" data-reveal>
+                        <i data-lucide="zap" class="h-5 w-5 text-brand-400"></i>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">Tailwind CSS was created by Adam Wathan and Steve Schoger — first as a side project, now used by millions.</p>
+                                                    <a href="https://tailwindcss.com" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-300 hover:underline">Source <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></a>
+                                            </div>
+                                    <div class="glass card-hover rounded-2xl p-5" data-reveal>
+                        <i data-lucide="zap" class="h-5 w-5 text-brand-400"></i>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">Laravel was created by Taylor Otwell in 2011 and is now the most popular PHP framework on GitHub by stars.</p>
+                                                    <a href="https://github.com/laravel/laravel" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-300 hover:underline">Source <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></a>
+                                            </div>
+                                    <div class="glass card-hover rounded-2xl p-5" data-reveal>
+                        <i data-lucide="zap" class="h-5 w-5 text-brand-400"></i>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">The first website ever (info.cern.ch, 1991) is still online today — restored by CERN in 2013.</p>
+                                                    <a href="http://info.cern.ch" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-300 hover:underline">Source <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></a>
+                                            </div>
+                                    <div class="glass card-hover rounded-2xl p-5" data-reveal>
+                        <i data-lucide="zap" class="h-5 w-5 text-brand-400"></i>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">MySQL, which powers this platform, was named after co-founder Michael Widenius&#039;s daughter, My.</p>
+                                                    <a href="https://www.mysql.com" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-300 hover:underline">Source <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></a>
+                                            </div>
+                            </div>
+        </div>
+    </section>
+    
+    
+        <section class="page-shell page-section">
+        <div class="mb-10 text-center" data-reveal>
+            <span class="home-kicker"><i data-lucide="quote" class="h-4 w-4"></i> Testimonials</span>
+            <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">What members say</h2>
+        </div>
+
+        <div class="mx-auto max-w-3xl" data-reveal
+             x-data="testimonialSlider(JSON.parse('[{\u0022content\u0022:\u0022MykaelTech rebuilt our entire storefront. Sales are up 40% and the site loads instantly. Truly professional work.\u0022,\u0022author_name\u0022:\u0022Sarah Kimani\u0022,\u0022author_role\u0022:\u0022Operations Manager\u0022,\u0022company\u0022:\u0022RetailChain Ltd\u0022,\u0022rating\u0022:5},{\u0022content\u0022:\u0022The FinTrack dashboard gave me clarity on my business finances for the first time. Worth every shilling.\u0022,\u0022author_name\u0022:\u0022David Otieno\u0022,\u0022author_role\u0022:\u0022Small Business Owner\u0022,\u0022company\u0022:\u0022FinTrack user\u0022,\u0022rating\u0022:5},{\u0022content\u0022:\u0022I joined the community to learn Laravel. Six months later I landed my first developer job \\u2014 the learning updates and mentorship made the difference.\u0022,\u0022author_name\u0022:\u0022Grace Wanjiru\u0022,\u0022author_role\u0022:\u0022Community Member\u0022,\u0022company\u0022:null,\u0022rating\u0022:5}]'))">
+            <div class="glass relative rounded-3xl p-8 text-center sm:p-10">
+                <i data-lucide="quote" class="mx-auto h-8 w-8 text-brand-500/50"></i>
+                <template x-if="testimonials.length">
+                    <div>
+                        <p class="mt-5 text-lg leading-relaxed text-slate-300" x-text="`“${testimonials[current].content}”`"></p>
+                        <div class="mt-6 flex items-center justify-center gap-1" x-show="testimonials[current].rating">
+                            <template x-for="n in 5" :key="n">
+                                <i data-lucide="star" class="h-4 w-4" :class="(n <= (testimonials[current].rating || 0)) ? 'fill-amber-400 text-amber-400' : 'text-slate-600'"></i>
+                            </template>
+                        </div>
+                        <div class="mt-5">
+                            <p class="font-semibold text-white" x-text="testimonials[current].author_name"></p>
+                            <p class="text-sm text-slate-400" x-text="[testimonials[current].author_role, testimonials[current].company].filter(Boolean).join(' · ')"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="mt-6 flex items-center justify-center gap-4">
+                <button type="button" @click="prev()" class="btn !border !border-white/10 !bg-white/5 !p-2.5 text-white hover:!bg-white/10" aria-label="Previous testimonial"><i data-lucide="chevron-left" class="h-5 w-5"></i></button>
+                <span class="text-sm text-slate-400"><span x-text="current + 1"></span> / <span x-text="testimonials.length"></span></span>
+                <button type="button" @click="next()" class="btn !border !border-white/10 !bg-white/5 !p-2.5 text-white hover:!bg-white/10" aria-label="Next testimonial"><i data-lucide="chevron-right" class="h-5 w-5"></i></button>
+            </div>
+        </div>
+    </section>
+    
+
+    
+        <section class="page-shell page-section">
+        <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end" data-reveal>
+            <div>
+                <span class="home-kicker"><i data-lucide="calendar-days" class="h-4 w-4"></i> Upcoming</span>
+                <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Events & meetups</h2>
+            </div>
+            <a href="http://127.0.0.1:8000/community" class="pro-link !mt-0">Community <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+        <div class="page-grid md:grid-cols-3">
+                            <article class="glass card-hover rounded-2xl page-card" data-reveal>
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-gradient-to-br from-brand-600/30 to-violet-600/30 text-white">
+                            <span class="text-lg font-extrabold leading-none">22</span>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider">Oct</span>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="truncate text-base font-bold text-white">Career AMA: Breaking Into Tech</h3>
+                            <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400"><i data-lucide="map-pin" class="h-3.5 w-3.5"></i>Online (Zoom)</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-400">Live Q&amp;A with developers and hiring managers on CVs, portfolios and landing your first role.</p>
+                                            <a href="https://forms.example.com/career-ama" target="_blank" rel="noopener" class="pro-link">Register <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                                    </article>
+                            <article class="glass card-hover rounded-2xl page-card" data-reveal>
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-gradient-to-br from-brand-600/30 to-violet-600/30 text-white">
+                            <span class="text-lg font-extrabold leading-none">05</span>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider">Nov</span>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="truncate text-base font-bold text-white">Workshop: Build a CV Generator</h3>
+                            <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400"><i data-lucide="map-pin" class="h-3.5 w-3.5"></i>Online (Google Meet)</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-400">Build the exact CV generator this platform uses — Laravel, DomPDF and print-first design.</p>
+                                            <a href="https://forms.example.com/cv-workshop" target="_blank" rel="noopener" class="pro-link">Register <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                                    </article>
+                    </div>
+    </section>
+    
+    
+    <section class="page-shell page-section" data-reveal>
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand-600/20 via-ink-900 to-violet-600/20 p-10 text-center sm:p-14">
+            <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+            <div class="relative">
+                <span class="home-kicker"><i data-lucide="users" class="h-4 w-4"></i> Join us</span>
+                <h2 class="mt-4 text-3xl font-extrabold text-white sm:text-4xl">Ready to build in public?</h2>
+                <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+                    Create a free account to publish your portfolio, share learning updates and generate a polished CV — all in one place.
+                </p>
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                    <a href="http://127.0.0.1:8000/join" class="btn btn-primary shine !px-7 !py-3 text-base">Create free account <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                    <button type="button"
+                            @click="$store.ui.openRecord('promo', { title: 'MykaelTech membership', body: 'Members get a public portfolio, a CV generator, learning updates, community events and a profile at /cv/your-username — free, no credit card required.' })"
+                            class="btn !border !border-white/10 !bg-white/5 !px-7 !py-3 text-base text-white hover:!bg-white/10">
+                        <i data-lucide="gift" class="h-4 w-4"></i> What's included?
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <section class="page-shell page-section grid gap-6 lg:grid-cols-2">
+        
+        <div class="glass rounded-3xl p-8 sm:p-10" data-reveal>
+            <span class="home-kicker"><i data-lucide="send" class="h-4 w-4"></i> Get in touch</span>
+            <h2 class="mt-4 text-2xl font-extrabold text-white sm:text-3xl">Have a project in mind?</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">Tell us what you're building and we'll get back to you within 24 hours. Or reach us directly via the contact page.</p>
+
+            <form method="POST" action="http://127.0.0.1:8000/contact" class="mt-7 space-y-4">
+                <input type="hidden" name="_token" value="XpIXFwGa5qb3B1UT50MMlW0eQpojhgrwb5mrnRjZ" autocomplete="off">                <div class="hidden" aria-hidden="true">
+                    <label for="home-website">Website</label>
+                    <input type="text" id="home-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                        <label for="home-name" class="label">Name *</label>
+                        <input type="text" id="home-name" name="name" value="" required maxlength="120" class="input" placeholder="Your name">
+                                            </div>
+                    <div>
+                        <label for="home-email" class="label">Email *</label>
+                        <input type="email" id="home-email" name="email" value="" required maxlength="190" class="input" placeholder="you@example.com">
+                                            </div>
+                </div>
+                <div>
+                    <label for="home-subject" class="label">Subject</label>
+                    <input type="text" id="home-subject" name="subject" value="" maxlength="190" class="input" placeholder="How can we help?">
+                                    </div>
+                <div>
+                    <label for="home-message" class="label">Message *</label>
+                    <textarea id="home-message" name="message" rows="4" required maxlength="5000" class="input resize-y" placeholder="Tell us a little about your project…"></textarea>
+                                    </div>
+                <button type="submit" class="btn btn-primary shine w-full !py-3">Send message <i data-lucide="send" class="h-4 w-4"></i></button>
+            </form>
+        </div>
+
+        
+        <div class="glass flex flex-col rounded-3xl p-8 sm:p-10" data-reveal>
+            <span class="home-kicker"><i data-lucide="bell" class="h-4 w-4"></i> Newsletter</span>
+            <h2 class="mt-4 text-2xl font-extrabold text-white sm:text-3xl">Stay in the loop</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">Learning updates, tech facts and community news — straight to your inbox. No spam, unsubscribe anytime.</p>
+
+            <form method="POST" action="http://127.0.0.1:8000/newsletter" class="mt-7">
+                <input type="hidden" name="_token" value="XpIXFwGa5qb3B1UT50MMlW0eQpojhgrwb5mrnRjZ" autocomplete="off">                <label for="home-newsletter" class="label">Email address</label>
+                <div class="flex gap-3">
+                    <input type="email" id="home-newsletter" name="email" value="" required maxlength="190" class="input flex-1" placeholder="you@example.com">
+                    <button type="submit" class="btn btn-primary !px-5">Subscribe</button>
+                </div>
+                            </form>
+
+            <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Weekly digest</div>
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Event invites</div>
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Tutorials & tips</div>
+                <div class="flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-3 text-sm text-slate-300"><i data-lucide="check" class="h-4 w-4 shrink-0 text-brand-400"></i>Portfolio features</div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    
+    <div x-data x-show="$store.ui.open" x-transition.opacity x-cloak style="display:none" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" @keydown.escape.window="$store.ui.close()" @click.self="$store.ui.close()">
+        <div x-show="$store.ui.open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="glass-strong relative w-full max-w-lg rounded-2xl p-6 shadow-2xl sm:p-8">
+            <button type="button" @click="$store.ui.close()" class="absolute right-4 top-4 text-slate-400 transition hover:text-white" aria-label="Close"><i data-lucide="x" class="h-5 w-5"></i></button>
+            <template x-if="$store.ui.record">
+                <div>
+                    <span class="badge" x-text="$store.ui.kind"></span>
+                    <h3 class="mt-3 text-xl font-bold text-white" x-text="$store.ui.record.title"></h3>
+                    <p class="mt-3 text-sm leading-relaxed text-slate-300" x-text="$store.ui.record.body || $store.ui.record.description"></p>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    
+    <div x-data="cookieConsent" x-show="visible" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-6" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 translate-y-6" x-cloak style="display:none" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+        <div class="glass-strong flex flex-col gap-4 rounded-2xl border border-white/10 p-5 shadow-2xl sm:flex-row sm:items-center sm:gap-6 sm:p-6">
+            <div class="flex flex-1 items-start gap-3">
+                <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/20 to-violet-600/20 text-brand-300 ring-1 ring-brand-500/30">
+                    <i data-lucide="cookie" class="h-5 w-5"></i>
+                </span>
+                <div>
+                    <p class="text-sm font-semibold text-white">We use cookies</p>
+                    <p class="mt-1 text-xs leading-relaxed text-slate-400">We use cookies to improve your experience, analyse traffic and remember your preferences. By clicking “Accept”, you agree to our use of cookies.</p>
+                </div>
+            </div>
+            <div class="flex shrink-0 gap-3">
+                <button type="button" @click="decline" class="btn btn-secondary !px-4 !py-2 text-sm">Decline</button>
+                <button type="button" @click="accept" class="btn btn-primary !px-4 !py-2 text-sm">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="relative mt-24 border-t border-white/5 bg-ink-950">
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+            <div class="hero-orb hero-orb-1"></div>
+        </div>
+        <div class="page-shell relative grid gap-10 py-14 md:grid-cols-4">
+            <div class="md:col-span-1">
+                <span class="inline-flex items-center gap-2.5 select-none">
+    
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" aria-hidden="true">
+        <defs>
+            <linearGradient id="mt-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#22D3EE"/>
+                <stop offset="0.55" stop-color="#0EA5E9"/>
+                <stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+        </defs>
+        <path d="M24 2.5 42.5 13v22L24 45.5 5.5 35V13L24 2.5Z" stroke="url(#mt-grad)" stroke-width="3" fill="rgba(14,165,233,0.08)"/>
+        <path d="M14 32V17.5l5.5 8 4.5-8 4.5 8 5.5-8V32" stroke="url(#mt-grad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="24" cy="8.6" r="2" fill="#22D3EE"/>
+        <circle cx="39.5" cy="17.6" r="1.7" fill="#8B5CF6"/>
+        <circle cx="8.5" cy="17.6" r="1.7" fill="#0EA5E9"/>
+    </svg>
+            <span class="text-xl font-bold tracking-tight text-white">
+            Mykael<span class="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Tech</span>
+        </span>
+    </span>
+                <p class="mt-4 text-sm leading-relaxed text-slate-400">A technology community where builders showcase work, share learning updates and grow together.</p>
+                <div class="mt-5 flex items-center gap-3">
+                    <a href="https://github.com/mykael2000" target="_blank" rel="noopener" class="rounded-lg p-2 text-slate-400 transition hover:bg-white/5 hover:text-white" aria-label="GitHub"><i data-lucide="github" class="h-5 w-5"></i></a>
+                    <a href="#" class="rounded-lg p-2 text-slate-400 transition hover:bg-white/5 hover:text-white" aria-label="Globe"><i data-lucide="globe-2" class="h-5 w-5"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <p class="label">Explore</p>
+                <ul class="mt-4 space-y-2.5 text-sm">
+                    <li><a href="http://127.0.0.1:8000/services" class="text-slate-400 transition hover:text-white">Services</a></li>
+                    <li><a href="http://127.0.0.1:8000/portfolio" class="text-slate-400 transition hover:text-white">Portfolio</a></li>
+                    <li><a href="http://127.0.0.1:8000/learn" class="text-slate-400 transition hover:text-white">Learn</a></li>
+                    <li><a href="http://127.0.0.1:8000/community" class="text-slate-400 transition hover:text-white">Community</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="label">Company</p>
+                <ul class="mt-4 space-y-2.5 text-sm">
+                    <li><a href="http://127.0.0.1:8000/team" class="text-slate-400 transition hover:text-white">Team</a></li>
+                    <li><a href="http://127.0.0.1:8000/contact" class="text-slate-400 transition hover:text-white">Contact</a></li>
+                    <li><a href="http://127.0.0.1:8000/search" class="text-slate-400 transition hover:text-white">Search</a></li>
+                                            <li><a href="http://127.0.0.1:8000/join" class="text-slate-400 transition hover:text-white">Join free</a></li>
+                                    </ul>
+            </div>
+
+            <div>
+                <p class="label">Stay in the loop</p>
+                <p class="mt-4 text-sm text-slate-400">Get learning updates and community news.</p>
+                <form method="POST" action="http://127.0.0.1:8000/newsletter" class="mt-4 flex gap-2">
+                    <input type="hidden" name="_token" value="XpIXFwGa5qb3B1UT50MMlW0eQpojhgrwb5mrnRjZ" autocomplete="off">                    <input type="email" name="email" required placeholder="you@example.com" class="input flex-1 !py-2.5 text-sm">
+                    <button type="submit" class="btn btn-primary !px-4"><i data-lucide="send" class="h-4 w-4"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="border-t border-white/5">
+            <div class="page-shell flex flex-col items-center justify-between gap-2 py-6 text-xs text-slate-500 sm:flex-row">
+                <p>&copy; 2026 MykaelTech. All rights reserved.</p>
+                <p>Built with the MykaelTech design system.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
