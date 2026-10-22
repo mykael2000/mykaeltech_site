@@ -551,14 +551,14 @@ include 'includes/header/header.php';
 <?php include 'includes/footer/footer.php'; ?>
 
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white py-20 md:py-28 overflow-hidden">
+<section class="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-violet-600 text-white py-8 md:py-12 overflow-hidden">
     <div class="absolute inset-0 opacity-10">
         <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-pulse"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-300 rounded-full filter blur-3xl animate-bounce"></div>
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div class="text-center md:text-left">
                 <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white">
                     <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
